@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
@@ -40,8 +41,10 @@ class UserTest {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void test_User_entity_mapping() {
+			assertEquals("tester",user.getUserName());
+			assertEquals("tester",user.getPassword());
+		
 	}
 
 }
