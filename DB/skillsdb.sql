@@ -135,10 +135,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `skill_requirement` ;
 
 CREATE TABLE IF NOT EXISTS `skill_requirement` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `requirement_id` INT NOT NULL,
   `skill_id` INT NOT NULL,
   `step_number` INT NOT NULL,
-  PRIMARY KEY (`requirement_id`, `skill_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_requirement_has_skill_skill1_idx` (`skill_id` ASC),
   INDEX `fk_requirement_has_skill_requirement1_idx` (`requirement_id` ASC),
   CONSTRAINT `fk_requirement_has_skill_requirement1`
@@ -184,11 +185,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `achievement_requirement` ;
 
 CREATE TABLE IF NOT EXISTS `achievement_requirement` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `achievement_id` INT NOT NULL,
   `skill_requirement_id` INT NOT NULL,
-  `date_started` DATE NULL,
+  `date_started` INT NULL,
   `date_completed` DATE NULL,
-  PRIMARY KEY (`achievement_id`, `skill_requirement_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_achievement_requirement_requirement_idx` (`skill_requirement_id` ASC),
   CONSTRAINT `fk_achievement_requirement_achievement`
     FOREIGN KEY (`achievement_id`)
@@ -282,7 +284,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `skill_requirement` (`requirement_id`, `skill_id`, `step_number`) VALUES (1, 1, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (DEFAULT, 1, 1, 1);
 
 COMMIT;
 
@@ -303,7 +305,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `achievement_requirement` (`achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (1, 1, '20190913', '20190913');
+INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (DEFAULT, 1, 1, 20190913, '20190913');
 
 COMMIT;
 
