@@ -95,6 +95,7 @@ DROP TABLE IF EXISTS `resource` ;
 
 CREATE TABLE IF NOT EXISTS `resource` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
   `image_link` VARCHAR(1000) NULL,
   `video_link` VARCHAR(1000) NULL,
   `site_link` VARCHAR(1000) NULL,
@@ -218,6 +219,91 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `skillsdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'tester', 'tester', true, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (2, 'joe', 'doe', true, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `skill`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (1, 'Knots', 'learn how to tie knots', 'rope', 'summary about tying knots', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (2, 'Chess', 'learn to play chess', 'chess board', 'summary about playing chess', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `requirement`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (1, 'knot 1', 'Tie one knot');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `profile`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `profile` (`id`, `user_id`, `name`, `birthday`, `login_time`, `image_link`) VALUES (1, 1, 'testerprofile', '19900222', NULL, NULL);
+INSERT INTO `profile` (`id`, `user_id`, `name`, `birthday`, `login_time`, `image_link`) VALUES (2, 2, 'johnprofile', '19900309', NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `resource`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (1, 'knots', 'http://bit.ly/2kzodli', 'https://www.youtube.com/watch?v=3X8drKsdf5E', 'https://www.animatedknots.com');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (2, 'chess', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg', 'http://bit.ly/2mgRh1j', 'https://learningchess.net/us/index');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `achievement`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `achievement` (`id`, `skill_id`, `profile_id`, `date_started`) VALUES (1, 1, 1, '20190913');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `skill_requirement`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `skill_requirement` (`requirement_id`, `skill_id`, `step_number`) VALUES (1, 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `skill_resource`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (1, 1);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (2, 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `achievement_requirement`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skillsdb`;
+INSERT INTO `achievement_requirement` (`achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (1, 1, '20190913', '20190913');
 
 COMMIT;
 
