@@ -1,6 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +21,7 @@ class EntityTest {
 	private Requirement requirement;
 	private Resource resource;
 	private Skill skill;
+	private AchievementRequirement achievementRequirement;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -41,6 +42,7 @@ class EntityTest {
 		requirement = em.find(Requirement.class, 1);
 		resource = em.find(Resource.class, 1);
 		skill = em.find(Skill.class, 1);
+		achievementRequirement = em.find(AchievementRequirement.class, 1);
 	}
 
 	@AfterEach
@@ -52,6 +54,7 @@ class EntityTest {
 		requirement = null;
 		resource = null;
 		skill = null;
+		achievementRequirement = null;
 	}
 
 	
@@ -85,6 +88,11 @@ class EntityTest {
 	@Test
 	void test_Skill_entity_mapping() {
 		assertEquals("rope", skill.getSupplies());
+		
+	}
+	@Test
+	void test_Achievement_Requirement_entity_mapping() {
+		assertEquals(1, achievementRequirement.getAchievementId());
 		
 	}
 
