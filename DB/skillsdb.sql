@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `achievement_requirement` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `achievement_id` INT NOT NULL,
   `skill_requirement_id` INT NOT NULL,
-  `date_started` INT NULL,
+  `date_started` DATE NULL,
   `date_completed` DATE NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_achievement_requirement_requirement_idx` (`skill_requirement_id` ASC),
@@ -305,7 +305,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (DEFAULT, 1, 1, 20190913, '20190913');
+INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (DEFAULT, 1, 1, '20190913', '20190913');
 
 COMMIT;
 
