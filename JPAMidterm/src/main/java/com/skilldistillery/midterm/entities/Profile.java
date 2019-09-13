@@ -4,7 +4,9 @@ import java.sql.Date;
 import java.sql.Time;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 
+@Entity
 public class Profile {
 	private int id;
 	private int user_id;
