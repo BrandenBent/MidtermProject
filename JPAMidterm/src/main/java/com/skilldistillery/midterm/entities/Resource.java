@@ -102,7 +102,48 @@ public class Resource {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getImageLink() {
+		return imageLink;
+	}
+
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
+	}
+
+	public String getVideoLink() {
+		return videoLink;
+	}
+
+	public void setVideoLink(String videoLink) {
+		this.videoLink = videoLink;
+	}
+
+	public String getSiteLink() {
+		return siteLink;
+	}
+
+	public void setSiteLink(String siteLink) {
+		this.siteLink = siteLink;
+	}
 	
 	
 
+	
 }
