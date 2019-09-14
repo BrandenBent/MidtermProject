@@ -94,14 +94,17 @@ class EntityTest {
 	@Test
 	void testskillReqMap() {
 		assertEquals(1, skill.getSkillRequirements().get(0).getStepNumber());
+		assertEquals("knot 1", skillrequirement.getRequirement().getName());
+		assertEquals(1, requirement.skillRequirements.get(0).getId());
 		assertEquals("Knots", skillrequirement.getSkill().getName());
 	}
 
-//	@Test
-//	void test_Resource_entity_mapping() {
-//		assertEquals("knots",resource.getName());
-//		
-//	}
+	@Test
+	void test_Resource_entity_mapping() {
+		assertEquals("knots",resource.getName());
+		assertEquals("Knots", resource.getSkills().get(0).getName());
+		assertEquals("knots", skill.getResources().get(0).getName());
+	}
 	@Test
 	void test_Skill_entity_mapping() {
 		assertEquals("rope", skill.getSupplies());

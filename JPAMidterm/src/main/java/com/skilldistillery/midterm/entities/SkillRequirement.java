@@ -29,6 +29,10 @@ public class SkillRequirement {
 	List<AchievementRequirement> achievementRequirements;
 	
 	@ManyToOne
+	@JoinColumn(name = "requirement_id")
+	private Requirement requirement;
+	
+	@ManyToOne
 	@JoinColumn(name = "skill_id")
 	private Skill skill;
 	
@@ -58,6 +62,14 @@ public class SkillRequirement {
 		this.achievementRequirements = achievementRequirements;
 	}
 
+	public Requirement getRequirement() {
+		return requirement;
+	}
+
+	public void setRequirement(Requirement requirement) {
+		this.requirement = requirement;
+	}
+
 	public Skill getSkill() {
 		return skill;
 	}
@@ -66,6 +78,7 @@ public class SkillRequirement {
 		this.skill = skill;
 	}
 
+	
 	
 	
 	

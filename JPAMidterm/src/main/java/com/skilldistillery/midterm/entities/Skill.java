@@ -24,6 +24,10 @@ public class Skill {
 //	@Column(name="prerequisite_skill_id")
 //	private int prerequisiteCourse;
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "skill_resource", joinColumns = @JoinColumn(name = "skill_id"), inverseJoinColumns = @JoinColumn(name = "resources_id"))
+	private List<Resource> resources;
+	
 	@OneToMany(mappedBy = "skill")
 	private List<SkillRequirement> skillRequirements;
 	
@@ -72,6 +76,14 @@ public class Skill {
 		this.summary = summary;
 	}
 
+	public List<Resource> getResources() {
+		return resources;
+	}
+
+	public void setResources(List<Resource> resources) {
+		this.resources = resources;
+	}
+
 	public List<SkillRequirement> getSkillRequirements() {
 		return skillRequirements;
 	}
@@ -87,8 +99,6 @@ public class Skill {
 	public void setProfiles(List<Profile> profiles) {
 		this.profiles = profiles;
 	}
-
-	
 
 	
 	
