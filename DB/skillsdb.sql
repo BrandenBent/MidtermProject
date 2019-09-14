@@ -284,7 +284,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (DEFAULT, 1, 1, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (1, 1, 1, 1);
 
 COMMIT;
 
