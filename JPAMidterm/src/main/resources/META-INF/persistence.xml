@@ -10,6 +10,13 @@
 <!-- Entities Here -->
 <!-- 	<class>com.skilldistillery.jpavideostore.entities.Actor</class> -->
 		<class>com.skilldistillery.midterm.entities.User</class>
+		<class>com.skilldistillery.midterm.entities.Skill</class>
+		<class>com.skilldistillery.midterm.entities.SkillRequirement</class>
+		<class>com.skilldistillery.midterm.entities.Profile</class>
+		<class>com.skilldistillery.midterm.entities.Achievement</class>
+		<class>com.skilldistillery.midterm.entities.AchievementRequirement</class>
+		<class>com.skilldistillery.midterm.entities.Requirement</class>
+		<class>com.skilldistillery.midterm.entities.Resource</class>
 
 
     <properties>

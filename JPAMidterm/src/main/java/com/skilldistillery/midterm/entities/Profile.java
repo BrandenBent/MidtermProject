@@ -2,129 +2,119 @@ package com.skilldistillery.midterm.entities;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Profile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int user_id;
+
 	private String name;
-	@Column(name="birthday")
+
+	@Column(name = "birthday")
 	private Date birthDate;
-	@Column(name="login_time")
+
+	@Column(name = "login_time")
 	private Time loginTime;
-	@Column(name="image_link")
-	private String image;
-	
-	
-	
-	public Profile() {
-		
-	}
-	
-	
-	public Profile(int user_id, String name, Date birthDate, Time loginTime, String image) {
-		super();
-		this.user_id = user_id;
-		this.name = name;
-		this.birthDate = birthDate;
-		this.loginTime = loginTime;
-		this.image = image;
-	}
 
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	
+	@OneToMany(mappedBy = "profile")
+	private List<Achievement> achievements;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "achievement", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
+	private List<Skill> skills;
+	
+	public Profile() {	}
 
-
-
-	public Profile(int id, int user_id, String name, Date birthDate, Time loginTime, String image) {
+	public Profile(int id, String name, Date birthDate, Time loginTime, List<Skill> skills) {
 		super();
 		this.id = id;
-		this.user_id = user_id;
 		this.name = name;
 		this.birthDate = birthDate;
 		this.loginTime = loginTime;
-		this.image = image;
+		this.skills = skills;
 	}
 
+	public Profile(String name, Date birthDate, Time loginTime, List<Skill> skills) {
+		super();
+		this.name = name;
+		this.birthDate = birthDate;
+		this.loginTime = loginTime;
+		this.skills = skills;
+	}
 
+	public List<Achievement> getAchievements() {
+		return achievements;
+	}
+
+	public void setAchievements(List<Achievement> achievements) {
+		this.achievements = achievements;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;
 	}
 
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
-
-	public int getUser_id() {
-		return user_id;
-	}
-
-
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-
-
 
 	public String getName() {
 		return name;
 	}
 
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 
 	public Date getBirthDate() {
 		return birthDate;
 	}
 
-
-
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-
-
 
 	public Time getLoginTime() {
 		return loginTime;
 	}
 
-
-
 	public void setLoginTime(Time loginTime) {
 		this.loginTime = loginTime;
 	}
 
-
-
-	public String getImage() {
-		return image;
+	public List<Skill> getSkills() {
+		return skills;
 	}
 
-
-
-	public void setImage(String image) {
-		this.image = image;
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -132,14 +122,11 @@ public class Profile {
 		int result = 1;
 		result = prime * result + ((birthDate == null) ? 0 : birthDate.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
 		result = prime * result + ((loginTime == null) ? 0 : loginTime.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + user_id;
+		result = prime * result + ((skills == null) ? 0 : skills.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -157,11 +144,6 @@ public class Profile {
 			return false;
 		if (id != other.id)
 			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
 		if (loginTime == null) {
 			if (other.loginTime != null)
 				return false;
@@ -172,35 +154,20 @@ public class Profile {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (user_id != other.user_id)
+		if (skills == null) {
+			if (other.skills != null)
+				return false;
+		} else if (!skills.equals(other.skills))
 			return false;
 		return true;
 	}
 
-
-
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Profile [id=");
-		builder.append(id);
-		builder.append(", user_id=");
-		builder.append(user_id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", birthDate=");
-		builder.append(birthDate);
-		builder.append(", loginTime=");
-		builder.append(loginTime);
-		builder.append(", image=");
-		builder.append(image);
-		builder.append("]");
-		return builder.toString();
+		return "Profile [id=" + id + ", name=" + name + ", birthDate=" + birthDate + ", loginTime=" + loginTime
+				+ ", skills=" + skills + "]";
 	}
 
 	
-	
-	
-	
-	
+
 }

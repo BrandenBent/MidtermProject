@@ -1,10 +1,15 @@
 package com.skilldistillery.midterm.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,68 +18,56 @@ public class SkillRequirement {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	@Column(name="skill_id")
-	private int skillId;
+	
+//	@Column(name="skill_id")
+//	private int skillId;
+	
 	@Column(name="step_number")
 	private int stepNumber;
 	
-	public SkillRequirement() {
-		
+	@OneToMany(mappedBy = "skillRequirement" )
+	List<AchievementRequirement> achievementRequirements;
+	
+	@ManyToOne
+	@JoinColumn(name = "skill_id")
+	private Skill skill;
+	
+	public SkillRequirement() {}
+
+	public int getId() {
+		return id;
 	}
 
-	public SkillRequirement(int id, int skillId, int stepNumber) {
-		super();
+	public void setId(int id) {
 		this.id = id;
-		this.skillId = skillId;
+	}
+
+	public int getStepNumber() {
+		return stepNumber;
+	}
+
+	public void setStepNumber(int stepNumber) {
 		this.stepNumber = stepNumber;
 	}
 
-	public SkillRequirement(int skillId, int stepNumber) {
-		super();
-		this.skillId = skillId;
-		this.stepNumber = stepNumber;
+	public List<AchievementRequirement> getAchievementRequirements() {
+		return achievementRequirements;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + skillId;
-		result = prime * result + stepNumber;
-		return result;
+	public void setAchievementRequirements(List<AchievementRequirement> achievementRequirements) {
+		this.achievementRequirements = achievementRequirements;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		SkillRequirement other = (SkillRequirement) obj;
-		if (id != other.id)
-			return false;
-		if (skillId != other.skillId)
-			return false;
-		if (stepNumber != other.stepNumber)
-			return false;
-		return true;
+	public Skill getSkill() {
+		return skill;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("SkillRequirement [id=");
-		builder.append(id);
-		builder.append(", skillId=");
-		builder.append(skillId);
-		builder.append(", stepNumber=");
-		builder.append(stepNumber);
-		builder.append("]");
-		return builder.toString();
+	public void setSkill(Skill skill) {
+		this.skill = skill;
 	}
+
+	
+	
 	
 	
 
