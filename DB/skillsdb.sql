@@ -220,8 +220,11 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'tester', 'tester', true, NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (2, 'joe', 'doe', true, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'tester', 'tester', true, 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (2, 'joe', 'doe', true, 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (3, 'josh', 'josh1', true, 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (4, 'branden', 'branden1', true, 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (5, 'mark', 'mark1', true, 'admin');
 
 COMMIT;
 
@@ -231,8 +234,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (1, 'Knots', 'learn how to tie knots', 'rope', 'summary about tying knots', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (2, 'Chess', 'learn to play chess', 'chess board', 'summary about playing chess', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (1, 'Knots', 'Learn how to tie knots', 'rope', 'summary about tying knots', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (2, 'Chess', 'Learn to play chess', 'chess board', 'summary about playing chess', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (3, 'Tent Setup', 'Learn how to pitch a tent', 'basic tent', 'summary about tent', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (4, 'Gardening', 'How set up your first garden', 'dirt, wood, seeds', 'summary about garden', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (5, 'Saving Money', 'Learn to save money', 'cash', 'summary about saving cash', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (6, 'Laundry', 'Learn to do Laundry', 'dirty clothes', 'summary about laundry', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (7, 'Gift wrapping', 'How to wrap a gift', 'wrapping paper, a present', 'summary about gift wrapping', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (8, 'Map Reading ', 'How to Read a map', 'map', 'summary about map reading', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (9, 'Bake a loaf of bread', 'How to bake a loaf of bread', 'go buy ingredients', 'summary about baking bread', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (10, 'Clean your room', 'How to clean your room', 'cleaning cloth, vaccum, trash bad', 'summary about cleaning room', NULL);
 
 COMMIT;
 
@@ -242,7 +253,36 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (1, 'knot 1', 'Tie one knot');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (1, 'Knot Req 1', 'Tie one knot');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (2, 'Knot Req 2', 'Tie one knot');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (3, 'Knot Req 3', 'Tie one knot');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (4, 'Chess Req 1', 'Chess req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (5, 'Chess Req 2', 'Chess req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (6, 'Chess Req 3', 'Chess req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (7, 'Tent Req 1', 'Tent req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (8, 'Tent Req 2', 'Tent req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (9, 'Tent Req 3', 'Tent req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (10, 'Garden Req 1', 'Garden Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (11, 'Garden Req 2', 'Garden Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (12, 'Garden Req 3', 'Garden Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (13, 'Money Req 1', 'Money Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (14, 'Money Req 2', 'Money Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (15, 'Money Req 3', 'Money Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (16, 'Laundry Req 1', 'Laundry Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (17, 'Laundry Req 2', 'Laundry Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (18, 'Laundry Req 3', 'Laundry Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (19, 'Gift Req 1', 'Gift Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (20, 'Gift Req 2', 'Gift Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (21, 'Gift Req 3', 'Gift Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (22, 'Map Req 1', 'Map Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (23, 'Map Req 2', 'Map Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (24, 'Map Req 3', 'Map Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (25, 'Bread Req 1', 'Bread Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (26, 'Bread Req 2', 'Bread Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (27, 'Bread Req 3', 'Bread Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (28, 'Cleaning Req 1', 'Cleaning Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (29, 'Cleaning Req 2', 'Cleaning Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (30, 'Cleaning Req 3', 'Cleaning Req');
 
 COMMIT;
 
@@ -254,6 +294,9 @@ START TRANSACTION;
 USE `skillsdb`;
 INSERT INTO `profile` (`id`, `user_id`, `name`, `birthday`, `login_time`, `image_link`) VALUES (1, 1, 'testerprofile', '19900222', NULL, NULL);
 INSERT INTO `profile` (`id`, `user_id`, `name`, `birthday`, `login_time`, `image_link`) VALUES (2, 2, 'johnprofile', '19900309', NULL, NULL);
+INSERT INTO `profile` (`id`, `user_id`, `name`, `birthday`, `login_time`, `image_link`) VALUES (3, 3, 'joshprofile', '19780307', NULL, NULL);
+INSERT INTO `profile` (`id`, `user_id`, `name`, `birthday`, `login_time`, `image_link`) VALUES (4, 4, 'brandenprofile', '19960608', NULL, NULL);
+INSERT INTO `profile` (`id`, `user_id`, `name`, `birthday`, `login_time`, `image_link`) VALUES (5, 5, 'markprofile', '19820222', NULL, NULL);
 
 COMMIT;
 
@@ -263,8 +306,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (1, 'knots', 'http://bit.ly/2kzodli', 'https://www.youtube.com/watch?v=3X8drKsdf5E', 'https://www.animatedknots.com');
-INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (2, 'chess', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg', 'http://bit.ly/2mgRh1j', 'https://learningchess.net/us/index');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (1, 'Knots', 'http://bit.ly/2kzodli', 'https://www.youtube.com/watch?v=3X8drKsdf5E', 'https://www.animatedknots.com');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (2, 'Chess', 'https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg', 'http://bit.ly/2mgRh1j', 'https://learningchess.net/us/index');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (3, 'Tent Setup', 'http://bit.ly/2NfAGaw', 'http://bit.ly/2USYhyr', 'http://bit.ly/2Ne1kAe');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (4, 'Gardening', 'http://bit.ly/2NedpFF', 'http://bit.ly/2NjtPwJ', 'http://bit.ly/2NdHkxY');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (5, 'Saving Money', 'http://bit.ly/2Ndc0zi', 'http://bit.ly/2USsgqp', 'http://bit.ly/2NcGSQz');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (6, 'Laundry', 'http://bit.ly/2LvQDXK & http://bit.ly/32MNiJV', 'http://bit.ly/2LvQDXK', 'http://bit.ly/32Nm2L1');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (7, 'Gift wrapping', 'http://bit.ly/32G6HvV', 'http://bit.ly/32JC092', 'http://bit.ly/32HLrpv');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (8, 'Map Reading', 'http://bit.ly/32Pd54d', 'http://bit.ly/32JHUqU', 'http://bit.ly/2LA7VDr');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (9, 'Baking bread', 'http://bit.ly/2kKQcOR', 'http://bit.ly/32Ll3v3', 'https://foodlets.com/2018/10/22/the-easy-bread-recipe-your-kids-can-make-themselves/');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (10, 'Clean your room', ' http://bit.ly/2kO2hmr', 'http://bit.ly/2LvxDsA', 'https://www.mollymaid.com/cleaning-tips/kids-rooms/');
 
 COMMIT;
 
@@ -285,6 +336,35 @@ COMMIT;
 START TRANSACTION;
 USE `skillsdb`;
 INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (1, 1, 1, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (2, 2, 1, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (3, 3, 1, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (4, 4, 2, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (5, 5, 2, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (6, 6, 2, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (7, 7, 3, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (8, 8, 3, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (9, 9, 3, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (10, 10, 4, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (11, 11, 4, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (12, 12, 4, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (13, 13, 5, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (14, 14, 5, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (15, 15, 5, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (16, 16, 6, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (17, 17, 6, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (18, 18, 6, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (19, 19, 7, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (20, 20, 7, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (21, 21, 7, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (22, 22, 8, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (23, 23, 8, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (24, 24, 8, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (25, 25, 9, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (26, 26, 9, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (27, 27, 9, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (28, 28, 10, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (29, 29, 10, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (30, 30, 10, 3);
 
 COMMIT;
 
@@ -296,6 +376,14 @@ START TRANSACTION;
 USE `skillsdb`;
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (1, 1);
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (2, 2);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (3, 3);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (4, 4);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (5, 5);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (6, 6);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (7, 7);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (8, 8);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (9, 9);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (10, 10);
 
 COMMIT;
 
