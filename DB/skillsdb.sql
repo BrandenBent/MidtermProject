@@ -305,7 +305,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (DEFAULT, 1, 1, '20190913', '20190913');
+INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (1, 1, 1, '20190913', '20190913');
 
 COMMIT;
 
