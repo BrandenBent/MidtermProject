@@ -26,18 +26,6 @@ public class AuthenticationDAOImpl implements AuthenticationDAO{
 		
 		return em.find(Skill.class, id);
 	}
-
-	@Override
-	public List<Skill> findAll() {
-		
-		
-	List<Skill> list = new ArrayList<>();
-	
-	String query = "SELECT s FROM Skill s"; //JOIN FETCH f.actors
-			
-		return list = em.createQuery(query,Skill.class).getResultList();
-	}
-	
 	
 	@Override
 	public User create(User user) {

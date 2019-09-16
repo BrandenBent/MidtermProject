@@ -1,4 +1,6 @@
 package com.skilldistillery.midterm.controllers;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,4 +22,5 @@ public class LogRegisterTestController {
 //          mv.setViewName("index");
 //          return mv;
 //      }
+
 }
