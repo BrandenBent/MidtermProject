@@ -23,14 +23,11 @@
 		</table>
 	</form>
 	<div>
-
-	<form action="showAllSkills.do" method="GET">
-		<!-- <input name="allSkills"> -->
-		<input type="submit" value="Show All Skills" />
-	
-	</form>
+		<form action="showAllSkills.do" method="GET">
+			<!-- <input name="allSkills"> -->
+			<input type="submit" value="Show All Skills" />
+		</form>
 		<c:forEach items="${skillset}" var="skill">
-
 			<h5>
 				<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
 				(${skill.description})
@@ -38,5 +35,10 @@
 
 		</c:forEach>
 	</div>
+	
+	
+	<form action="crud.do" method="GET">
+		<input type="submit" value="Go Do Crud" />
+	</form>
 </body>
 </html>
