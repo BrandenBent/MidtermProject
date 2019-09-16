@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mchange.v2.cfg.PropertiesConfigSource.Parse;
 import com.skilldistillery.midterm.data.AuthenticationDAO;
 import com.skilldistillery.midterm.data.SkillDAO;
 import com.skilldistillery.midterm.entities.Skill;
@@ -19,7 +19,7 @@ public class SkillController {
 
 	@Autowired
 	private SkillDAO dao;
-	
+
 	@Autowired
 	private AuthenticationDAO autoDao;
 
@@ -48,13 +48,43 @@ public class SkillController {
 		return "skill/allSkills";
 	}
 
-	@RequestMapping(path = "getSkill.do", params = "id", method = RequestMethod.GET)
-	public String findSingleSkill(@RequestParam("id") Integer id, Model model) {
+	@RequestMapping(path = "getSkill.do", method = RequestMethod.GET)
+	public String findSingleSkill(@RequestParam("fid") Integer id, Model model) {
 		Skill skill = autoDao.findSkillById(id);
 		model.addAttribute("skill", skill);
 //		return "WEB-INF/film/show.jsp";
 		return "skill/skillSingle";
 	}
-	
-	
+
+	/////////////////////////////////////
+	// DELETE THIS /////////////////////
+	@RequestMapping(path = "crud.do", method = RequestMethod.GET)
+	public String crudShit(Model model) {
+		Skill skill = new Skill();
+		model.addAttribute("skill", skill);
+//		return "WEB-INF/film/show.jsp";
+		return "skill/crud";
+	}
+
+////	createSkill.do
+//	@RequestMapping(path = "createSkill.do", method = RequestMethod.POST)
+//	public String createBrewery(@ModelAttribute("skill") Skill skill, Model model) {
+//		model.addAttribute("skill", skill);
+//		dao.createSkill(skill);
+//		return "index";
+//	}
+//
+//	@RequestMapping(path = "deletedSkill.do", method = RequestMethod.GET)
+//	public String deleted() {
+////		TODO
+////		dao.deleteFilm(dao.);
+//		return "index";
+//	}
+//
+//	@RequestMapping(path = "updateSkill.do", method = RequestMethod.POST)
+//	public String updateSkill(@ModelAttribute("skill") Skill skill, Model model) {
+//		dao.editSkill(skill);
+//		return "index";
+//	}
+
 }

@@ -35,5 +35,10 @@
 
 		</c:forEach>
 	</div>
+	
+	
+	<form action="crud.do" method="GET">
+		<input type="submit" value="Go Do Crud" />
+	</form>
 </body>
 </html>
