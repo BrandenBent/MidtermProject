@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Test</h1>
-	<%-- <h3>Login</h3>
+	<h3>Login</h3>
 	<form action="login.do" method="POST">
 		<table>
 			<tr>
@@ -27,6 +27,6 @@
   <h5><a href="getSkill.do?fid=${skill.id}">${skill.name} </a> (${skill.description})</h5>
 
 </c:forEach>
-</div> --%>
+</div>
 </body>
 </html>
