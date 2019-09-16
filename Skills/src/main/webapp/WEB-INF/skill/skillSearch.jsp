@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Search By Keyword</title>
 </head>
 <body>
-
+	<h1>Testing Search Page</h1>
+	<h2>Hi Josh</h2>
 </body>
 </html>

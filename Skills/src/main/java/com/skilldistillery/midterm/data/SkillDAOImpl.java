@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,17 +10,32 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Skill;
+
 @Transactional
 @Service
-public class SkillDAOImpl implements SkillDAO{
+public class SkillDAOImpl implements SkillDAO {
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
-	public Skill searchBySkillByKeyword(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Skill> searchBySkillByKeyword(String keyword) {
+		List<Skill> list = new ArrayList<>();
+
+		String query = "SELECT s FROM Skill s"; // JOIN FETCH f.actors
+
+		return list = em.createQuery(query, Skill.class).getResultList();
 	}
+
+//	@Override
+//	public List<Skill> findAll() {
+//		
+//		
+//	List<Skill> list = new ArrayList<>();
+//	
+//	String query = "SELECT s FROM Skill s"; //JOIN FETCH f.actors
+//			
+//		return list = em.createQuery(query,Skill.class).getResultList();
+//	}
 
 	@Override
 	public Skill createSkill(Skill skill) {
@@ -47,8 +63,11 @@ public class SkillDAOImpl implements SkillDAO{
 
 	@Override
 	public List<Skill> findAllSkills() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+		List<Skill> list = new ArrayList<>();
+
+		String query = "SELECT s FROM Skill s"; // JOIN FETCH f.actors
+
+		return list = em.createQuery(query, Skill.class).getResultList();
+	}
 }

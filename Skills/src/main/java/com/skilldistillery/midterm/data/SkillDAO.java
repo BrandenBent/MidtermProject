@@ -6,7 +6,7 @@ import com.skilldistillery.midterm.entities.Skill;
 
 public interface SkillDAO {
 
-	public Skill searchBySkillByKeyword(String keyword);
+	public List<Skill> searchBySkillByKeyword(String keyword);
 
 	public Skill createSkill(Skill skill);
 
