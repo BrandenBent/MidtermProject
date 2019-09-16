@@ -28,14 +28,6 @@ public class SkillController {
 	  // return "index"; // if using a ViewResolver.
 	}
 	
-//	@RequestMapping(path= "/")
-//	public String searchKeyword(Model model) {
-////		List<Skill> f = dao.findAll();
-//		model.addAttribute("skills", skills);
-//		
-//		return "index";
-//		// return "index"; // if using a ViewResolver.
-//	}
 	
 	@RequestMapping(path = "keywordSearch.do", params = "keyword", method = RequestMethod.GET)
 	public String searchByKeyword(@RequestParam("keyword") String keyword, Model model) {
@@ -43,6 +35,14 @@ public class SkillController {
 		model.addAttribute("skills", skills);
 //		return "WEB-INF/film/show.jsp";
 		return "skill/skillSearch";
+	}
+	
+	@RequestMapping(path = "showAllSkills.do", method = RequestMethod.GET)
+	public String showAllSkills(Model model) {
+		List<Skill> allSkills = dao.findAllSkills();
+		model.addAttribute("allSkills", allSkills);
+//		return "WEB-INF/film/show.jsp";
+		return "skill/allSkills";
 	}
 	
 }

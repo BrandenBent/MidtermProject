@@ -10,14 +10,12 @@ public interface SkillDAO {
 
 	public Skill createSkill(Skill skill);
 
-	public Skill editSkill(Skill skill);
+	public Skill editSkill(Skill skill, int id);
 
-	public boolean saveSkill(Skill skill);
-
-	public boolean deleteSkill(Skill skill);
+	public boolean deleteSkill(int id);
 
 	public List<Skill> findAll();
-	
+
 //	public Integer skillValue();
-	
+
 }
