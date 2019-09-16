@@ -78,6 +78,66 @@ public class SkillRequirement {
 		this.skill = skill;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((achievementRequirements == null) ? 0 : achievementRequirements.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((requirement == null) ? 0 : requirement.hashCode());
+		result = prime * result + ((skill == null) ? 0 : skill.hashCode());
+		result = prime * result + stepNumber;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SkillRequirement other = (SkillRequirement) obj;
+		if (achievementRequirements == null) {
+			if (other.achievementRequirements != null)
+				return false;
+		} else if (!achievementRequirements.equals(other.achievementRequirements))
+			return false;
+		if (id != other.id)
+			return false;
+		if (requirement == null) {
+			if (other.requirement != null)
+				return false;
+		} else if (!requirement.equals(other.requirement))
+			return false;
+		if (skill == null) {
+			if (other.skill != null)
+				return false;
+		} else if (!skill.equals(other.skill))
+			return false;
+		if (stepNumber != other.stepNumber)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("SkillRequirement [id=");
+		builder.append(id);
+		builder.append(", stepNumber=");
+		builder.append(stepNumber);
+		builder.append(", achievementRequirements=");
+		builder.append(achievementRequirements);
+		builder.append(", requirement=");
+		builder.append(requirement);
+		builder.append(", skill=");
+		builder.append(skill);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	
 	
 	
