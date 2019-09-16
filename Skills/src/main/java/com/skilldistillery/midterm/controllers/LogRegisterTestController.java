@@ -26,5 +26,10 @@ public class LogRegisterTestController {
 //	        mv.setViewName("index");
 //	        return mv;
 //	    }
+	
+	
+	//Starting Validation test
+	
+	
 
 }

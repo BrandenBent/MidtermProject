@@ -35,7 +35,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO{
 
 	@Override
 	public boolean isUserNameUnique(String username) {
-		// TODO Auto-generated method stub
+
+		
 		return false;
 	}
 
