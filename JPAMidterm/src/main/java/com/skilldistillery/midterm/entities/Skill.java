@@ -100,6 +100,70 @@ public class Skill {
 		this.profiles = profiles;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((profiles == null) ? 0 : profiles.hashCode());
+		result = prime * result + ((resources == null) ? 0 : resources.hashCode());
+		result = prime * result + ((skillRequirements == null) ? 0 : skillRequirements.hashCode());
+		result = prime * result + ((summary == null) ? 0 : summary.hashCode());
+		result = prime * result + ((supplies == null) ? 0 : supplies.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Skill other = (Skill) obj;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (profiles == null) {
+			if (other.profiles != null)
+				return false;
+		} else if (!profiles.equals(other.profiles))
+			return false;
+		if (resources == null) {
+			if (other.resources != null)
+				return false;
+		} else if (!resources.equals(other.resources))
+			return false;
+		if (skillRequirements == null) {
+			if (other.skillRequirements != null)
+				return false;
+		} else if (!skillRequirements.equals(other.skillRequirements))
+			return false;
+		if (summary == null) {
+			if (other.summary != null)
+				return false;
+		} else if (!summary.equals(other.summary))
+			return false;
+		if (supplies == null) {
+			if (other.supplies != null)
+				return false;
+		} else if (!supplies.equals(other.supplies))
+			return false;
+		return true;
+	}
+
 	
 	
 	

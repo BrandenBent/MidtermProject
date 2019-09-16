@@ -94,6 +94,72 @@ public class AchievementRequirement {
 		this.achievement = achievement;
 	}
 
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((achievement == null) ? 0 : achievement.hashCode());
+		result = prime * result + ((dateCompleted == null) ? 0 : dateCompleted.hashCode());
+		result = prime * result + ((dateStarted == null) ? 0 : dateStarted.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((skillRequirement == null) ? 0 : skillRequirement.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AchievementRequirement other = (AchievementRequirement) obj;
+		if (achievement == null) {
+			if (other.achievement != null)
+				return false;
+		} else if (!achievement.equals(other.achievement))
+			return false;
+		if (dateCompleted == null) {
+			if (other.dateCompleted != null)
+				return false;
+		} else if (!dateCompleted.equals(other.dateCompleted))
+			return false;
+		if (dateStarted == null) {
+			if (other.dateStarted != null)
+				return false;
+		} else if (!dateStarted.equals(other.dateStarted))
+			return false;
+		if (id != other.id)
+			return false;
+		if (skillRequirement == null) {
+			if (other.skillRequirement != null)
+				return false;
+		} else if (!skillRequirement.equals(other.skillRequirement))
+			return false;
+		return true;
+	}
+
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("AchievementRequirement [id=");
+		builder.append(id);
+		builder.append(", skillRequirement=");
+		builder.append(skillRequirement);
+		builder.append(", dateStarted=");
+		builder.append(dateStarted);
+		builder.append(", dateCompleted=");
+		builder.append(dateCompleted);
+		builder.append(", achievement=");
+		builder.append(achievement);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	
 	
 	
