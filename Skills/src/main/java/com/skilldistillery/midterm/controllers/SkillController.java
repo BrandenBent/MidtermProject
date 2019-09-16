@@ -21,7 +21,7 @@ public class SkillController {
 	
 	@RequestMapping(path= "/")
 	public String index(Model model) {
-		List<Skill> f = dao.findAll();
+		List<Skill> f = dao.findAllSkills();
 		model.addAttribute("skillset", f);
 				
 	  return "index";

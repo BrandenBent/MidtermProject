@@ -14,7 +14,9 @@ public interface SkillDAO {
 
 	public boolean deleteSkill(int id);
 
-	public List<Skill> findAll();
+	public List<Skill> findAllSkills();
+
+	Skill findSkillById(int id);
 
 //	public Integer skillValue();
 

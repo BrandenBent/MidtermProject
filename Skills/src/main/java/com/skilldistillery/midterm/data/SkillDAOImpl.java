@@ -17,6 +17,12 @@ public class SkillDAOImpl implements SkillDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	
+	@Override
+	public Skill findSkillById(int id) {
+		return em.find(Skill.class, id);
+	}
+	
 	@Override
 	public List<Skill> searchBySkillByKeyword(String keyword) {
 		String search = "%" + keyword + "%";
@@ -27,7 +33,7 @@ public class SkillDAOImpl implements SkillDAO {
 	}
 
 	@Override
-	public List<Skill> findAll() {
+	public List<Skill> findAllSkills() {
 		List<Skill> list = new ArrayList<>();
 		String query = "SELECT s FROM Skill s "; // JOIN FETCH f.actors
 
