@@ -6,7 +6,7 @@ import com.skilldistillery.midterm.entities.Skill;
 
 public interface SkillDAO {
 
-	public Skill searchBySkillByKeyword(String keyword);
+	public List<Skill> searchBySkillByKeyword(String keyword);
 
 	public Skill createSkill(Skill skill);
 
@@ -14,8 +14,10 @@ public interface SkillDAO {
 
 	public boolean saveSkill(Skill skill);
 
-	public boolean deleteFilm(Skill skill);
+	public boolean deleteSkill(Skill skill);
 
 	public List<Skill> findAllSkills();
-
+	
+	public Integer skillValue();
+	
 }

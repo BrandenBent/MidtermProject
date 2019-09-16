@@ -2,6 +2,7 @@ package com.skilldistillery.midterm.data;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -16,8 +17,8 @@ public class SkillDAOImpl implements SkillDAO{
 	private EntityManager em;
 	
 	@Override
-	public Skill searchBySkillByKeyword(String keyword) {
-		// TODO Auto-generated method stub
+	public List<Skill> searchBySkillByKeyword(String keyword) {
+		
 		return null;
 	}
 
@@ -40,7 +41,7 @@ public class SkillDAOImpl implements SkillDAO{
 	}
 
 	@Override
-	public boolean deleteFilm(Skill skill) {
+	public boolean deleteSkill(Skill skill) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -50,5 +51,13 @@ public class SkillDAOImpl implements SkillDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Integer skillValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }
