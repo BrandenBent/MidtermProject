@@ -2,6 +2,7 @@ package com.skilldistillery.midterm.controllers;
 
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,8 +49,8 @@ public class SkillController {
 		return "skill/allSkills";
 	}
 
-	@RequestMapping(path = "getSkill.do", params = "id", method = RequestMethod.GET)
-	public String findSingleSkill(@RequestParam("id") Interger id, Model model) {
+	@RequestMapping(path = "getSkill.do", method = RequestMethod.GET)
+	public String findSingleSkill(@RequestParam("fid") Integer id, Model model) {
 		Skill skill = autoDao.findSkillById(id);
 		model.addAttribute("skill", skill);
 //		return "WEB-INF/film/show.jsp";
