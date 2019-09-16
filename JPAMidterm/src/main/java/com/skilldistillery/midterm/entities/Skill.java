@@ -36,6 +36,16 @@ public class Skill {
 	
 	public Skill() {}
 
+	
+	public Skill(String name, String description, String supplies, String summary) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.supplies = supplies;
+		this.summary = summary;
+	}
+
+
 	public int getId() {
 		return id;
 	}

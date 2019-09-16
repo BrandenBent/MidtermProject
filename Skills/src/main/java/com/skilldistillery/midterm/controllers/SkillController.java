@@ -49,7 +49,7 @@ public class SkillController {
 	}
 
 	@RequestMapping(path = "getSkill.do", params = "id", method = RequestMethod.GET)
-	public String findSingleSkill(@RequestParam("id") Interger id, Model model) {
+	public String findSingleSkill(@RequestParam("id") Integer id, Model model) {
 		Skill skill = autoDao.findSkillById(id);
 		model.addAttribute("skill", skill);
 //		return "WEB-INF/film/show.jsp";

@@ -16,7 +16,7 @@ public interface SkillDAO {
 
 	public List<Skill> findAllSkills();
 
-	Skill findSkillById(int id);
+	Skill findSkillById(Integer id);
 
 //	public Integer skillValue();
 

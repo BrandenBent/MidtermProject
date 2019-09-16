@@ -17,17 +17,16 @@ public class SkillDAOImpl implements SkillDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	
 	@Override
-	public Skill findSkillById(int id) {
+	public Skill findSkillById(Integer id) {
 		return em.find(Skill.class, id);
 	}
-	
+
 	@Override
 	public List<Skill> searchBySkillByKeyword(String keyword) {
 		String search = "%" + keyword + "%";
 		String qry = "SELECT skill FROM Skill skill WHERE skill.name LIKE :keyword OR skill.summary LIKE :keyword OR skill.description LIKE :keyword";
-		List<Skill> skillsKW= em.createQuery(qry, Skill.class).setParameter("keyword", search).getResultList();
+		List<Skill> skillsKW = em.createQuery(qry, Skill.class).setParameter("keyword", search).getResultList();
 
 		return skillsKW;
 	}
@@ -35,7 +34,7 @@ public class SkillDAOImpl implements SkillDAO {
 	@Override
 	public List<Skill> findAllSkills() {
 		List<Skill> list = new ArrayList<>();
-		String query = "SELECT s FROM Skill s "; // JOIN FETCH f.actors
+		String query = "SELECT s FROM Skill s ";
 
 		return list = em.createQuery(query, Skill.class).getResultList();
 	}
@@ -63,6 +62,7 @@ public class SkillDAOImpl implements SkillDAO {
 
 	@Override
 	public boolean deleteSkill(int id) {
+		System.out.println(em);
 		Skill removeSkill = em.find(Skill.class, id);
 		try {
 			em.remove(removeSkill);
