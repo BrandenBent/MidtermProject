@@ -24,6 +24,11 @@
 	</form>
 	<div>
 
+	<form action="showAllSkills.do" method="GET">
+		<!-- <input name="allSkills"> -->
+		<input type="submit" value="Show All Skills" />
+	
+	</form>
 		<c:forEach items="${skillset}" var="skill">
 
 			<h5>
