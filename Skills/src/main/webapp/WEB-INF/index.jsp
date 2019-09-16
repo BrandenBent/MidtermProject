@@ -41,8 +41,7 @@
 	
 	
 	<form action="crud.do" method="GET">
-		<input type="submit" value="Show All Skills" />
-	
+		<input type="submit" value="Go Do Crud" />
 	</form>
 </body>
 </html>
