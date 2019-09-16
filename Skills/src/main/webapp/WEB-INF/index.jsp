@@ -38,5 +38,11 @@
 
 		</c:forEach>
 	</div>
+	
+	
+	<form action="crud.do" method="GET">
+		<input type="submit" value="Show All Skills" />
+	
+	</form>
 </body>
 </html>
