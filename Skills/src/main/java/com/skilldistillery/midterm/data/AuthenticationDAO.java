@@ -11,5 +11,5 @@ public boolean isUserNameUnique(String username);
 public User getUserByUserName(String username);
 public boolean isValidUser(User u);
 Skill findSkillById(int id);
-List<Skill> findAll();
+//List<Skill> findAll();
 }
