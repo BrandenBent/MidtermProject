@@ -27,6 +27,14 @@ public class User {
 		
 	}
 	
+	public User(String userName, String password, Boolean enabled, String role) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.enabled = enabled;
+		this.role = role;
+	}
+
 	public User(int id, String userName, String password, Boolean enabled, String role) {
 		super();
 		this.id = id;

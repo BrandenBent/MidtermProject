@@ -6,7 +6,8 @@ import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.User;
 
 public interface AuthenticationDAO {
-public User create(User user);
+public User createUser(User user);
+public Boolean deleteUser(int id);
 public boolean isUserNameUnique(String username);
 public User getUserByUserName(String username);
 public boolean isValidUser(User u);
