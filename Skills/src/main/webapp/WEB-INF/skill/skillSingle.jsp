@@ -18,7 +18,7 @@
 		<div><img src="${image.imageLink }" width=500px height=500px/></div>
 	</c:if>
 	</c:forEach>
-	<form action="updateSkill.do" method="POST">
+	<form action="editLink.do" method="GET">
 			<input type="submit" class="btn btn-success btn-lg" value="Edit">
 			<br> <input type="hidden" name="id" value="${skill.id}" />
 		</form>

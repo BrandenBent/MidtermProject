@@ -14,6 +14,8 @@
 	<c:forEach items="${skills }" var="skills">
 
 		<div>${skills.name }</div>
+		<div>${skills.description }</div>
+		<div>${skills.summary }</div>
 
 	</c:forEach>
 	<form action="home.do" method="GET">
