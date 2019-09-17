@@ -12,7 +12,7 @@ public interface SkillDAO {
 
 	public Skill editSkill(Skill skill, int id);
 
-	public boolean deleteSkill(int id);
+	public boolean deleteSkill(Integer id);
 
 	public List<Skill> findAllSkills();
 

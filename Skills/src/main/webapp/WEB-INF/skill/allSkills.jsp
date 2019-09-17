@@ -16,6 +16,8 @@
         <div>${allSkills.name }</div>
     
     </c:forEach>
-
+<form action="home.do" method="GET">
+			<input type="submit" class="btn btn-primary btn-lg" value="Home">
+		</form>
 </body>
 </html>

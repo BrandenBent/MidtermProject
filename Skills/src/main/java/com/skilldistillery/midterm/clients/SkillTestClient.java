@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.midterm.data.SkillDAO;
 import com.skilldistillery.midterm.data.SkillDAOImpl;
 import com.skilldistillery.midterm.entities.Skill;
+import com.skilldistillery.midterm.entities.User;
 
 public class SkillTestClient {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("MidtermPU");
@@ -22,12 +23,14 @@ public class SkillTestClient {
 	public static void main(String[] args) {
 
 		SkillTestClient stc = new SkillTestClient();
-		Skill newSkill = new Skill("name", "describe", "supply", "summary");
-
+		Skill newSkill = new Skill("test", "describe", "supply", "summary");
+		User newUser = new User("jah", "pwd", true, "user");
 //		stc.showAll();
 //		stc.createSkill(newSkill);
 //		System.out.println(newSkill.toString());
-//		stc.deleteSkill(2);
+//		stc.deleteSkill(14);
+//		stc.create(newUser);
+		stc.deleteUser(6);
 
 	}
 
@@ -48,7 +51,7 @@ public class SkillTestClient {
 		return skill;
 
 	}
-
+	
 	public boolean deleteSkill(int id) {
 		em.getTransaction().begin();
 
@@ -57,6 +60,26 @@ public class SkillTestClient {
 
 			em.remove(removeSkill);
 
+		} catch (Exception e) {
+			return false;
+		}
+		em.getTransaction().commit();
+		return true;
+	}
+	
+	public User create(User user) {
+		em.getTransaction().begin();
+		em.persist(user);
+		em.flush();
+		em.getTransaction().commit();
+		return user;
+	}
+	
+	public Boolean deleteUser(int id) {
+		em.getTransaction().begin();
+		User removeUser = em.find(User.class, id);
+		try {
+			em.remove(removeUser);
 		} catch (Exception e) {
 			return false;
 		}

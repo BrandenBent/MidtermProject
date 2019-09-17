@@ -27,10 +27,23 @@ public class AuthenticationDAOImpl implements AuthenticationDAO{
 		return em.find(Skill.class, id);
 	}
 	
+	
 	@Override
-	public User create(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public User createUser(User user) {
+		em.persist(user);
+		em.flush();
+		return user;
+	}
+	
+	@Override
+	public Boolean deleteUser(int id) {
+		User removeUser = em.find(User.class, id);
+		try {
+			em.remove(removeUser);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -51,5 +64,11 @@ public class AuthenticationDAOImpl implements AuthenticationDAO{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
+	
+
+
+	
 
 }
