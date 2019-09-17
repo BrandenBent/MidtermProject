@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Profile</title>
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
 	<h1>UserProfile Page</h1>

@@ -7,6 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Skills</title>
+<meta content="initial-scale=1, shrink-to-fit=no, width=device-width"
+	name="viewport">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+
 </head>
 <body>
 	<h1>Test</h1>
@@ -35,10 +45,18 @@
 
 		</c:forEach>
 	</div>
-	
-	
+
+
 	<form action="crud.do" method="GET">
 		<input type="submit" value="Go Do Crud" />
 	</form>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+	<script src="path_to/material.min.js"></script>
+
+
 </body>
 </html>

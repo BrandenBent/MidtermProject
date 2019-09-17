@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Search By Keyword</title>
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
 	<h1>Testing Search Page</h1>
