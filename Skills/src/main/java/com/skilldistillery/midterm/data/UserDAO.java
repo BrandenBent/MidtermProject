@@ -16,7 +16,10 @@ public interface UserDAO {
 	
 	public Integer totalXP();
 	
-	public User addUser();
+
+	
+	
+//	public User addUser();
 	
 	//skill in progress method
 }

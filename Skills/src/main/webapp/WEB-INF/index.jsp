@@ -15,7 +15,7 @@
 		<table>
 			<tr>
 				<td>UserName</td>
-				<td><input name="username" /></td>
+				<td><input name="userName"" /></td>
 				<td>Password</td>
 				<td><input name="password" /></td>
 				<td><input type="submit" value="Login" /></td>
@@ -27,6 +27,8 @@
 			<!-- <input name="allSkills"> -->
 			<input type="submit" value="Show All Skills" />
 		</form>
+		
+		
 		<c:forEach items="${skillset}" var="skill">
 			<h5>
 				<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
@@ -35,7 +37,18 @@
 
 		</c:forEach>
 	</div>
-	
+	<form action="register.do" method="POST" modelAttribute ="user">
+		<table>
+			<tr>
+	<td><input name="id" type="hidden" value="0" /></td>
+				<td>UserName</td>
+				<td><input name="userName" /></td>
+				<td>Password</td>
+				<td><input name="password" /></td>
+				<td><input type="submit" value="Register" /></td>
+			</tr>
+		</table>
+	</form>
 	
 	<form action="crud.do" method="GET">
 		<input type="submit" value="Go Do Crud" />
