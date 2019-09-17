@@ -18,6 +18,16 @@
 		<div><img src="${image.imageLink }" width=500px height=500px/></div>
 	</c:if>
 	</c:forEach>
-	
+	<form action="updateSkill.do" method="POST">
+			<input type="submit" class="btn btn-success btn-lg" value="Edit">
+			<br> <input type="hidden" name="id" value="${skill.id}" />
+		</form>
+	<form action="deletedSkill.do" method="POST">
+			<input type="submit" class="btn btn-danger btn-lg" value="Delete">
+			<br> <input type="hidden" name="id" value="${skill.id}" />
+		</form>
+		<form action="home.do" method="GET">
+			<input type="submit" class="btn btn-primary btn-lg" value="Home">
+		</form>
 </body>
 </html>

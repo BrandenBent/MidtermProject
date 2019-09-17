@@ -23,7 +23,7 @@ public class SkillController {
 	@Autowired
 	private AuthenticationDAO autoDao;
 
-	@RequestMapping(path = "/")
+	@RequestMapping(path = { "/", "home.do" })
 	public String index(Model model) {
 		List<Skill> f = dao.findAllSkills();
 		model.addAttribute("skillset", f);
@@ -67,22 +67,44 @@ public class SkillController {
 	}
 
 ////	createSkill.do
-//	@RequestMapping(path = "createSkill.do", method = RequestMethod.POST)
-//	public String createBrewery(@ModelAttribute("skill") Skill skill, Model model) {
-//		model.addAttribute("skill", skill);
-//		dao.createSkill(skill);
-//		return "index";
-//	}
-//
-//	@RequestMapping(path = "deletedSkill.do", method = RequestMethod.GET)
-//	public String deleted() {
-////		TODO
-////		dao.deleteFilm(dao.);
-//		return "index";
+	@RequestMapping(path = "createSkill.do", method = RequestMethod.POST)
+	public String createSkill(@ModelAttribute("skill") Skill skill, Model model) {
+	Skill newSkill = dao.createSkill(skill);
+		model.addAttribute("skill", newSkill);
+		return "skill/skillSingle";
+	}
+	
+	@RequestMapping(path = "deletedSkill.do", method = RequestMethod.POST)
+	public String deleted(@RequestParam("id") Integer id, Model model) {
+		boolean deleteSkill = dao.deleteSkill(id);
+		if (deleteSkill) {
+			List<Skill> allSkills = dao.findAllSkills();
+			model.addAttribute("allSkills", allSkills);
+			return "skill/allSkills";
+		} else {
+			return "index";
+		}
+	}
+	
+	//edit skill jsp?
+	
+	//josh
+//	@RequestMapping(path = "editLink.do", method = RequestMethod.GET)
+//	public String editLink(@RequestParam("id") Integer id, Model model) {
+//		model.addAttribute("skill", dao.findSkillById(id));
+//		return "skill/edit";
 //	}
 //
 //	@RequestMapping(path = "updateSkill.do", method = RequestMethod.POST)
-//	public String updateSkill(@ModelAttribute("skill") Skill skill, Model model) {
+//	public String editSkill(Integer id, Skill skill, Model model) {
+//		Skill editSkill = dao.editSkill(skill, id);
+//		return "skill/skillSingle";
+//	}
+	
+	//branden
+//	@RequestMapping(path = "updateSkill.do", method = RequestMethod.POST)
+//	public String updateSkill(@RequestParam("id") Integer id, Model model) {
+//		model.addAttribute("venue", dao.findById(id));
 //		dao.editSkill(skill);
 //		return "index";
 //	}

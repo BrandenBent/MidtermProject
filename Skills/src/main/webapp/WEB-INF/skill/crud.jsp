@@ -27,7 +27,7 @@
 	</form:form>
 
 
-	<form action="deleteSkill.do" method="GET">
+	<form action="deleteSkill.do" method="POST">
 		<button class="btn btn-secondary" type="submit">Delete</button>
 		<input type="hidden" name="id" value="${skill.id }" />
 	</form>
@@ -63,5 +63,8 @@
 			</tr>
 		</table>
 	</form>
+	<form action="home.do" method="GET">
+			<input type="submit" class="btn btn-primary btn-lg" value="Home">
+		</form>
 </body>
 </html>

@@ -61,7 +61,7 @@ public class SkillDAOImpl implements SkillDAO {
 	}
 
 	@Override
-	public boolean deleteSkill(int id) {
+	public boolean deleteSkill(Integer id) {
 		Skill removeSkill = em.find(Skill.class, id);
 		try {
 			em.remove(removeSkill);
