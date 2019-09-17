@@ -13,8 +13,8 @@
 			<tr>
 				<td>Profile Name</td>
 				<td><input name="name"/></td>
-				<td>Birth Day</td>
-				<td><input required type="date" name="birthDate" /></td>
+				<!-- <td>Birth Day</td> -->
+				<!-- <td><input required type="date" name="birthDate" /></td> -->
 				<td><input type="submit" value="Create Profile" /></td>
 			</tr>
 		</table>
@@ -22,5 +22,6 @@
 	<form action="home.do" method="GET">
 		<input type="submit" class="btn btn-primary btn-lg" value="Home">
 	</form>
+	
 </body>
 </html>
