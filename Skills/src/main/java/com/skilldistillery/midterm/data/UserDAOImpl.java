@@ -12,12 +12,13 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.midterm.entities.Achievement;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.User;
+
 @Transactional
 @Service
 public class UserDAOImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public List<Skill> skillsLearned() {
 		// TODO Auto-generated method stub
@@ -42,12 +43,18 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 
-	
+	@Override
+	public Achievement createAchievement(Achievement achievement) {
+		em.persist(achievement);
+		em.flush();
+
+		return achievement;
 	}
+
+}
 
 //	@Override
 //	public User addUser() {
 //		// TODO Auto-generated method stub
 //		return null;
 //	}
-

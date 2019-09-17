@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.skilldistillery.midterm.data.AuthenticationDAO;
 import com.skilldistillery.midterm.data.SkillDAO;
+import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.User;
 
@@ -26,6 +27,10 @@ public class LogRegisterTestController {
 
 	@Autowired
 	private SkillDAO dao;
+	
+	@Autowired
+	private UserDAO udao;
+	
 //session.addattribute.setatt , HttpSession session
 	/*
 	 * boolean deleteVenue = dao.destroy(id);
@@ -78,8 +83,9 @@ public class LogRegisterTestController {
 	}
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
-	public String login(User user, Model model) {
-		model.addAttribute("userlog", user);
+	public String login(User user, Model model,HttpSession session) {
+		User loggeduser = adao.findByUserName(user.getUserName());
+		session.setAttribute("userlog", loggeduser);
 		return "skill/userProfile";
 	
 	}

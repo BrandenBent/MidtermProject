@@ -27,4 +27,6 @@ public interface AuthenticationDAO {
 
 	public void addUserToProfile(User user);
 //List<Skill> findAll();
+
+	User editUser(User user);
 }
