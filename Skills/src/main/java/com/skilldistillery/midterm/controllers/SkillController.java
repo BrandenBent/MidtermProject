@@ -58,7 +58,9 @@ public class SkillController {
 		model.addAttribute("skill", skill);
 		return "skill/crud";
 	}
+	
 
+	@RequestMapping(path = "createSkill.do", method = RequestMethod.POST)
 	public String createSkill(@ModelAttribute("skill") Skill skill, Model model) {
 		Skill newSkill = dao.createSkill(skill);
 		model.addAttribute("skill", newSkill);

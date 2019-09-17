@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Profile {
@@ -23,7 +25,7 @@ public class Profile {
 	private int id;
 
 	private String name;
-
+@Temporal(TemporalType.DATE)
 	@Column(name = "birthday")
 	private Date birthDate;
 
