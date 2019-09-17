@@ -94,7 +94,7 @@ public class SkillController {
 //		model.addAttribute("skill", dao.findSkillById(id));
 //		return "skill/edit";
 //	}
-//
+//  //josh
 //	@RequestMapping(path = "updateSkill.do", method = RequestMethod.POST)
 //	public String editSkill(Integer id, Skill skill, Model model) {
 //		Skill editSkill = dao.editSkill(skill, id);

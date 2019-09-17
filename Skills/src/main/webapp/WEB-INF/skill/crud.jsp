@@ -35,7 +35,7 @@
 	<form action="updateSkill.do" method="POST">
 		<table>
 			<tr>
-				
+
 				<td><input name="id" type="hidden" value="${skill.id}" /></td>
 
 			</tr>
@@ -55,8 +55,7 @@
 			</tr>
 			<tr>
 				<td>Summary</td>
-				<td><input name="summary" type="text"
-					value="${skill.summary}" /></td>
+				<td><input name="summary" type="text" value="${skill.summary}" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Update" /></td>
@@ -64,7 +63,7 @@
 		</table>
 	</form>
 	<form action="home.do" method="GET">
-			<input type="submit" class="btn btn-primary btn-lg" value="Home">
-		</form>
+		<input type="submit" class="btn btn-primary btn-lg" value="Home">
+	</form>
 </body>
 </html>
