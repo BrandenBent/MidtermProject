@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `birthday` DATE NOT NULL,
+  `birthday` DATE NULL,
   `login_time` VARCHAR(45) NULL,
   `image_link` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`),
@@ -400,26 +400,6 @@ COMMIT;
 START TRANSACTION;
 USE `skillsdb`;
 INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (1, 1, 1, '20190913', '20190913');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (2, 1, 2, '20190913', '20190913');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (3, 1, 3, '20190913', '20190913');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (4, 2, 4, '20190914', '20190915');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (5, 2, 5, '20190915', NULL);
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (6, 2, 6, '20190916', NULL);
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (7, 3, 7, '20190914', '20190915');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (8, 3, 8, '20190914', '20190915');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (9, 3, 9, '20190914', '20190915');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (10, 4, 10, '20190914', '20190916');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (11, 4, 11, '20190914', '20190916');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (12, 4, 12, '20190914', '20190916');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (13, 5, 13, '20190915', '20190916');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (14, 5, 14, '20190915', NULL);
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (15, 5, 15, '20190915', NULL);
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (16, 6, 16, '20190915', '20190916');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (17, 6, 17, '20190915', NULL);
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (18, 6, 18, '20190915', NULL);
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (19, 7, 19, '20190914', '20190916');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (20, 7, 20, '20190914', '20190916');
-INSERT INTO `achievement_requirement` (`id`, `achievement_id`, `skill_requirement_id`, `date_started`, `date_completed`) VALUES (21, 7, 21, '20190914', '20190916');
 
 COMMIT;
 

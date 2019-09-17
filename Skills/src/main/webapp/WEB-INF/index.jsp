@@ -11,7 +11,7 @@
 <body>
 	<h1>Test</h1>
 	<h3>Login</h3>
-	<form action="profile.do" method="POST">
+	<form:form action="login.do" method="GET" modelAttribute = "login">
 		<table>
 			<tr>
 				<td>UserName</td>
@@ -21,7 +21,7 @@
 				<td><input type="submit" value="Login" /></td>
 			</tr>
 		</table>
-	</form>
+	</form:form>
 	<div>
 		<form action="showAllSkills.do" method="GET">
 			<!-- <input name="allSkills"> -->

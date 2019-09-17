@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>UserProfile Page</h1>
-	
+	${userlog.userName}
 		<form action="keywordSearch.do" method="GET">
 		<table>
 			<tr>
@@ -18,6 +18,8 @@
 			</tr>
 		</table>
 	</form>
-
+	<form action="home.do" method="GET">
+			<input type="submit" class="btn btn-primary btn-lg" value="Home">
+		</form>
 </body>
 </html>

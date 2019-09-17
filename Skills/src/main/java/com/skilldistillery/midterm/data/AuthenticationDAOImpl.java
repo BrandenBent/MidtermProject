@@ -74,6 +74,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	@Override
 	public boolean isUserNameUnique(String username) {
 
+
 		return !em.contains(username);
 	}
 
