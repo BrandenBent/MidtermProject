@@ -17,8 +17,30 @@
 	rel="stylesheet">
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 
+
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-primary">
+		<a class="navbar-brand" href="#">Navbar w/ text</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarText" aria-controls="navbarText"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">See All Skills</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="#">Search A Skill by Keyword</a></li>
+			</ul>
+			<span class="navbar-text"> Oh hi mark
+			</span>
+		</div>
+	</nav>
+
 	<h1>Test</h1>
 	<h3>Login</h3>
 	<form action="profile.do" method="POST">
@@ -52,8 +74,10 @@
 	</form>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 	<script src="path_to/material.min.js"></script>
 
