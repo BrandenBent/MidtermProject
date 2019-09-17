@@ -11,24 +11,24 @@
 <body>
 	<h1>Test</h1>
 	<h3>Login</h3>
-	<form:form action="login.do" method="GET" modelAttribute = "login">
+	<form action="profile.do" method="POST">
 		<table>
 			<tr>
 				<td>UserName</td>
 				<td><input name="userName" required /></td>
 				<td>Password</td>
-				<td><input name="password" type="password"/></td>
+				<td><input name="password" type="password" required/></td>
 				<td><input type="submit" value="Login" /></td>
 			</tr>
 		</table>
-	</form:form>
+	</form>
 	<div>
 		<form action="showAllSkills.do" method="GET">
 			<!-- <input name="allSkills"> -->
 			<input type="submit" value="Show All Skills" />
 		</form>
-		
-		
+
+
 		<c:forEach items="${skillset}" var="skill">
 			<h5>
 				<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
@@ -44,12 +44,12 @@
 				<td>UserName</td>
 				<td><input name="userName" required/></td>
 				<td>Password</td>
-				<td><input name="password" required/></td>
+				<td><input name="password" type="password" required/></td>
 				<td><input type="submit" value="Register" /></td>
 			</tr>
 		</table>
 	</form>
-	
+
 	<form action="crud.do" method="GET">
 		<input type="submit" value="Go Do Crud" />
 	</form>

@@ -15,11 +15,9 @@
 	<%-- <img src=${skill.resources.imageLink } /> --%>
 	<c:forEach var="image" items="${skill.resources }">
 	<c:if test="${skill.id == skill.id}" >
-		<div><img src="${image.imageLink }" width=800px height=500px/></div>
+		<div><img src="${image.imageLink }" width=500px height=500px/></div>
 	</c:if>
 	</c:forEach>
-	
-	
 	<form action="editLink.do" method="GET">
 			<input type="submit" class="btn btn-success btn-lg" value="Edit">
 			<br> <input type="hidden" name="id" value="${skill.id}" />

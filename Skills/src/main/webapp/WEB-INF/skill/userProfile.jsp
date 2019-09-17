@@ -13,7 +13,7 @@
 		<table>
 			<tr>
 				<td>Search for a keyword</td>
-				<td><input name="keyword" /></td>
+				<td><input name="keyword" required/></td>
 				<td><input type="submit" value="Search" /></td>
 			</tr>
 		</table>
