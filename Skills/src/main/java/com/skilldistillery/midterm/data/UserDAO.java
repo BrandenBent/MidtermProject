@@ -17,6 +17,8 @@ public interface UserDAO {
 	public Integer totalXP();
 	
 
+	Achievement createAchievement(Achievement achievement);
+
 	
 	
 //	public User addUser();

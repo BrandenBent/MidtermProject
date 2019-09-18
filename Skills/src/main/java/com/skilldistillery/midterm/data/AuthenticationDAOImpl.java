@@ -55,9 +55,16 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	 */
 
 	@Override
-	public User editUser(int id, User user) {
+	public User editUser( User user) {
+		
+			User updateUser = em.find(User.class, user.getId());
+			updateUser.setUserName(user.getUserName());
+			updateUser.setPassword(user.getPassword());
+			updateUser.setEnabled(user.getEnabled());
+			updateUser.setRole(user.getRole());
+			
 
-		return null;
+		return updateUser;
 	}
 
 	@Override
@@ -97,6 +104,12 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	public boolean isValidUser(User u) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public User editUser(int id, User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
