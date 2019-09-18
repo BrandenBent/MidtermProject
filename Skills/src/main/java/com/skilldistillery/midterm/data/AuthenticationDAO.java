@@ -9,7 +9,6 @@ import com.skilldistillery.midterm.entities.User;
 public interface AuthenticationDAO {
 	public User createUser(User user);
 
-	public User editUser(int id, User user);
 
 	public Boolean deleteUser(int id);
 
@@ -23,10 +22,13 @@ public interface AuthenticationDAO {
 
 	public Profile createProfile(Profile profile);
 
-	Skill findSkillById(int id);
+	public User findUserById(Integer id);
 
 	public void addUserToProfile(User user);
 //List<Skill> findAll();
 
 	User editUser(User user);
+
+
+	public Skill findSkillById(Integer id);
 }

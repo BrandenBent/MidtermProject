@@ -3,6 +3,7 @@ package com.skilldistillery.midterm.data;
 import java.util.List;
 
 import com.skilldistillery.midterm.entities.Skill;
+import com.skilldistillery.midterm.entities.SkillRequirement;
 
 public interface SkillDAO {
 
@@ -17,6 +18,8 @@ public interface SkillDAO {
 	public List<Skill> findAllSkills();
 
 	Skill findSkillById(Integer id);
+
+	List<SkillRequirement> skillReqsForSkill(Skill skill);
 
 //	public Integer skillValue();
 

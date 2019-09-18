@@ -11,7 +11,7 @@
 <body>
 	<h1>Test</h1>
 	<h3>Login</h3>
-	<form action="profile.do" method="POST">
+	<form action="login.do" method="GET">
 		<table>
 			<tr>
 				<td>UserName</td>
@@ -52,6 +52,9 @@
 
 	<form action="crud.do" method="GET">
 		<input type="submit" value="Go Do Crud" />
+	</form>
+	<form action="admin.do" method="GET">
+		<input type="submit" value="Admin" />
 	</form>
 </body>
 </html>

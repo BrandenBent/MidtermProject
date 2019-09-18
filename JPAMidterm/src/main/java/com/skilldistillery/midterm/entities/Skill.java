@@ -34,6 +34,9 @@ public class Skill {
 	@ManyToMany(mappedBy = "skills")
 	private List<Profile> profiles;
 	
+	@OneToMany(mappedBy = "skill")
+	private List<Achievement> achievements;
+	
 	public Skill() {}
 
 	

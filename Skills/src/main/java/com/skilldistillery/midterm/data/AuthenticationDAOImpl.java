@@ -20,11 +20,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
-	public Skill findSkillById(int id) {
 
-		return em.find(Skill.class, id);
-	}
 
 	@Override
 	public User createUser(User user) {
@@ -45,15 +41,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		User userProfile = em.find(User.class, user.getId());
 		
 	}
-	/*
-	 * @Override public Actor update(int id, Actor actor) { EntityManager em =
-	 * emf.createEntityManager(); em.getTransaction().begin(); Actor managed =
-	 * em.find(Actor.class, id); managed.setFirstName(actor.getFirstName());
-	 * managed.setLastName(actor.getLastName()); em.close();
-	 * 
-	 * return managed; }
-	 */
-
+	
 	@Override
 	public User editUser( User user) {
 		
@@ -63,7 +51,6 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 			updateUser.setEnabled(user.getEnabled());
 			updateUser.setRole(user.getRole());
 			
-
 		return updateUser;
 	}
 
@@ -107,11 +94,18 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	}
 
 	@Override
-	public User editUser(int id, User user) {
+	public User findUserById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return em.find(User.class, id);
 	}
 
+	@Override
+	public Skill findSkillById(Integer id) {
+		// TODO Auto-generated method stub
+		return em.find(Skill.class, id);
+	}
+
+	
 	
 
 }

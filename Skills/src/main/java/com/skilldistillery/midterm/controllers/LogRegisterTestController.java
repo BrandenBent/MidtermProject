@@ -2,6 +2,7 @@ package com.skilldistillery.midterm.controllers;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,12 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.skilldistillery.midterm.data.AuthenticationDAO;
 import com.skilldistillery.midterm.data.SkillDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
@@ -31,26 +34,45 @@ public class LogRegisterTestController {
 	@Autowired
 	private UserDAO udao;
 	
-//session.addattribute.setatt , HttpSession session
-	/*
-	 * boolean deleteVenue = dao.destroy(id);
-		if (deleteVenue) {
-			List<Venue> allVenues = dao.findAll();
-			model.addAttribute("allVenues", allVenues);
-			return "index";
-		} else {
-			return "venu/error";
-		}
-	 */
 	
-	/*
-	 *  @InitBinder
-    public void initBinder(WebDataBinder webDataBinder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        dateFormat.setLenient(false);
-        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-    }
-	 */
+	@RequestMapping(path = "admin.do" )
+	public String index(Model model) {
+		List<User> users = adao.findAllUsers();
+		model.addAttribute("users", users);
+
+		return "skill/admin";
+	}
+	@RequestMapping(path = "getUser.do", method = RequestMethod.GET)
+	public String findSingleUser(@RequestParam("id")Integer id, String userName, Model model) {
+		User user = adao.findUserById(id);
+		model.addAttribute("user", user);
+		return "skill/userProfile";
+	}
+	@RequestMapping(path = "deleteUser.do", method = RequestMethod.POST)
+	public String deleted(@RequestParam("id") Integer id, Model model) {
+		boolean deleteUser = adao.deleteUser(id);
+		if (deleteUser) {
+			List<User> users = adao.findAllUsers();
+			model.addAttribute("users", users);
+			return "skill/admin";
+		} else {
+			return "index";
+		}
+	}
+
+	@RequestMapping(path = "editUserLink.do", method = RequestMethod.GET)
+	public String editLink(@RequestParam("id")Integer id, Model model) {
+		model.addAttribute("user", adao.findUserById(id));
+		return "skill/userProfile";
+	}
+	
+
+	@RequestMapping(path = "editUser.do", method = RequestMethod.POST)
+	public String editUser(Integer id, User user, Model model) {
+		User editUser = adao.editUser(user);
+		return "skill/userProfile";
+	}
+	 
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public String register(Model model, @ModelAttribute("user")  User user , HttpSession session) {
 		User newUser = adao.createUser(user);
@@ -85,6 +107,8 @@ public class LogRegisterTestController {
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String login(User user, Model model,HttpSession session) {
 		User loggeduser = adao.findByUserName(user.getUserName());
+		System.out.println(loggeduser);
+		System.out.println(user+"*****************");
 		session.setAttribute("userlog", loggeduser);
 		return "skill/userProfile";
 	

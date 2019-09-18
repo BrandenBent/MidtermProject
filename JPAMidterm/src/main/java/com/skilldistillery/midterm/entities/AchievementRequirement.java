@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name="achievement_requirement")
 public class AchievementRequirement {
@@ -27,6 +29,7 @@ public class AchievementRequirement {
 	@JoinColumn(name="skill_requirement_id")
 	private SkillRequirement skillRequirement;
 	
+	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	@Column(name="date_started")
 	private Date dateStarted;

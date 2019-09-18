@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Skill;
+import com.skilldistillery.midterm.entities.SkillRequirement;
 
 @Transactional
 @Service
@@ -30,7 +31,13 @@ public class SkillDAOImpl implements SkillDAO {
 
 		return skillsKW;
 	}
-
+@Override
+	public List<SkillRequirement> skillReqsForSkill(Skill skill) {
+		
+		
+		return null;
+	}
+	
 	@Override
 	public List<Skill> findAllSkills() {
 		List<Skill> list = new ArrayList<>();

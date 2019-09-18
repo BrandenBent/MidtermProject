@@ -16,6 +16,7 @@ import com.skilldistillery.midterm.data.AuthenticationDAO;
 import com.skilldistillery.midterm.data.SkillDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.User;
@@ -100,25 +101,35 @@ public class SkillController {
 		return "skill/skillSingle";
 	}
 	@RequestMapping(path = "addSkillToProfile.do", method = RequestMethod.POST)
-	public String addskilltoProfile(@RequestParam("id")Integer id, Model model,HttpSession session) {
-		System.out.println("*****************************************************");
-		System.out.println(id);
+	public String addskilltoProfile(@RequestParam("id")Integer id, Skill skill,Model model,HttpSession session) {
 		Skill addskill = dao.findSkillById(id);
-		System.out.println(addskill);
 		User user = (User) session.getAttribute("userlog");
-		System.out.println(user);
 		Achievement achieve = new Achievement();
-		achieve.setSkillId(addskill.getId());
+		achieve.setSkill(addskill);
 		achieve.setProfile(user.getProfile());
-		
 		udao.createAchievement(achieve);
 		
 		session.setAttribute("userlog", user);
 		
-		System.out.println("*****************************************************");
-		
 		
 		return "skill/userProfile";
+	}
+		@RequestMapping(path = "addAchievementReq.do", method = RequestMethod.POST)
+		public String addAchievementReq(@RequestParam("id")Integer id, Model model,HttpSession session) {
+			Skill addskill = dao.findSkillById(id);
+			User user = (User) session.getAttribute("userlog");
+//			Achievement achieveReq = new Achievement();
+//			AchievementRequirement achieveReq = new AchievementRequirement();
+//			achieveReq.setSkillRequirement(addskill.getSkillRequirements().get(0).getAchievementRequirements());
+//			
+//			achieveReq.setProfile(user.getProfile());
+//			achieveReq.se
+//			udao.createAchievement(achieve);
+			
+			session.setAttribute("userlog", user);
+			
+			
+			return "skill/userProfile";
 	}
 	
 	
