@@ -139,14 +139,17 @@ public class SkillController {
 		ModelAndView mv = new ModelAndView();
 		
 		Skill addskill = dao.findSkillById(selected);
+		
 		User user = (User) session.getAttribute("userlog");
+		
 		Achievement achieve = dao.findAchievementBySkillId(selected);
 		SkillRequirement skillReq = dao.findSkillRequirementBySkillId(selected);
+		
 		AchievementRequirement newAchievementReq = new AchievementRequirement();
 		newAchievementReq.setAchievement(achieve);
 		newAchievementReq.setSkillRequirement(skillReq);
+		
 		AchievementRequirement ar = udao.createAchievementReq(newAchievementReq);	
-		System.out.println(ar.getId());
 		session.setAttribute("userlog", user);
 		List<Skill> skills = dao.findSkillByUserId(user.getId());
 		mv.addObject("skills", skills);
