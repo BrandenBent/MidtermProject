@@ -18,31 +18,17 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 
 
-</head>
-<body>
-	<nav class="navbar navbar-dark bg-primary">
-		<a class="navbar-brand" href="#">Navbar w/ text</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarText" aria-controls="navbarText"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">See All Skills</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Search A Skill by Keyword</a></li>
-			</ul>
-			<span class="navbar-text"> Oh hi mark
-			</span>
-		</div>
-	</nav>
 
-	<h1>Test</h1>
-	<h3>Login</h3>
+</head>
+
+
+
+<body>
+	<%@ include file="skill/navBar.jsp"%>
+	<div class="content">
+
+	<h1 class="lead">Test</h1>
+	<h3 class="display-2">Login</h3>
 	<form action="profile.do" method="POST">
 		<table>
 			<tr>
@@ -54,19 +40,54 @@
 			</tr>
 		</table>
 	</form>
-	<div>
-		<form action="showAllSkills.do" method="GET">
-			<!-- <input name="allSkills"> -->
-			<input type="submit" value="Show All Skills" />
-		</form>
-		<c:forEach items="${skillset}" var="skill">
-			<h5>
-				<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-				(${skill.description})
-			</h5>
 
-		</c:forEach>
-	</div>
+
+<!-- 	<div class="card-group"> -->
+		<div class="card-group">
+			<c:forEach items="${skillset}" var="skill" begin = "1" end = "3">
+				<div class="card">
+					<c:forEach var="image" items="${skill.resources }">
+						<c:if test="${skill.id == skill.id}">
+							<div>
+								<img class=".img-thumbnail" src="${image.imageLink }"
+									width=400px height=300px />
+								<%-- <p>${skill. }</p> --%>
+							</div>
+						</c:if>
+						<div class="card-body">
+							<h5 class="card-title">${skill.name }</h5>
+							<p class="card-text">${skill.summary }</p>
+							<a href="getSkill.do?fid=${skill.id}" class="btn btn-primary">Learn
+								More</a>
+						</div>
+					</c:forEach>
+				</div>
+			</c:forEach>
+		</div>
+		
+		<div class="card-group">
+			<c:forEach items="${skillset}" var="skill" begin = "3" end = "5">
+				<div class="card" style="width: 18rem;">
+					<c:forEach var="image" items="${skill.resources }">
+						<c:if test="${skill.id == skill.id}">
+							<div>
+								<img class=".img-thumbnail" src="${image.imageLink }"
+									width=400px height=300px />
+								<%-- <p>${skill. }</p> --%>
+							</div>
+						</c:if>
+						<div class="card-body">
+							<h5 class="card-title">${skill.name }</h5>
+							<p class="card-text">${skill.summary }</p>
+							<a href="getSkill.do?fid=${skill.id}" class="btn btn-primary">Learn
+								More</a>
+						</div>
+					</c:forEach>
+				</div>
+			</c:forEach>
+		</div>
+
+	<!-- </div> -->
 
 
 	<form action="crud.do" method="GET">
@@ -81,6 +102,6 @@
 
 	<script src="path_to/material.min.js"></script>
 
-
+	</div>
 </body>
 </html>

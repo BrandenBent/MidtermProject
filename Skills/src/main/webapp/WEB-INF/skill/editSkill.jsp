@@ -8,6 +8,8 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
+	<%@ include file="navBar.jsp" %>
+
 <form action="updateSkill.do" method="POST">
 		<table>
 			<tr>

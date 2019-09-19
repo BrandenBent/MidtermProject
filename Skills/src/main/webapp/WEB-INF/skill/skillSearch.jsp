@@ -10,6 +10,7 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
+	<%@ include file="navBar.jsp" %>
 	<h1>Testing Search Page</h1>
 
 	<c:forEach items="${skills }" var="skills">
@@ -19,6 +20,7 @@
 		<div>${skills.summary }</div>
 
 	</c:forEach>
+	
 	<form action="home.do" method="GET">
 			<input type="submit" class="btn btn-primary btn-lg" value="Home">
 		</form>

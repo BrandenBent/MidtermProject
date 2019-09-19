@@ -8,6 +8,7 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
+	<%@ include file="navBar.jsp" %>
 
 </body>
 </html>
