@@ -14,7 +14,6 @@
    <%@ include file="navBar.jsp" %>
 	<h1>UserProfile Page</h1>
 	
-		<form action="keywordSearch.do" method="GET">
 	<h1>${userlog.userName}'sPage</h1>
 
 	<c:forEach items="${userlog.profile.skills}" var="skill">
@@ -34,7 +33,7 @@
 				<form action="completeSkill.do" method="POST">
 					<input type="checkbox" name="selected" value="${achievement.id}">Done
 					Learning Skill <br> <input type="submit" value="Submit">
-				</form>
+				</form> 
 
 			</c:forEach>
 
