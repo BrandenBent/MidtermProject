@@ -14,6 +14,7 @@
    <%@ include file="navBar.jsp" %>
 	<h1>UserProfile Page</h1>
 	
+
 	<h1>${userlog.userName}'sPage</h1>
 
 	<c:forEach items="${userlog.profile.skills}" var="skill">
