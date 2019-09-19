@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name="achievement_requirement")
@@ -37,7 +39,8 @@ public class AchievementRequirement {
 	@CreationTimestamp
 	private Date dateStarted;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
+	@UpdateTimestamp
 	@Column(name="date_completed")
 	private Date dateCompleted;
 	
@@ -165,6 +168,12 @@ public class AchievementRequirement {
 		builder.append("]");
 		return builder.toString();
 	}
+
+
+//	public AchievementRequirement setDateCompleted(LocalDate now) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	
 	

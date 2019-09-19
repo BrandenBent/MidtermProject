@@ -1,5 +1,8 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,7 +20,6 @@ import com.skilldistillery.midterm.data.SkillDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Achievement;
 import com.skilldistillery.midterm.entities.AchievementRequirement;
-import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.SkillRequirement;
 import com.skilldistillery.midterm.entities.User;
@@ -129,11 +131,20 @@ public class SkillController {
 		System.out.println(ar.getId());
 		session.setAttribute("userlog", user);
 		
-		
-		
 		return "skill/userProfile";
 	}
 	
+	@RequestMapping(path = "completeSkill.do", method = RequestMethod.POST)
+	public String skillCompleted(@RequestParam("id")Integer id, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("userlog");
+		LocalDate LD = LocalDate.now();
+		Date date = Date.from(LD.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+		AchievementRequirement newAchievementReq = dao.aReq(id);
+		newAchievementReq.setDateCompleted(date);
+		session.setAttribute("userlog", user);
+
+		return "skill/userProfile";
+	}
 	
 //		@RequestMapping(path = "addAchievementReq.do", method = RequestMethod.POST)
 //		public String addAchievementReq(@RequestParam("id")Integer id, Model model,HttpSession session) {
