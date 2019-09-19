@@ -10,7 +10,7 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
-   <%@ include file="navBar.jsp" %>
+	<%@ include file="navBar.jsp"%>
 	<br>
   
 <h1>${userlog.userName}'s Page</h1>	

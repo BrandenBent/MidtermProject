@@ -16,9 +16,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
-
-
-
 </head>
 
 
@@ -29,18 +26,19 @@
 	<div class="content">
 
 	<h1 class="lead">Test</h1>
-	<h3 class="display-2">Login</h3>
-	<form action="login.do" method="GET" modelAttribute = "login">
+	<br>
+<h1><a href="showUser.do?id=${userlog.id}">${userlog.userName} </a> is Logged in</h1>	
+<form action="login.do" method="GET" modelAttribute = "login">
 
 		<table>
 			<tr>
 				<td>UserName</td>
-				<td><input name="userName"" /></td>
+				<td><input name="userName" required /></td>
 				<td>Password</td>
-				<td><input name="password" /></td>
+				<td><input name="password" type="password" required/></td>
 				<td><input type="submit" value="Login" /></td>
 			</tr>
-		</table>
+					</table>
           
 	</form>
           

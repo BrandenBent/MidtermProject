@@ -7,6 +7,8 @@
 <title>Test></title>
 </head>
 <body>
+	<%@ include file="navBar.jsp"%>
+
 	<div>${user }</div>
 	<form action="registerProfile.do" method="POST" modelAttribute ="profile">
 		<table>

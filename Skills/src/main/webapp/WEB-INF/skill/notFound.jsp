@@ -14,6 +14,8 @@
 <title>Error</title>
 </head>
 <body>
+	<%@ include file="navBar.jsp"%>
+
 	<h1 style="color: red;">User Not Found</h1>
 	<br>
 	<br>

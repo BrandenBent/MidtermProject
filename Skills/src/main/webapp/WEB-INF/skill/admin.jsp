@@ -9,8 +9,7 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="navBar.jsp" %>
-
+	<%@ include file="navBar.jsp"%>
 	<h1>Admin</h1>
 	<h1>Create New User</h1>
 	<form action="register.do" method="POST" modelAttribute="user">

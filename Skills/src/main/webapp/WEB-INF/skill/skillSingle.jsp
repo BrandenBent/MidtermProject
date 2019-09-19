@@ -10,7 +10,7 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="navBar.jsp" %>
+	<%@ include file="navBar.jsp"%>
 <h1>TESTING SINGLE SKILL</h1>
 	<div>${skill.name }</div>
 	<div>${skill.description }</div>

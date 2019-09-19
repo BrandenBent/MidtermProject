@@ -112,6 +112,11 @@ public class LogRegisterTestController {
 		return "skill/userProfile";
 
 	}
+	@RequestMapping(path = "navLogin.do", method = RequestMethod.GET)
+	public String navLog(Model model) {
+		return "skill/login";
+		
+	}
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String login(User user, Model model,HttpSession session) {
