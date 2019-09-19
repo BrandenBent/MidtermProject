@@ -52,18 +52,20 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public Achievement createAchievement(Achievement achievement) {
-		List<SkillRequirement> reqs = dao.skillReqsForSkill(achievement.getSkill());
-		for (SkillRequirement skillRequirement : reqs) {
-			AchievementRequirement achReq = new AchievementRequirement();
-			achReq.setAchievement(achievement);
-			achReq.setSkillRequirement(skillRequirement);
-			achievement.addAchievement(achReq);
-			
-		}
 		em.persist(achievement);
 		em.flush();
+
 		return achievement;
 	}
+	@Override
+	public AchievementRequirement createAchievementReq(AchievementRequirement achievementReq) {
+		em.persist(achievementReq);
+		em.flush();
+
+		return achievementReq;
+	}
+	
+	
 
 	@Override
 	public List<AchievementRequirement> requirementsMet(Skill skill) {

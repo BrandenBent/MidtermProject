@@ -22,6 +22,8 @@ public interface UserDAO {
 
 	Achievement createAchievement(Achievement achievement);
 
+	AchievementRequirement createAchievementReq(AchievementRequirement achievementReq);
+
 	
 	
 //	public User addUser();

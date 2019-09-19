@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.midterm.entities.Achievement;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.SkillRequirement;
 
@@ -32,11 +33,7 @@ public class SkillDAOImpl implements SkillDAO {
 		return skillsKW;
 	}
 
-	@Override
-	public List<SkillRequirement> skillReqsForSkill(Skill skill) {
-
-		return null;
-	}
+	
 
 	@Override
 	public List<Skill> findAllSkills() {
@@ -76,6 +73,37 @@ public class SkillDAOImpl implements SkillDAO {
 			return false;
 		}
 		return true;
+		
 	}
+	
+//	@Override
+//	public List<SkillRequirement> findListOfSkillReq(Skill skill){
+//		Integer id= skill.getId();
+//		String qry = "SELECT skillreq FROM SkillRequirement skillreq WHERE skill."
+//		List<SkillRequirement> skillReq = em.createQuery(qry,SkillRequirement.class)
+//				.setParameter("id",id)
+//				.getResultList();
+//		String qry = "SELECT skill FROM Skill skill WHERE skill.name LIKE :keyword OR skill.summary LIKE :keyword OR skill.description LIKE :keyword";
+//		List<Skill> skillsKW = em.createQuery(qry, Skill.class).setParameter("keyword", search).getResultList();
+
+//		return null;
+//	}
+	
+		@Override
+		public Achievement findAchievementBySkillId(Integer id) {
+			
+			return em.find(Achievement.class, id);
+		}
+		@Override
+		public SkillRequirement findSkillRequirementBySkillId(Integer id) {
+			
+			return em.find(SkillRequirement.class, id);
+		}
+
+		@Override
+		public List<SkillRequirement> findListOfSkillReq(Skill skill) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 
 }

@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
+	<%@ include file="navBar.jsp" %>
+
 <form action="updateSkill.do" method="POST">
 		<table>
 			<tr>

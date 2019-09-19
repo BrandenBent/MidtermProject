@@ -7,9 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
+	<%@ include file="navBar.jsp" %>
 	<h1>CRUD TEST</h1>
+	
 
 	<h1>ADD</h1>
 	<form:form action="createSkill.do" method="POST" modelAttribute="skill">

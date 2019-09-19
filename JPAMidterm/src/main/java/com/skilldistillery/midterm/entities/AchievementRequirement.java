@@ -29,9 +29,12 @@ public class AchievementRequirement {
 	@JoinColumn(name="skill_requirement_id")
 	private SkillRequirement skillRequirement;
 	
-	@CreationTimestamp
-	@Temporal(TemporalType.DATE)
+//	@Temporal(TemporalType.DATE)
+//	@Column(name="date_started")
+	
 	@Column(name="date_started")
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
 	private Date dateStarted;
 
 	@Temporal(TemporalType.DATE)

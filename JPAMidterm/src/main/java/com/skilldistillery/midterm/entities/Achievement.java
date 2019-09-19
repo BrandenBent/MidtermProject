@@ -1,10 +1,8 @@
 package com.skilldistillery.midterm.entities;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,14 +19,8 @@ public class Achievement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@ManyToOne
-	@JoinColumn(name="skill_id")
-	private Skill skill;
-	
-//	@ManyToOne
-//	@JoinColumn(name="skill_id")
-//	private Skill skill;
+	@Column(name="skill_id")
+	private int skillId;
 	
 //	@Column(name="profile_id")
 //	private int profileId;
@@ -41,27 +33,12 @@ public class Achievement {
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
 
-	@OneToMany(mappedBy = "achievement", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "achievement")
 	List<AchievementRequirement> achievementRequirements;
 	
-	public void addAchievement(AchievementRequirement achievement) {
-		if (achievementRequirements == null)
-			achievementRequirements = new ArrayList<>();
-		if (!achievementRequirements.contains(achievement)) {
-			achievementRequirements.add(achievement);
-			if (achievement.getSkillRequirement()!= null) {
-				achievement.getSkillRequirement().getAchievementRequirements().remove(achievement);
-			}
-			achievement.setAchievement(this);
-		}
-	}
-
-	public void removeAchievement(AchievementRequirement achievement) {
-		achievement.setAchievement(null);
-		if (achievementRequirements != null) {
-			achievementRequirements.remove(achievement);
-		}
-	}
+//	@ManyToOne
+//	@JoinColumn(name = "skill_id")
+//	private Skill skill;
 	
 	
 	public Achievement() {
@@ -76,7 +53,13 @@ public class Achievement {
 		this.id = id;
 	}
 
-	
+	public int getSkillId() {
+		return skillId;
+	}
+
+	public void setSkillId(int skillId) {
+		this.skillId = skillId;
+	}
 
 	public Date getDateStarted() {
 		return dateStarted;
@@ -102,25 +85,15 @@ public class Achievement {
 		this.achievementRequirements = achievementRequirements;
 	}
 
-	public Skill getSkill() {
-		return skill;
-	}
-
-	public void setSkill(Skill skill) {
-		this.skill = skill;
-	}
-
-	@Override
-	public String toString() {
-		return "Achievement [id=" + id + ", skill=" + skill + ", dateStarted=" + dateStarted + ", profile=" + profile
-				+ ", achievementRequirements=" + achievementRequirements + "]";
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((achievementRequirements == null) ? 0 : achievementRequirements.hashCode());
+		result = prime * result + ((dateStarted == null) ? 0 : dateStarted.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
+		result = prime * result + skillId;
 		return result;
 	}
 
@@ -133,11 +106,44 @@ public class Achievement {
 		if (getClass() != obj.getClass())
 			return false;
 		Achievement other = (Achievement) obj;
+		if (achievementRequirements == null) {
+			if (other.achievementRequirements != null)
+				return false;
+		} else if (!achievementRequirements.equals(other.achievementRequirements))
+			return false;
+		if (dateStarted == null) {
+			if (other.dateStarted != null)
+				return false;
+		} else if (!dateStarted.equals(other.dateStarted))
+			return false;
 		if (id != other.id)
+			return false;
+		if (profile == null) {
+			if (other.profile != null)
+				return false;
+		} else if (!profile.equals(other.profile))
+			return false;
+		if (skillId != other.skillId)
 			return false;
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Achievement [id=");
+		builder.append(id);
+		builder.append(", skillId=");
+		builder.append(skillId);
+		builder.append(", dateStarted=");
+		builder.append(dateStarted);
+		builder.append(", profile=");
+		builder.append(profile);
+		builder.append(", achievementRequirements=");
+		builder.append(achievementRequirements);
+		builder.append("]");
+		return builder.toString();
+	}
 
 	
 	
