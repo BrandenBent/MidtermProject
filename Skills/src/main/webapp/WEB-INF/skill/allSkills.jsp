@@ -8,16 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>List All Skills</title>
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
+	<%@ include file="navBar.jsp" %>
     <h1>All Skills</h1>
     <c:forEach items="${ allSkills}" var="allSkills">
     
         <div>${allSkills.name }</div>
     
     </c:forEach>
-<form action="home.do" method="GET">
-			<input type="submit" class="btn btn-primary btn-lg" value="Home">
-		</form>
 </body>
 </html>

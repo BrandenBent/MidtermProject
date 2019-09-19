@@ -7,11 +7,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Skills</title>
+<meta content="initial-scale=1, shrink-to-fit=no, width=device-width"
+	name="viewport">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+
+
+
 </head>
+
+
+
 <body>
-	<h1>Test</h1>
-	<h3>Login</h3>
-	<form:form action="login.do" method="GET" modelAttribute = "login">
+
+	<%@ include file="skill/navBar.jsp"%>
+	<div class="content">
+
+	<h1 class="lead">Test</h1>
+	<h3 class="display-2">Login</h3>
+	<form action="login.do" method="GET" modelAttribute = "login">
+
 		<table>
 			<tr>
 				<td>UserName</td>
@@ -21,23 +41,10 @@
 				<td><input type="submit" value="Login" /></td>
 			</tr>
 		</table>
-	</form:form>
-	<div>
-		<form action="showAllSkills.do" method="GET">
-			<!-- <input name="allSkills"> -->
-			<input type="submit" value="Show All Skills" />
-		</form>
-		
-		
-		<c:forEach items="${skillset}" var="skill">
-			<h5>
-				<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-				(${skill.description})
-			</h5>
-
-		</c:forEach>
-	</div>
-	<form action="register.do" method="POST" modelAttribute ="user">
+          
+	</form>
+          
+  	<form action="register.do" method="POST" modelAttribute ="user">
 		<table>
 			<tr>
 	<td><input name="id" type="hidden" value="0" /></td>
@@ -49,9 +56,69 @@
 			</tr>
 		</table>
 	</form>
-	
+
+
+<!-- 	<div class="card-group"> -->
+		<div class="card-group">
+			<c:forEach items="${skillset}" var="skill" begin = "1" end = "3">
+				<div class="card">
+					<c:forEach var="image" items="${skill.resources }">
+						<c:if test="${skill.id == skill.id}">
+							<div>
+								<img class=".img-thumbnail" src="${image.imageLink }"
+									width=400px height=300px />
+								<%-- <p>${skill. }</p> --%>
+							</div>
+						</c:if>
+						<div class="card-body">
+							<h5 class="card-title">${skill.name }</h5>
+							<p class="card-text">${skill.summary }</p>
+							<a href="getSkill.do?fid=${skill.id}" class="btn btn-primary">Learn
+								More</a>
+						</div>
+					</c:forEach>
+				</div>
+			</c:forEach>
+		</div>
+		
+		<div class="card-group">
+			<c:forEach items="${skillset}" var="skill" begin = "3" end = "5">
+				<div class="card" style="width: 18rem;">
+					<c:forEach var="image" items="${skill.resources }">
+						<c:if test="${skill.id == skill.id}">
+							<div>
+								<img class=".img-thumbnail" src="${image.imageLink }"
+									width=400px height=300px />
+								<%-- <p>${skill. }</p> --%>
+							</div>
+						</c:if>
+						<div class="card-body">
+							<h5 class="card-title">${skill.name }</h5>
+							<p class="card-text">${skill.summary }</p>
+							<a href="getSkill.do?fid=${skill.id}" class="btn btn-primary">Learn
+								More</a>
+						</div>
+					</c:forEach>
+				</div>
+			</c:forEach>
+		</div>
+
+	<!-- </div> -->
+
+
+
 	<form action="crud.do" method="GET">
 		<input type="submit" value="Go Do Crud" />
 	</form>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+	<script src="path_to/material.min.js"></script>
+
+	</div>
 </body>
 </html>

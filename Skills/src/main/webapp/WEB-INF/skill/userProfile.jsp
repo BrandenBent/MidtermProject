@@ -7,8 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Profile</title>
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
+  
+   <%@ include file="navBar.jsp" %>
+	<h1>UserProfile Page</h1>
+	
+		<form action="keywordSearch.do" method="GET">
 	<h1>${userlog.userName}'sPage</h1>
 
 	<c:forEach items="${userlog.profile.skills}" var="skill">
@@ -34,19 +40,5 @@
 
 		</h5>
 	</c:forEach>
-
-
-	<form action="keywordSearch.do" method="GET">
-		<table>
-			<tr>
-				<td>Search for a keyword</td>
-				<td><input name="keyword" /></td>
-				<td><input type="submit" value="Search" /></td>
-			</tr>
-		</table>
-	</form>
-	<form action="home.do" method="GET">
-		<input type="submit" class="btn btn-primary btn-lg" value="Home">
-	</form>
 </body>
 </html>
