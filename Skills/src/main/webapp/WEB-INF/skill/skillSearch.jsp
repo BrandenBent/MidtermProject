@@ -30,6 +30,7 @@ ${userlog.userName}
 		<input type="submit" class="btn btn-primary btn-lg" value="Home">
 	</form>
 
+	<h2>${userlog.userName }</h2>
 
 </body>
 </html>

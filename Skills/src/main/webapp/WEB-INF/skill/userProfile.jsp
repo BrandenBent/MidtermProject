@@ -12,6 +12,8 @@
 <body>
   
    <%@ include file="navBar.jsp" %>
+   <h2>${userlog.userName }</h2>
+
 	<h1>UserProfile Page</h1>
 	
 		<%-- <form action="keywordSearch.do" method="GET"> --%>
