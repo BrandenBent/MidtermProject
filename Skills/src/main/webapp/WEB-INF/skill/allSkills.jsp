@@ -11,11 +11,13 @@
 </head>
 <body>
     <h1>All Skills</h1>
-    <c:forEach items="${ allSkills}" var="allSkills">
-    
-        <div>${allSkills.name }</div>
-    
-    </c:forEach>
+   <c:forEach items="${allSkills}" var="skill">
+			<h5>
+				<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+				(${skill.description})
+			</h5>
+
+		</c:forEach>
 <form action="home.do" method="GET">
 			<input type="submit" class="btn btn-primary btn-lg" value="Home">
 		</form>

@@ -128,7 +128,8 @@ public class LogRegisterTestController {
 		public String logout(User user, Model model, HttpSession session) {
 
 			session.removeAttribute("userlog");
-			return "index";
+			
+			return "skill/allSkills";
 		}
 	
 	
