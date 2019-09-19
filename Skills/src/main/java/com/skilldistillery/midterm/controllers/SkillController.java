@@ -122,11 +122,7 @@ public class SkillController {
 		User user = (User) session.getAttribute("userlog");
 		Achievement achieve = dao.findAchievementBySkillId(selected);
 		SkillRequirement skillReq = dao.findSkillRequirementBySkillId(selected);
-		System.out.println(skillReq.getId()+"********************************************");
-		Integer stepnumber = skillReq.getStepNumber();
-		
 		AchievementRequirement newAchievementReq = new AchievementRequirement();
-		
 		newAchievementReq.setAchievement(achieve);
 		newAchievementReq.setSkillRequirement(skillReq);
 		AchievementRequirement ar = udao.createAchievementReq(newAchievementReq);	
