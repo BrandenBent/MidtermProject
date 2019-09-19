@@ -9,7 +9,7 @@
 <title>Skills</title>
 </head>
 <body>
-	<h1>Test</h1>
+	<h1><a href="showUser.do?id=${userlog.id}">${userlog.userName} </a> is Logged in</h1>
 	<h3>Login</h3>
 	<form action="login.do" method="GET">
 		<table>
@@ -23,6 +23,11 @@
 		</table>
 	</form>
 	<div>
+	<br>
+	<form action="logout.do" method="GET">
+		<input type="submit" class="btn btn-primary btn-lg" value="Log Out">
+	</form>
+	<br>
 		<form action="showAllSkills.do" method="GET">
 			<!-- <input name="allSkills"> -->
 			<input type="submit" value="Show All Skills" />

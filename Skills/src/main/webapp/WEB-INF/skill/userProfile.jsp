@@ -9,8 +9,11 @@
 <title>Profile</title>
 </head>
 <body>
-	<h1>${userlog.userName}'sPage</h1>
-
+	<h1>${userlog.userName}'s Page</h1>
+	<br>
+<form action="logout.do" method="GET">
+		<input type="submit" class="btn btn-primary btn-lg" value="Log Out">
+	</form>
 	<c:forEach items="${userlog.profile.achievements}" var="achievement">
 		<h5>
 			<a href="getSkill.do?fid=${achievement.skill.id}">${achievement.skill.name} </a>

@@ -17,20 +17,17 @@
 			<!-- required -->
 				<td><input name="id" type="hidden" value="0" /></td>
 				<td>UserName</td>
-				<td><input name="userName"  /></td>
+				<td><input name="userName" required /></td>
 				<td>Password</td>
-				<td><input name="password" type="password"  /></td>
+				<td><input name="password" type="password" required /></td>
 				<td><input type="submit" value="Register" /></td>
 			</tr>
 		</table>
 	</form>
 
-	<form action="deleteUser.do" method="POST">
-		<button class="btn btn-secondary" type="submit">Delete</button>
-		<input type="hidden" name="id" value="${user.id }" />
-	</form>
+	
 
-	<form action="editUser.do" method="POST">
+	<%-- <form action="editUser.do" method="POST">
 		<table>
 			<tr>
 
@@ -58,21 +55,22 @@
 				<td><input type="submit" value="Update" /></td>
 			</tr>
 		</table>
-	</form>
+	</form> --%>
 
 
 	<c:forEach items="${users}" var="user">
 		<h5>
 			<a href="getUser.do?id=${user.id}">${user.userName} </a>
-			
-			<form:form action="editUserLink.do" method="GET">
+			User Enabled: (${user.enabled})
+		<%-- 	<form:form action="editUserLink.do" method="GET">
 			<input type="submit" class="btn btn-success btn-lg" value="Edit">
 			<br> <input type="hidden" name="id" value="${user.id}" />
 		</form:form>
+			
 			<form:form action="deleteUser.do" method="POST">
-				<button class="btn btn-secondary" type="submit">Delete</button>
-				<input type="hidden" name="id" value="${user.id }" />
-			</form:form>
+			<input type="submit" class="btn btn-danger btn-lg" value="Delete">
+			<br> <input type="hidden" name="id" value="${user.id}" />
+		</form:form> --%>
 		</h5>
 	</c:forEach>
 		<form:form action="home.do" method="GET">

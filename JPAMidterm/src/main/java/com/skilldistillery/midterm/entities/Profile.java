@@ -33,7 +33,7 @@ public class Profile {
 	@Column(name = "login_time")
 	private Time loginTime;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "user_id")
 	private User user;
 

@@ -45,6 +45,14 @@ public class LogRegisterTestController {
 	@RequestMapping(path = "getUser.do", method = RequestMethod.GET)
 	public String findSingleUser(@RequestParam("id")Integer id, String userName, Model model) {
 		User user = adao.findUserById(id);
+		System.out.println(user);
+		model.addAttribute("user", user);
+		return "skill/editUser";
+	}
+	@RequestMapping(path = "showUser.do", method = RequestMethod.GET)
+	public String SingleUser(@RequestParam("id")Integer id, String userName, Model model) {
+		User user = adao.findUserById(id);
+		System.out.println(user);
 		model.addAttribute("user", user);
 		return "skill/userProfile";
 	}
@@ -53,24 +61,26 @@ public class LogRegisterTestController {
 		boolean deleteUser = adao.deleteUser(id);
 		if (deleteUser) {
 			List<User> users = adao.findAllUsers();
-			model.addAttribute("users", users);
+			model.addAttribute("user", users);
 			return "skill/admin";
 		} else {
 			return "index";
-		}
+		} 
 	}
 
 	@RequestMapping(path = "editUserLink.do", method = RequestMethod.GET)
 	public String editLink(@RequestParam("id")Integer id, Model model) {
 		model.addAttribute("user", adao.findUserById(id));
-		return "skill/userProfile";
+		return "skill/editUser";
 	}
 	
 
 	@RequestMapping(path = "editUser.do", method = RequestMethod.POST)
 	public String editUser(Integer id, User user, Model model) {
-		User editUser = adao.editUser(user);
-		return "skill/userProfile";
+		User editUser = adao.editUser(user, id);
+		List<User> users = adao.findAllUsers();
+		model.addAttribute("users", users);
+		return "skill/admin";
 	}
 	 
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
@@ -101,27 +111,27 @@ public class LogRegisterTestController {
 	public String userProfile(Model model) {
 		return "skill/userProfile";
 
-		// return "index"; // if using a ViewResolver.
 	}
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String login(User user, Model model,HttpSession session) {
 		User loggeduser = adao.findByUserName(user.getUserName());
-		System.out.println(loggeduser);
-		System.out.println(user+"*****************");
+		if (loggeduser.getEnabled().equals(false)) {
+			return "skill/notFound";
+		}
 		session.setAttribute("userlog", loggeduser);
 		return "skill/userProfile";
 	
 	}
 	
-		
+		@RequestMapping(path = "logout.do", method = RequestMethod.GET)
+		public String logout(User user, Model model, HttpSession session) {
+
+			session.removeAttribute("userlog");
+			return "index";
+		}
 	
 	
-//    @RequestMapping(path = "/")
-//      public ModelAndView putIndexHere(Model model) {
-//          ModelAndView mv = new ModelAndView();
-//          mv.setViewName("index");
-//          return mv;
-//      }
+
 
 }

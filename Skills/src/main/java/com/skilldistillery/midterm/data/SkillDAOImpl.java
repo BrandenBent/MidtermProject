@@ -31,13 +31,13 @@ public class SkillDAOImpl implements SkillDAO {
 
 		return skillsKW;
 	}
-@Override
+
+	@Override
 	public List<SkillRequirement> skillReqsForSkill(Skill skill) {
-		
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public List<Skill> findAllSkills() {
 		List<Skill> list = new ArrayList<>();

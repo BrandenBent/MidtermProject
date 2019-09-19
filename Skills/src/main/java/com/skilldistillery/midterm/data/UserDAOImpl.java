@@ -60,11 +60,8 @@ public class UserDAOImpl implements UserDAO {
 			achievement.addAchievement(achReq);
 			
 		}
-		
 		em.persist(achievement);
-
 		em.flush();
-
 		return achievement;
 	}
 

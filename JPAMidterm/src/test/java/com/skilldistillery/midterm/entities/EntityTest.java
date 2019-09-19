@@ -72,7 +72,7 @@ class EntityTest {
 
 	@Test
 	void test_Achievement_entity_mapping() {
-		assertEquals(1, achievement.getSkillId());
+		assertEquals(1, achievement.getSkill());
 		assertEquals("testerprofile", achievement.getProfile().getName());
 		assertEquals(1, achievement.getProfile().getId());
 		assertEquals(1, profile.getAchievements().get(0).getProfile().getId());

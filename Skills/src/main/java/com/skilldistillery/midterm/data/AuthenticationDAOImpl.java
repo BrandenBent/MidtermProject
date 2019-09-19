@@ -43,7 +43,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	}
 	
 	@Override
-	public User editUser( User user) {
+	public User editUser(User user, int id) {
 		
 			User updateUser = em.find(User.class, user.getId());
 			updateUser.setUserName(user.getUserName());
@@ -55,10 +55,12 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	}
 
 	@Override
-	public Boolean deleteUser(int id) {
+	public Boolean deleteUser(Integer id) {
 		User removeUser = em.find(User.class, id);
 		try {
-			em.remove(removeUser);
+			removeUser.setEnabled(false);
+			em.persist(removeUser);
+			em.flush();
 		} catch (Exception e) {
 			return false;
 		}

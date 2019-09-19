@@ -10,7 +10,7 @@ public interface AuthenticationDAO {
 	public User createUser(User user);
 
 
-	public Boolean deleteUser(int id);
+	public Boolean deleteUser(Integer id);
 
 	public boolean isUserNameUnique(String username);
 
@@ -27,7 +27,7 @@ public interface AuthenticationDAO {
 	public void addUserToProfile(User user);
 //List<Skill> findAll();
 
-	User editUser(User user);
+	User editUser(User user, int id);
 
 
 	public Skill findSkillById(Integer id);

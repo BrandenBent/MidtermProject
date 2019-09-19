@@ -14,7 +14,7 @@
 <title>Error</title>
 </head>
 <body>
-	<h1 style="color: red;">User Already Exists</h1>
+	<h1 style="color: red;">User Not Found</h1>
 	<br>
 	<br>
 	<form action="home.do" method="GET">

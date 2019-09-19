@@ -26,6 +26,10 @@ public class Achievement {
 	@JoinColumn(name="skill_id")
 	private Skill skill;
 	
+//	@ManyToOne
+//	@JoinColumn(name="skill_id")
+//	private Skill skill;
+	
 //	@Column(name="profile_id")
 //	private int profileId;
 	

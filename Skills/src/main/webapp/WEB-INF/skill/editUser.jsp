@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="editUser.do" method="POST">
+		<table>
+			<tr>
+				
+
+				<td><input name="id" type="hidden" value="${user.id}" /></td>
+
+			</tr>
+			<tr>
+				<td>User Name</td>
+				<td><input name="userName" required type="text" value="${user.userName}" /></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input name="password" required type="text" value="${user.password}" /></td>
+			</tr>
+			<tr>
+				<td>Enabled</td>
+				<td><input name="enabled" required type="text" value="${user.enabled}" /></td>
+			</tr>
+			<tr>
+				<td>Role</td>
+				<td><input name="role"  required type="text" value="${user.role}" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Update" /></td>
+			</tr>
+		</table>
+	</form>
+	<form action="deleteUser.do" method="POST">
+		<button class="btn btn-secondary" type="submit">Delete</button>
+		<input type="hidden" name="id" value="${user.id }" />
+	</form>
+	<form action="home.do" method="GET">
+		<input type="submit" class="btn btn-primary btn-lg" value="Home">
+	</form>
+</body>
+</html>
