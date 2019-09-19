@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.User;
 
@@ -50,6 +51,15 @@ public class UserDAOImpl implements UserDAO {
 
 		return achievement;
 	}
+	@Override
+	public AchievementRequirement createAchievementReq(AchievementRequirement achievementReq) {
+		em.persist(achievementReq);
+		em.flush();
+
+		return achievementReq;
+	}
+	
+	
 
 }
 

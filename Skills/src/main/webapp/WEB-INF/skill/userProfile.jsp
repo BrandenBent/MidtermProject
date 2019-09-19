@@ -11,22 +11,21 @@
 <body>
 	<h1>${userlog.userName}'sPage</h1>
 
-	<c:forEach items="${userlog.profile.skills}" var="achievement">
+	<c:forEach items="${userlog.profile.skills}" var="skill">
 		<h5>
-			<a href="getSkill.do?fid=${achievement.id}">${achievement.name} </a>
-			${achievement.description} <br> <strong>Requirements: </strong> <br>
-			<c:forEach items="${achievement.skillRequirements}" var="skillReq">
+			<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+			${skill.description} <br> <strong>Requirements: </strong> <br>
+			<c:forEach items="${skill.skillRequirements}" var="skillReq">
 				${skillReq.requirement.name }
 				<br>
 				
-				<form name="input" action="startSkill.do" method="get">
-					<input type="checkbox" name="dateStarted" value="Start">Start Learning Skill
-					<input name="fid" type="hidden" value="1" />
+				<form action="startSkill.do" method="POST">
+					<input type="checkbox" name="selected" value="${skill.id}">Start Learning Skill
+					<input name="fid" type="hidden" value="${skillReq.id}" />
 					<br> <input type="submit" value="Submit">
 				</form>
-				<form name="input" action="completeSkill.do" method="get">
-					<input type="checkbox" name="dateCompleted" value="Finished">Done Learning Skill
-					<input name="fid" type="hidden" value="2" />
+				<form action="completeSkill.do" method="POST">
+					<input type="checkbox" name="selected" value="${achievement.id}">Done Learning Skill
 					<br> <input type="submit" value="Submit">
 				</form>
 				

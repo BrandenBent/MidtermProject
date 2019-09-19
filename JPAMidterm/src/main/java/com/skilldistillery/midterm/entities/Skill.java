@@ -28,15 +28,26 @@ public class Skill {
 	@JoinTable(name = "skill_resource", joinColumns = @JoinColumn(name = "skill_id"), inverseJoinColumns = @JoinColumn(name = "resources_id"))
 	private List<Resource> resources;
 	
-	@OneToMany(mappedBy = "skill")
+	@OneToMany(mappedBy = "skill",cascade = CascadeType.ALL)
 	private List<SkillRequirement> skillRequirements;
 	
-	@ManyToMany(mappedBy = "skills")
+	@ManyToMany(mappedBy = "skills",cascade = CascadeType.ALL)
 	private List<Profile> profiles;
 	
-//	@OneToMany(mappedBy = "skill") //sep19
-//	private List<Achievement> achievements;
+	@OneToMany
+	@JoinColumn(name = "skill_id") //sep19
+	private List<Achievement> achievements;
 	
+	public List<Achievement> getAchievements() {
+		return achievements;
+	}
+
+
+	public void setAchievements(List<Achievement> achievements) {
+		this.achievements = achievements;
+	}
+
+
 	public Skill() {}
 
 	
