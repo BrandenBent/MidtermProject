@@ -29,6 +29,8 @@ public interface SkillDAO {
 
 	List<SkillRequirement> findListOfSkillReq(Skill skill);
 
+	public List<Skill> findSkillByUserId(Integer id);
+
 //	public Integer skillValue();
 
 }

@@ -99,9 +99,20 @@ public class SkillDAOImpl implements SkillDAO {
 		}
 
 		@Override
+		public List<Skill> findSkillByUserId(Integer Id) {
+			List<Skill> skills = new ArrayList<>();
+			String Sid = "%" + Id + "%";
+			String query = "SELECT s FROM Skill s JOIN Achievement a ON s.id = a.skill_id WHERE a.profile_id LIKE :Sid ";
+
+			return skills = em.createQuery(query, Skill.class).getResultList();
+			
+		}
+		
+		@Override
 		public List<SkillRequirement> findListOfSkillReq(Skill skill) {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
 
 }
