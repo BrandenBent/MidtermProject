@@ -24,19 +24,35 @@
 
 
 <body>
+
 	<%@ include file="skill/navBar.jsp"%>
 	<div class="content">
 
 	<h1 class="lead">Test</h1>
 	<h3 class="display-2">Login</h3>
-	<form action="profile.do" method="POST">
+	<form action="login.do" method="GET" modelAttribute = "login">
+
 		<table>
 			<tr>
 				<td>UserName</td>
-				<td><input name="username" /></td>
+				<td><input name="userName"" /></td>
 				<td>Password</td>
 				<td><input name="password" /></td>
 				<td><input type="submit" value="Login" /></td>
+			</tr>
+		</table>
+          
+	</form>
+          
+  	<form action="register.do" method="POST" modelAttribute ="user">
+		<table>
+			<tr>
+	<td><input name="id" type="hidden" value="0" /></td>
+				<td>UserName</td>
+				<td><input name="userName" /></td>
+				<td>Password</td>
+				<td><input name="password" /></td>
+				<td><input type="submit" value="Register" /></td>
 			</tr>
 		</table>
 	</form>
@@ -88,6 +104,7 @@
 		</div>
 
 	<!-- </div> -->
+
 
 
 	<form action="crud.do" method="GET">

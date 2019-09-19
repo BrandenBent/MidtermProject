@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +16,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Profile {
@@ -23,7 +26,7 @@ public class Profile {
 	private int id;
 
 	private String name;
-
+	@Temporal(TemporalType.DATE)
 	@Column(name = "birthday")
 	private Date birthDate;
 
@@ -33,15 +36,16 @@ public class Profile {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@OneToMany(mappedBy = "profile")
 	private List<Achievement> achievements;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "achievement", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
 	private List<Skill> skills;
-	
-	public Profile() {	}
+
+	public Profile() {
+	}
 
 	public Profile(int id, String name, Date birthDate, Time loginTime, List<Skill> skills) {
 		super();
@@ -167,7 +171,5 @@ public class Profile {
 		return "Profile [id=" + id + ", name=" + name + ", birthDate=" + birthDate + ", loginTime=" + loginTime
 				+ ", skills=" + skills + "]";
 	}
-
-	
 
 }

@@ -36,6 +36,11 @@ public class Achievement {
 	@OneToMany(mappedBy = "achievement")
 	List<AchievementRequirement> achievementRequirements;
 	
+//	@ManyToOne
+//	@JoinColumn(name = "skill_id")
+//	private Skill skill;
+	
+	
 	public Achievement() {
 		
 	}

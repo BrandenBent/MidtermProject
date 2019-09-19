@@ -3,6 +3,7 @@ package com.skilldistillery.midterm.data;
 import java.util.List;
 
 import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.User;
 
@@ -16,7 +17,14 @@ public interface UserDAO {
 	
 	public Integer totalXP();
 	
-	public User addUser();
+
+	Achievement createAchievement(Achievement achievement);
+
+	AchievementRequirement createAchievementReq(AchievementRequirement achievementReq);
+
+	
+	
+//	public User addUser();
 	
 	//skill in progress method
 }

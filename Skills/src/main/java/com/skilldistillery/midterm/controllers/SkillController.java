@@ -2,6 +2,8 @@ package com.skilldistillery.midterm.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.midterm.data.AuthenticationDAO;
 import com.skilldistillery.midterm.data.SkillDAO;
+import com.skilldistillery.midterm.data.UserDAO;
+import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
+import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.Skill;
+import com.skilldistillery.midterm.entities.SkillRequirement;
+import com.skilldistillery.midterm.entities.User;
 
 @Controller
 public class SkillController {
@@ -22,6 +30,9 @@ public class SkillController {
 
 	@Autowired
 	private AuthenticationDAO autoDao;
+	
+	@Autowired
+	private UserDAO udao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String index(Model model) {
@@ -32,7 +43,7 @@ public class SkillController {
 	}
 
 	@RequestMapping(path = "keywordSearch.do", params = "keyword", method = RequestMethod.GET)
-	public String searchByKeyword(@RequestParam("keyword") String keyword, Model model) {
+	public String searchByKeyword(@RequestParam("keyword") String keyword, Model model,HttpSession session) {
 		List<Skill> skills = dao.searchBySkillByKeyword(keyword);
 		model.addAttribute("skills", skills);
 		return "skill/skillSearch";
@@ -58,7 +69,9 @@ public class SkillController {
 		model.addAttribute("skill", skill);
 		return "skill/crud";
 	}
+	
 
+	@RequestMapping(path = "createSkill.do", method = RequestMethod.POST)
 	public String createSkill(@ModelAttribute("skill") Skill skill, Model model) {
 		Skill newSkill = dao.createSkill(skill);
 		model.addAttribute("skill", newSkill);
@@ -88,5 +101,40 @@ public class SkillController {
 		Skill editSkill = dao.editSkill(skill, id);
 		return "skill/skillSingle";
 	}
+	@RequestMapping(path = "addSkillToProfile.do", method = RequestMethod.POST)
+	public String addskilltoProfile(@RequestParam("id")Integer id, Model model,HttpSession session) {
+		Skill addskill = dao.findSkillById(id);
+		User user = (User) session.getAttribute("userlog");
+		Achievement achieve = new Achievement();
+		achieve.setSkillId(addskill.getId());
+		achieve.setProfile(user.getProfile());
+		
+//		session.setAttribute("userlog", user);
+	
+		udao.createAchievement(achieve);
+		
+		
+		return "skill/userProfile";
+	}
+	@RequestMapping(path = "startSkill.do", method = RequestMethod.POST)
+	public String addachievementReqtoPro(@RequestParam("fid")Integer selected, Model model,HttpSession session) {
+		Skill addskill = dao.findSkillById(selected);
+		User user = (User) session.getAttribute("userlog");
+		Achievement achieve = dao.findAchievementBySkillId(selected);
+		SkillRequirement skillReq = dao.findSkillRequirementBySkillId(selected);
+		AchievementRequirement newAchievementReq = new AchievementRequirement();
+		newAchievementReq.setAchievement(achieve);
+		newAchievementReq.setSkillRequirement(skillReq);
+		AchievementRequirement ar = udao.createAchievementReq(newAchievementReq);	
+		System.out.println(ar.getId());
+		session.setAttribute("userlog", user);
+		
+		
+		
+		return "skill/userProfile";
+	}
+	
+	
+	
 
 }

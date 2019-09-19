@@ -21,8 +21,26 @@ public class User {
 	private Boolean enabled;
 	private String role;
 	
+	@OneToOne(mappedBy="user")
+	private Profile profile;
 	
 	
+	
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+	public User(int id, String userName, String password) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+	}
+
 	public User() {
 		
 	}
