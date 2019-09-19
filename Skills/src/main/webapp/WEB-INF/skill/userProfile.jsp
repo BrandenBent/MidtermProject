@@ -11,13 +11,19 @@
 </head>
 <body>
   
+
    <%@ include file="navBar.jsp" %>
    <h2>${userlog.userName }</h2>
 
 	<h1>UserProfile Page</h1>
 	
 
-	<h1>${userlog.userName}'sPage</h1>
+
+<h1>${userlog.userName}'s Page</h1>	
+<form action="logout.do" method="GET">
+		<input type="submit" class="btn btn-primary btn-lg" value="Log Out">
+	</form>
+
 
 	<c:forEach items="${userlog.profile.skills}" var="skill">
 		<h5>
@@ -42,5 +48,9 @@
 
 		</h5>
 	</c:forEach>
+
+
+	
+
 </body>
 </html>

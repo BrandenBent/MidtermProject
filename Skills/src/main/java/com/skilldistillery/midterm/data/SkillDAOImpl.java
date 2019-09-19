@@ -33,6 +33,8 @@ public class SkillDAOImpl implements SkillDAO {
 		return skillsKW;
 	}
 
+	
+
 	@Override
 	public List<Skill> findAllSkills() {
 		List<Skill> list = new ArrayList<>();

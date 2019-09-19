@@ -24,7 +24,7 @@ public class SkillTestClient {
 
 		SkillTestClient stc = new SkillTestClient();
 		Skill newSkill = new Skill("test", "describe", "supply", "summary");
-		User newUser = new User("jah", "pwd", true, "user");
+//		User newUser = new User("jah", "pwd", true, "user");
 //		stc.showAll();
 //		stc.createSkill(newSkill);
 //		System.out.println(newSkill.toString());
