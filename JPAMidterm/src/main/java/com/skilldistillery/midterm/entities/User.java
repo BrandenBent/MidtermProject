@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,8 @@ public class User {
 	private Boolean enabled;
 	private String role;
 	
-	@OneToOne(mappedBy="user")
+	
+	@OneToOne(cascade = CascadeType.PERSIST,mappedBy="user")
 	private Profile profile;
 	
 	

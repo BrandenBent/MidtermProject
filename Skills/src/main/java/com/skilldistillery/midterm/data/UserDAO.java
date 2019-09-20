@@ -13,6 +13,8 @@ public interface UserDAO {
 
 	public  List<Achievement> earnedAchievements();
 	
+	List<AchievementRequirement> requirementsMet(Skill skill);
+
 	public List<Skill> skillsWanted();
 	
 	public Integer totalXP();
