@@ -23,7 +23,7 @@ public class User {
 	private String role;
 	
 	
-	@OneToOne(cascade = CascadeType.PERSIST,mappedBy="user")
+	@OneToOne(cascade = CascadeType.MERGE,mappedBy="user")
 	private Profile profile;
 	
 	

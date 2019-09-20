@@ -70,13 +70,13 @@ class EntityTest {
 
 	}
 
-	@Test
-	void test_Achievement_entity_mapping() {
-		assertEquals(1, achievement.getSkillId());
-		assertEquals("testerprofile", achievement.getProfile().getName());
-		assertEquals(1, achievement.getProfile().getId());
-		assertEquals(1, profile.getAchievements().get(0).getProfile().getId());
-	}
+//	@Test
+//	void test_Achievement_entity_mapping() {
+//		assertEquals(1, achievement.getSkillId());
+//		assertEquals("testerprofile", achievement.getProfile().getName());
+//		assertEquals(1, achievement.getProfile().getId());
+//		assertEquals(1, profile.getAchievements().get(0).getProfile().getId());
+//	}
 
 	@Test
 	void test_Profile_entity_mapping() {

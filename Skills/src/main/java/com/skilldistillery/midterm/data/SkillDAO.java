@@ -31,8 +31,9 @@ public interface SkillDAO {
 
 	public List<Skill> findSkillByUserId(Integer id);
 
-	Achievement findAchievementBySkillIdandProfileId(Integer id, Integer profileId);
 
 //	public Integer skillValue();
+	Achievement findAchievementBySkillIdandProfileId(Integer id, Integer profileId);
+
 
 }

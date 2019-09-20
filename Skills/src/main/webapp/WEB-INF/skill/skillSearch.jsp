@@ -11,6 +11,8 @@
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
+		<br>
+	
 	<h1>Testing Search Page</h1>
 ${userlog.userName}
 	<c:forEach items="${skills }" var="skill">

@@ -10,6 +10,8 @@
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
+		<br>
+	
 	<h1>Admin</h1>
 	<h1>Create New User</h1>
 	<form action="register.do" method="POST" modelAttribute="user">
@@ -30,7 +32,7 @@
 	<c:forEach items="${users}" var="user">
 		<h5>
 			<a href="getUser.do?id=${user.id}">${user.userName} </a>
-			User Enabled: (${user.enabled})
+			User Enabled: (${user.enabled}) ID: ${user.id}
 	
 		</h5>
 	</c:forEach>

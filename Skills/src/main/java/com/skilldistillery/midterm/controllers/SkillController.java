@@ -111,6 +111,7 @@ public class SkillController {
 		Achievement achieve = new Achievement();
 		achieve.setSkillId(addskill.getId());
 		achieve.setProfile(user.getProfile());
+
 		udao.createAchievement(achieve);
 		session.setAttribute("userlog", user);
 
@@ -136,6 +137,7 @@ public class SkillController {
 		session.setAttribute("userlog", user);
 		return "skill/userProfile";
 	}
+
 
 //	@RequestMapping(path = "startSkill.do", method = RequestMethod.POST)
 //	public ModelAndView addachievementReqtoPro(@RequestParam("fid")Integer selected, Model model,HttpSession session) {
@@ -164,7 +166,6 @@ public class SkillController {
 //	
 //	
 //	
-
 	@RequestMapping(path = "completeSkill.do", method = RequestMethod.POST)
 	public String skillCompleted(@RequestParam("id") Integer id, Model model, HttpSession session) {
 		User user = (User) session.getAttribute("userlog");
@@ -176,7 +177,6 @@ public class SkillController {
 
 		return "skill/userProfile";
 	}
-}
 
 //		@RequestMapping(path = "addAchievementReq.do", method = RequestMethod.POST)
 //		public String addAchievementReq(@RequestParam("id")Integer id, Model model,HttpSession session) {
@@ -195,3 +195,4 @@ public class SkillController {
 //			
 //			return "skill/userProfile";
 //	}
+}
