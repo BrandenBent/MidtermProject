@@ -9,18 +9,23 @@
 <title>Profile</title>
 <meta content="initial-scale=1, shrink-to-fit=no, width=device-width"
 	name="viewport">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link href="/daomite-material/css/material.min.css" rel="stylesheet"></head>
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+</head>
 <body>
 	<%@ include file="navBar.jsp"%>
 	<br>
-  
-<h1>${userlog.userName}'s Page</h1>	
-<form action="logout.do" method="GET">
+
+	<h1>${userlog.userName}'s
+		Page <i class="material-icons">face</i> <i class="material-icons">whatshot</i>
+	</h1>
+	<form action="logout.do" method="GET">
 		<input type="submit" class="btn btn-primary btn-lg" value="Log Out">
 	</form>
 
@@ -29,22 +34,36 @@
 			<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
 			${skill.description} <br> <strong>Requirements: </strong> <br>
 			<c:forEach items="${skill.skillRequirements}" var="skillReq">
-				${skillReq.requirement.name }
+				${skillReq.requirement.description }
 				<br>
-			
-				<form action="startSkill.do" method="POST">
+
+				 <form action="startSkill.do" method="POST">
 					<input type="checkbox" name="selected" value="${skill.id}">Start
 					Learning Skill 
 					<input name="fid" type="hidden"
 						value="${skillReq.id}" /> <br> <input type="submit"
 						value="Submit">
-				</form>
-				<form action="completeSkill.do" method="POST">
+				</form>   
+				
+			<%-- 	<form class="was-validated" action="startSkill.do" method="POST">
+					<div class="custom-control custom-switch">
+						<input class="custom-control-input" id="customSwitchValidation"
+							value="${skill.id}" required type="checkbox"> <span
+							class="custom-control-track"></span> <input name="fid"
+							type="hidden"  type="submit" value="${skillReq.id}" /> <label
+							class="custom-control-label" for="customSwitchValidation">Start Learning</label>
+						<div class="invalid-feedback">Not yet started</div>
+						<div class="valid-feedback">In Progress</div>
+					</div>
+				</form> 
+				 --%>
+				
+				<%--  <form action="completeSkill.do" method="POST">
 					<input type="checkbox" name="selected" value="${skill.id}">Done
-					Learning Skill 
-					<input name="id" type="hidden" value="${skillReq.id}" /> 
-					<br> <input type="submit" value="Submit">
-				</form>
+					Learning Skill <input name="id" type="hidden"
+						value="${skillReq.id}" /> <br> <input type="submit"
+						value="Submit">
+				</form>  --%>
 
 			</c:forEach>
 
@@ -52,7 +71,7 @@
 	</c:forEach>
 
 
-	
+
 
 </body>
 </html>

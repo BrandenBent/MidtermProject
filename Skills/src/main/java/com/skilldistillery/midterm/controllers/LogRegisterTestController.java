@@ -45,7 +45,6 @@ public class LogRegisterTestController {
 	@RequestMapping(path = "getUser.do", method = RequestMethod.GET)
 	public String findSingleUser(@RequestParam("id")Integer id, String userName, Model model) {
 		User user = adao.findUserById(id);
-		System.out.println(user);
 		model.addAttribute("user", user);
 		return "skill/editUser";
 	}
@@ -85,24 +84,22 @@ public class LogRegisterTestController {
 	 
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public String register(Model model, @ModelAttribute("user")  User user , HttpSession session) {
-		User newUser = adao.createUser(user);
-		
+		User newUser = new User();
+		newUser.setEnabled(true);
+		newUser.setRole("user");
+		 newUser =  adao.createUser(user);
 		session.setAttribute("userlog", newUser);
-		
 		return "skill/register";
 	}
 
 	@RequestMapping(path = "registerProfile.do", method = RequestMethod.POST)
 	public String registerProfile(@ModelAttribute("profile") Profile profile , Model model, HttpSession session) {
-		
-		System.err.println("##########################################");
+		User user = new User();
 		profile.setUser((User) session.getAttribute("userlog"));
-		System.err.println("##########################################");
-		System.out.println(profile);
-		System.err.println("##########################################");
 		Profile newProfile = adao.createProfile(profile);
 		model.addAttribute("profile" , newProfile);
-		
+		user.setEnabled(true);
+		user.setRole("user");
 		return "skill/userProfile";
 	}
 	

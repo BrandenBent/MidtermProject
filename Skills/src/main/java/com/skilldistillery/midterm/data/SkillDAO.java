@@ -25,11 +25,11 @@ public interface SkillDAO {
 
 	SkillRequirement findSkillRequirementBySkillId(Integer id);
 
-	Achievement findAchievementBySkillId(Integer id);
 
 
 	List<SkillRequirement> findListOfSkillReq(Skill skill);
 
-//	public Integer skillValue();
+	Achievement findAchievementBySkillIdandProfileId(Integer id, Integer profileId);
+
 
 }

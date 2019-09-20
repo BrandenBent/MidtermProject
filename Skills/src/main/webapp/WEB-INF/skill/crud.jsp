@@ -11,6 +11,8 @@
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
+		<br>
+	
 	<h1>CRUD TEST</h1>
 	
 
