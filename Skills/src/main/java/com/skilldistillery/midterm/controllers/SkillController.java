@@ -33,7 +33,7 @@ public class SkillController {
 
 	@Autowired
 	private AuthenticationDAO autoDao;
-	
+
 	@Autowired
 	private UserDAO udao;
 
@@ -46,7 +46,7 @@ public class SkillController {
 	}
 
 	@RequestMapping(path = "keywordSearch.do", params = "keyword", method = RequestMethod.GET)
-	public String searchByKeyword(@RequestParam("keyword") String keyword, Model model,HttpSession session) {
+	public String searchByKeyword(@RequestParam("keyword") String keyword, Model model, HttpSession session) {
 		List<Skill> skills = dao.searchBySkillByKeyword(keyword);
 		model.addAttribute("skills", skills);
 		return "skill/skillSearch";
@@ -72,7 +72,6 @@ public class SkillController {
 		model.addAttribute("skill", skill);
 		return "skill/crud";
 	}
-	
 
 	@RequestMapping(path = "createSkill.do", method = RequestMethod.POST)
 	public String createSkill(@ModelAttribute("skill") Skill skill, Model model) {
@@ -104,8 +103,9 @@ public class SkillController {
 		Skill editSkill = dao.editSkill(skill, id);
 		return "skill/skillSingle";
 	}
+
 	@RequestMapping(path = "addSkillToProfile.do", method = RequestMethod.POST)
-	public String addskilltoProfile(@RequestParam("id")Integer id, Model model, HttpSession session) {
+	public String addskilltoProfile(@RequestParam("id") Integer id, Model model, HttpSession session) {
 		Skill addskill = dao.findSkillById(id);
 		User user = (User) session.getAttribute("userlog");
 		Achievement achieve = new Achievement();
@@ -113,25 +113,29 @@ public class SkillController {
 		achieve.setProfile(user.getProfile());
 		udao.createAchievement(achieve);
 		session.setAttribute("userlog", user);
-		
-		return "skill/userProfile";
-	}
-	@RequestMapping(path = "startSkill.do", method = RequestMethod.POST)
-	public String addachievementReqtoPro(@RequestParam("fid")Integer selected, Model model,HttpSession session) {
-		Skill addskill = dao.findSkillById(selected);
-		User user = (User) session.getAttribute("userlog");
-		Achievement achieve = dao.findAchievementBySkillId(selected);
-		SkillRequirement skillReq = dao.findSkillRequirementBySkillId(selected);
-		AchievementRequirement newAchievementReq = new AchievementRequirement();
-		newAchievementReq.setAchievement(achieve);
-		newAchievementReq.setSkillRequirement(skillReq);
-		AchievementRequirement ar = udao.createAchievementReq(newAchievementReq);	
-		System.out.println(ar.getId());
-		session.setAttribute("userlog", user);
-		
+
 		return "skill/userProfile";
 	}
 
+	@RequestMapping(path = "startSkill.do", method = RequestMethod.POST)
+	public String addachievementReqtoPro(@RequestParam("fid") Integer selected, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("userlog");
+		Integer userProfileId = user.getProfile().getId();
+		SkillRequirement skillReq = dao.findSkillRequirementBySkillId(selected);
+		Skill addskill = dao.findSkillById(skillReq.getSkill().getId());
+		System.err.println(addskill.getId());
+		Achievement achieve = dao.findAchievementBySkillIdandProfileId(addskill.getId(), userProfileId);
+		System.err.println("*******************************************************");
+		System.err.println(achieve.getId());
+		AchievementRequirement newAchievementReq = new AchievementRequirement();
+		newAchievementReq.setAchievement(achieve);
+		newAchievementReq.setSkillRequirement(skillReq);
+		AchievementRequirement ar = udao.createAchievementReq(newAchievementReq);
+		System.out.println(ar.getId());
+
+		session.setAttribute("userlog", user);
+		return "skill/userProfile";
+	}
 
 //	@RequestMapping(path = "startSkill.do", method = RequestMethod.POST)
 //	public ModelAndView addachievementReqtoPro(@RequestParam("fid")Integer selected, Model model,HttpSession session) {
@@ -161,9 +165,8 @@ public class SkillController {
 //	
 //	
 
-	
 	@RequestMapping(path = "completeSkill.do", method = RequestMethod.POST)
-	public String skillCompleted(@RequestParam("id")Integer id, Model model, HttpSession session) {
+	public String skillCompleted(@RequestParam("id") Integer id, Model model, HttpSession session) {
 		User user = (User) session.getAttribute("userlog");
 		LocalDate LD = LocalDate.now();
 		Date date = Date.from(LD.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
@@ -174,7 +177,7 @@ public class SkillController {
 		return "skill/userProfile";
 	}
 }
-	
+
 //		@RequestMapping(path = "addAchievementReq.do", method = RequestMethod.POST)
 //		public String addAchievementReq(@RequestParam("id")Integer id, Model model,HttpSession session) {
 //			Skill addskill = dao.findSkillById(id);
@@ -186,13 +189,9 @@ public class SkillController {
 //			achieveReq.setProfile(user.getProfile());
 //			achieveReq.se
 //			udao.createAchievement(achieve);
-			
+
 //			session.setAttribute("userlog", user);
 //			
 //			
 //			return "skill/userProfile";
 //	}
-	
-	
-	
-

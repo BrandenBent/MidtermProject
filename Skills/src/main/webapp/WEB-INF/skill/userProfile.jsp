@@ -29,7 +29,7 @@
 			<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
 			${skill.description} <br> <strong>Requirements: </strong> <br>
 			<c:forEach items="${skill.skillRequirements}" var="skillReq">
-				${skillReq.requirement.name }
+				${skillReq.requirement.description }
 				<br>
 			
 				<form action="startSkill.do" method="POST">
@@ -38,7 +38,7 @@
 					<input name="fid" type="hidden" value="${skillReq.id}" /> 
 					<br> <input type="submit" value="Submit">
 				</form>
-				<form action="completeSkill.do" method="POST">
+				<form action="completeSkill.do" method="GET">
 					<input type="checkbox" name="selected" value="${skill.id}">Done
 					Learning Skill 
 					<input name="id" type="hidden" value="${skillReq.id}" /> 

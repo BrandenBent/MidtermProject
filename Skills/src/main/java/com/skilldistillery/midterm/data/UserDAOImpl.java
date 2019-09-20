@@ -59,6 +59,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 	@Override
 	public AchievementRequirement createAchievementReq(AchievementRequirement achievementReq) {
+		System.out.println(achievementReq.getId());
+		System.out.println(achievementReq.getAchievement().getId());
+		System.out.println("**********************************************************************");
 		em.persist(achievementReq);
 		em.flush();
 
