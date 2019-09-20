@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 
-	List<AchievementRequirement> achievementRequirements;
+//	List<AchievementRequirement> achievementRequirements;
 
 	@Override
 	public List<Achievement> earnedAchievements() {

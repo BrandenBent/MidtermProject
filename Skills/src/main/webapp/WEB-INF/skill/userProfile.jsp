@@ -16,20 +16,13 @@
 	rel="stylesheet">
 <link href="/daomite-material/css/material.min.css" rel="stylesheet"></head>
 <body>
+	<%@ include file="navBar.jsp"%>
+	<br>
   
-
-   <%@ include file="navBar.jsp" %>
-   <h2>${userlog.userName }</h2>
-
-	<h1>UserProfile Page</h1>
-	
-
-
 <h1>${userlog.userName}'s Page</h1>	
 <form action="logout.do" method="GET">
 		<input type="submit" class="btn btn-primary btn-lg" value="Log Out">
 	</form>
-
 
 	<c:forEach items="${userlog.profile.skills}" var="skill">
 		<h5>
@@ -39,16 +32,15 @@
 				${skillReq.requirement.name }
 				<br>
 			
-				<form action="startSkill.do" method="POST">
+				<form action="startSkill.do" method="GET">
 					<input type="checkbox" name="selected" value="${skill.id}">Start
 					Learning Skill 
-					<input name="fid" type="hidden"
-						value="${skillReq.id}" /> <br> <input type="submit"
-						value="Submit">
+					<input name="fid" type="hidden" value="${skillReq.id}" /> 
+					<br> <input type="submit" value="Submit">
 				</form>
-				<form action="completeSkill.do" method="POST">
-					<input type="checkbox" name="selected" value="${achievement.id}">Done
-					Learning Skill <br> <input type="submit" value="Submit">
+				<form action="completeSkill.do" method="GET">
+					<input type="checkbox" name="selected" value="${skill.id}">Done
+					Learning Skill 
 					<input name="id" type="hidden" value="${skillReq.id}" /> 
 					<br> <input type="submit" value="Submit">
 				</form>
