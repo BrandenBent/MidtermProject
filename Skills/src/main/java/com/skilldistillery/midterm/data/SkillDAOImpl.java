@@ -101,11 +101,14 @@ public class SkillDAOImpl implements SkillDAO {
 		@Override
 		public List<Skill> findSkillByUserId(Integer Id) {
 			List<Skill> skills = new ArrayList<>();
-			String Sid = "%" + Id + "%";
-			String query = "SELECT s FROM Skill s JOIN Achievement a ON s.id = a.skill_id WHERE a.profile_id LIKE :Sid ";
+			String Sid = "" + Id;
+//			String query = "SELECT skill FROM Skill skill JOIN Achievement achieve ON skill.skill.id = achieve.skill_id "
+//					+ "		JOIN Profile profile ON achieve.profile_id = profile.profile.id WHERE profile.user_id = :Sid ";
+			String query = "SELECT u.skill from Profile u WHERE u.user_id = ";
 
-			return skills = em.createQuery(query, Skill.class).getResultList();
-			
+//		String qry = "SELECT skill FROM Skill skill WHERE skill.name LIKE :keyword OR skill.summary LIKE :keyword OR skill.description LIKE :keyword";
+			return skills = em.createQuery(query, Skill.class).setParameter("Sid" + Sid, Sid).getResultList();
+//			em.createQuery("select u.balance from Users u where u.userName = '" + user_name.getText() +"'", Integer.class).getResultList();
 		}
 		
 		@Override

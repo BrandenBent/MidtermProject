@@ -41,6 +41,10 @@
 			</c:forEach>
 
 		</h5>
+	<c:forEach items="${skills}" var="skill">
+		<h1>${skill}</h1>
+	</c:forEach>
+	
 	</c:forEach>
 </body>
 </html>
