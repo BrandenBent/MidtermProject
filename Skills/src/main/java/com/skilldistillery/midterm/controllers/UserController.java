@@ -26,16 +26,16 @@ public class UserController {
 	@Autowired
 	private UserDAO udao;
 	
-	@RequestMapping(path = "startSkill.do", method = RequestMethod.GET)
-	public String startSkill(@RequestParam("fid") Integer id, Model model) {
-		Skill skill = autoDao.findSkillById(id);
-		model.addAttribute("skill", skill);
-		return "skill/userProfile";
-	}
-	@RequestMapping(path = "completeSkill.do", method = RequestMethod.GET)
-	public String completeSkill(@RequestParam("fid") Integer id, Model model) {
-		Skill skill = autoDao.findSkillById(id);
-		model.addAttribute("skill", skill);
-		return "skill/userProfile";
-	}
+//	@RequestMapping(path = "startSkill.do", method = RequestMethod.GET)
+//	public String startSkill(@RequestParam("fid") Integer id, Model model) {
+//		Skill skill = autoDao.findSkillById(id);
+//		model.addAttribute("skill", skill);
+//		return "skill/userProfile";
+//	}
+//	@RequestMapping(path = "completeSkill.do", method = RequestMethod.GET)
+//	public String completeSkill(@RequestParam("fid") Integer id, Model model) {
+//		Skill skill = autoDao.findSkillById(id);
+//		model.addAttribute("skill", skill);
+//		return "skill/userProfile";
+//	}
 }

@@ -32,13 +32,13 @@
 				${skillReq.requirement.name }
 				<br>
 			
-				<form action="startSkill.do" method="GET">
-					<input type="checkbox" name="selected" value="${skill.id}">Start
+				<form action="startSkill.do" method="POST">
+					<input type="checkbox" name="checked" value="${skill.id}">Start
 					Learning Skill 
 					<input name="fid" type="hidden" value="${skillReq.id}" /> 
 					<br> <input type="submit" value="Submit">
 				</form>
-				<form action="completeSkill.do" method="GET">
+				<form action="completeSkill.do" method="POST">
 					<input type="checkbox" name="selected" value="${skill.id}">Done
 					Learning Skill 
 					<input name="id" type="hidden" value="${skillReq.id}" /> 
