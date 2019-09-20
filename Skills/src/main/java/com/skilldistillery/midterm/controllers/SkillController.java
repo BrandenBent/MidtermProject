@@ -110,10 +110,10 @@ public class SkillController {
 		Achievement achieve = new Achievement();
 		achieve.setSkillId(addskill.getId());
 		achieve.setProfile(user.getProfile());
-//		achieve.setProfile(user.getId());
 		udao.createAchievement(achieve);
-		session.setAttribute("userlog", user);
+		User refreshUser = autoDao.findUserById(user.getId());
 
+		session.setAttribute("userlog", refreshUser);
 		return "skill/userProfile";
 	}
 

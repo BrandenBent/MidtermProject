@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `enabled` TINYINT NOT NULL DEFAULT 1,
+  `enabled` VARCHAR(25) NULL DEFAULT 'true',
   `role` VARCHAR(45) NULL DEFAULT 'user',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC))
@@ -220,11 +220,11 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'tester', 'tester', true, 'user');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (2, 'joe', 'doe', true, 'user');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (3, 'josh', 'josh1', true, 'admin');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (4, 'branden', 'branden1', true, 'admin');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (5, 'mark', 'mark1', true, 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'tester', 'tester', 'true', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (2, 'joe', 'doe', 'true', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (3, 'josh', 'josh1', 'true', 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (4, 'branden', 'branden1', 'true', 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (5, 'mark', 'mark1', 'true', 'admin');
 
 COMMIT;
 

@@ -109,6 +109,13 @@ public class LogRegisterTestController {
 		return "skill/userProfile";
 
 	}
+	
+	@RequestMapping(path = "navRegister.do", method = RequestMethod.GET)
+	public String navReg(Model model) {
+		return "skill/register";
+		
+	}
+	
 	@RequestMapping(path = "navLogin.do", method = RequestMethod.GET)
 	public String navLog(Model model) {
 		return "skill/login";
@@ -128,10 +135,12 @@ public class LogRegisterTestController {
 	
 		@RequestMapping(path = "logout.do", method = RequestMethod.GET)
 		public String logout(User user, Model model, HttpSession session) {
+			User refreshUser = adao.findUserById(user.getId());
+			session.setAttribute("userlog", refreshUser);
 
 			session.removeAttribute("userlog");
 			
-			return "skill/allSkills";
+			return "index";
 		}
 	
 	

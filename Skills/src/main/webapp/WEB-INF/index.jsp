@@ -26,7 +26,7 @@
 		</h1>
 		
 
-		<form action="register.do" method="POST" modelAttribute="user">
+		<%-- <form action="register.do" method="POST" modelAttribute="user">
 			<table>
 				<tr>
 					<td><input name="id" type="hidden" value="0" /></td>
@@ -37,7 +37,7 @@
 					<td><input type="submit" value="Register" /></td>
 				</tr>
 			</table>
-		</form>
+		</form> --%>
 
 
 		<!-- 	<div class="card-group"> -->

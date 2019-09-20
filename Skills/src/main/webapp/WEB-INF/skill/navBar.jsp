@@ -40,6 +40,8 @@
       <a class="btn btn-success my-1"  href="showAllSkills.do">See All Skills</a>
       <a class="btn btn-success my-1"  href="navLogin.do">Login</a>
       <a class="btn btn-success my-1" href="logout.do">Logout</a>
+      <a class="btn btn-success my-1" href="navRegister.do">Register</a>
+      <a class="btn btn-success my-1" href="admin.do">Admin</a>
     </div>
    
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">

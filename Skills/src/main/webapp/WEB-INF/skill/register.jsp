@@ -12,6 +12,18 @@
 	<%@ include file="navBar.jsp"%>
 	<br>
 
+<form action="register.do" method="POST" modelAttribute="user">
+			<table>
+				<tr>
+					<td><input name="id" type="hidden" value="0" /></td>
+					<td>UserName</td>
+					<td><input name="userName" required /></td>
+					<td>Password</td>
+					<td><input name="password" type="password" required /></td>
+					<td><input type="submit" value="Register" /></td>
+				</tr>
+			</table>
+		</form>
 	<div>${user }</div>
 	<form action="registerProfile.do" method="POST" modelAttribute ="profile">
 		<table>
