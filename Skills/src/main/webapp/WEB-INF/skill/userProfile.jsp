@@ -21,7 +21,11 @@
 <body>
 	<%@ include file="navBar.jsp"%>
 	<br>
-
+<c:if test="${userlog.id == null }">THANK YOU for Registering, Please Log In to Confirm Registration
+<br>
+<a class="btn btn-success my-1" href="logout.do">Return Home</a>
+</c:if>
+	<c:if test="${userlog.id != null }">
 	<h1>${userlog.userName}'s
 		Page <i class="material-icons">face</i> <i class="material-icons">whatshot</i>
 	</h1>
@@ -55,9 +59,9 @@
 				</form> 
 
 			</c:forEach>
-
 		</h5>
 	</c:forEach>
+</c:if>
 
 
 

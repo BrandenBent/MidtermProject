@@ -19,11 +19,11 @@
 		<br>
 	
 	<div class="content">
-		<h1 class="lead">Test</h1>
+		<%-- <h1 class="lead">Test</h1>
 		<h1>
 			<a href="showUser.do?id=${userlog.id}" class="text-success">${userlog.userName} </a> is
 			Logged in
-		</h1>
+		</h1> --%>
 		
 
 		<form action="register.do" method="POST" modelAttribute="user">

@@ -12,7 +12,7 @@
 	<%@ include file="navBar.jsp"%>
 	<br>
 
-	<div>${user }</div>
+	<div>${userlog.userName}</div>
 	<form action="registerProfile.do" method="POST" modelAttribute ="profile">
 		<table>
 			<tr>
