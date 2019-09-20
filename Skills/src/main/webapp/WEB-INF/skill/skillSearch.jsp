@@ -7,10 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Search By Keyword</title>
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="navBar.jsp" %>
+	<%@ include file="navBar.jsp"%>
+		<br>
+	
 	<h1>Testing Search Page</h1>
 ${userlog.userName}
 	<c:forEach items="${skills }" var="skill">

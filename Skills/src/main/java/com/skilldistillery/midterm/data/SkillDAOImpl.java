@@ -10,6 +10,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
+import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.SkillRequirement;
 
@@ -32,6 +34,8 @@ public class SkillDAOImpl implements SkillDAO {
 
 		return skillsKW;
 	}
+
+	
 
 	@Override
 	public List<Skill> findAllSkills() {
@@ -87,11 +91,16 @@ public class SkillDAOImpl implements SkillDAO {
 //		return null;
 //	}
 	
-		@Override
-		public Achievement findAchievementBySkillId(Integer id) {
-			
-			return em.find(Achievement.class, id);
-		}
+
+	@Override
+    public Achievement findAchievementBySkillIdandProfileId(Integer id, Integer profileId) {
+        
+        String qry = "SELECT a FROM Achievement a WHERE a.skillId = :id AND a.profile = :profileId ";
+        Profile profile = em.find(Profile.class, profileId);
+        
+        return em.createQuery(qry,Achievement.class).setParameter("id", id).setParameter("profileId", profile).getSingleResult();
+    }
+		
 		@Override
 		public SkillRequirement findSkillRequirementBySkillId(Integer id) {
 			
@@ -117,5 +126,11 @@ public class SkillDAOImpl implements SkillDAO {
 			return null;
 		}
 
+
+		@Override
+		public AchievementRequirement aReq(Integer id) {
+			// TODO Auto-generated method stub
+			return em.find(AchievementRequirement.class, id);
+		}
 
 }

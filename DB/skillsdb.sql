@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NULL DEFAULT 1,
-  `role` VARCHAR(45) NULL,
+  `role` VARCHAR(45) NULL DEFAULT 'user',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC))
 ENGINE = InnoDB;
@@ -234,16 +234,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (1, 'Knots', 'Learn how to tie knots', 'rope', 'summary about tying knots', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (2, 'Chess', 'Learn to play chess', 'chess board', 'summary about playing chess', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (3, 'Tent Setup', 'Learn how to pitch a tent', 'basic tent', 'summary about tent', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (4, 'Gardening', 'How set up your first garden', 'dirt, wood, seeds', 'summary about garden', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (5, 'Saving Money', 'Learn to save money', 'cash', 'summary about saving cash', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (6, 'Laundry', 'Learn to do Laundry', 'dirty clothes', 'summary about laundry', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (7, 'Gift wrapping', 'How to wrap a gift', 'wrapping paper, a present', 'summary about gift wrapping', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (8, 'Map Reading ', 'How to Read a map', 'map', 'summary about map reading', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (9, 'Bake a loaf of bread', 'How to bake a loaf of bread', 'go buy ingredients', 'summary about baking bread', NULL);
-INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (10, 'Clean your room', 'How to clean your room', 'cleaning cloth, vaccum, trash bad', 'summary about cleaning room', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (1, 'Knots', 'A knot is an intentional complication in cordage which may be useful or decorative. Practical knots may be classified as hitches, bends, splices, or knots. A hitch fastens a rope to another object; a bend unites two rope ends; a splice is a multi-strand bend or loop.[1] A knot in the strictest sense serves as a stopper or knob at the end of a rope to keep that end from slipping through a grommet or eye. Knots have excited interest since ancient times for their practical uses, as well as their topological intricacy, studied in the area of mathematics known as knot theory.', 'Rope', 'While some people can look at diagrams or photos and tie the illustrated knots, others learn best by watching how a knot is tied. Knot tying skills are often transmitted by sailors, scouts, climbers, canyoners, cavers, arborists, rescue professionals, stagehands, fishermen, linemen and surgeons. ', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (2, 'Chess', 'Each player begins with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. Each piece type moves differently, with the most powerful being the queen and the least powerful the pawn. The objective is to checkmate the opponent\'s king by placing it under an inescapable threat of capture. To this end, a player\'s pieces are used to attack and capture the opponent\'s pieces, while supporting each other. During the game, play typically involves exchanging pieces for the opponent\'s similar pieces, and finding and engineering opportunities to trade advantageously or to get a better position. In addition to checkmate, a player wins the game if the opponent resigns, or (in a timed game) runs out of time. There are also several ways that a game can end in a draw.', 'Chess Board', 'Chess is a two-player strategy board game played on a checkered board with 64 squares arranged in an 8×8 grid.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (3, 'Tent Setup', 'A tent  is a shelter consisting of sheets of fabric or other material draped over, attached to a frame of poles or attached to a supporting rope. While smaller tents may be free-standing or attached to the ground, large tents are usually anchored using guy ropes tied to stakes or tent pegs. First used as portable homes by nomads, tents are now more often used for recreational camping and as temporary shelters.', 'Tent', 'Tents range in size from \"bivouac\" structures, just big enough for one person to sleep in, up to huge circus tents capable of seating thousands of people. The bulk of this article is concerned with tents used for recreational camping which have sleeping space for one to ten people.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (4, 'Gardening', 'Gardening is the practice of growing and cultivating plants as part of horticulture. In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use. Gardening is considered by many people to be a relaxing activity.', 'Container, Soil, Seeds', 'Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential back gardens including lawns and foundation plantings, and to container gardens grown inside or outside.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (5, 'Saving Money', 'A piggy bank can be a great way to teach your kids the importance of saving, while giving them an easy way to do it.  Tell your kids that the goal is to fill up the piggy bank with dollars and coins, until there is no room.  Illustrate that the piggy bank is for saving money for the future and that the more they save, the more their money will grow. ', 'Piggy Bank', 'Saving money is a habit that can take time to build, and even some adults have yet to master it.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (6, 'Laundry', 'From sweaty socks to food-stained t-shirts, from bed sheets to bath mats, there\'s always something that can be washed (or folded or ironed). One way to lighten the work load? Recruit your kids to take a turn doing the laundry.', 'Dirty Clothes', 'Laundry is something that everyone in the household contributes to, no matter their age or hobbies.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (7, 'Gift wrapping', 'Gift giving is an act of self-gratification. It is a good way of strengthening relationships. If you are in a friendship or a relationship, you should always show the other person how much you care for him or her. You don\'t need to wait for an occasion in order to give a gift.', 'Present, Wrapping Paper', 'Learn to wrap a present professionally.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (8, 'Map Reading ', 'Spatial thinking allows students to comprehend and analyze phenomena related to the places and spaces around them—and at scales from what they can touch and see in a room or their neighborhood to a world map or globe. Spatial thinking is one of the most important skills that students can develop as they learn geography, Earth, and environmental sciences.', 'Map', 'Reading a map is a skill that children love using. There is a sense of adventure that goes along with traveling and exploring with the aid of a map!', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (9, 'Bake a loaf of bread', 'Nothing beats the flavor & taste coming from that freshly baked bread straight from out of your oven. The mouth-watering taste and aroma of newly-baked bread with some butter slowly melting atop is one thing you cannot experience outside your home.', 'Oven, Ingredients', 'Create your very own bread.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (10, 'Clean your room', 'We all make the messes, eat the food, wear the clothes, dirty the dishes. We all need to contribute with cleaning up after ourselves.', 'cleaning cloth, vaccum, trash bad', 'An important part of a young person’s development, cleaning up a mess they\'ve made themselves.', NULL);
 
 COMMIT;
 
@@ -253,36 +253,36 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skillsdb`;
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (1, 'Knot Req 1', 'Tie one knot');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (2, 'Knot Req 2', 'Tie one knot');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (3, 'Knot Req 3', 'Tie one knot');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (4, 'Chess Req 1', 'Chess req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (5, 'Chess Req 2', 'Chess req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (6, 'Chess Req 3', 'Chess req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (7, 'Tent Req 1', 'Tent req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (8, 'Tent Req 2', 'Tent req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (9, 'Tent Req 3', 'Tent req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (10, 'Garden Req 1', 'Garden Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (11, 'Garden Req 2', 'Garden Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (12, 'Garden Req 3', 'Garden Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (13, 'Money Req 1', 'Money Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (14, 'Money Req 2', 'Money Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (15, 'Money Req 3', 'Money Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (16, 'Laundry Req 1', 'Laundry Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (17, 'Laundry Req 2', 'Laundry Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (18, 'Laundry Req 3', 'Laundry Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (19, 'Gift Req 1', 'Gift Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (20, 'Gift Req 2', 'Gift Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (21, 'Gift Req 3', 'Gift Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (22, 'Map Req 1', 'Map Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (23, 'Map Req 2', 'Map Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (24, 'Map Req 3', 'Map Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (25, 'Bread Req 1', 'Bread Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (26, 'Bread Req 2', 'Bread Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (27, 'Bread Req 3', 'Bread Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (28, 'Cleaning Req 1', 'Cleaning Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (29, 'Cleaning Req 2', 'Cleaning Req');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (30, 'Cleaning Req 3', 'Cleaning Req');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (1, 'Knot Req 1', 'Learn to tie 5 knots.');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (2, 'Knot Req 2', 'Teach someone to tie 5 knots');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (3, 'Knot Req 3', 'Learn to tie 15 knots');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (4, 'Chess Req 1', 'Learn chess rules and board setup');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (5, 'Chess Req 2', 'Play 3 full games');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (6, 'Chess Req 3', 'Win 5 games');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (7, 'Tent Req 1', 'Setup a tent');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (8, 'Tent Req 2', 'Teach someone how to setup a tent');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (9, 'Tent Req 3', 'Spend one night in tent');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (10, 'Garden Req 1', 'Setup Garden');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (11, 'Garden Req 2', 'Grow 1 plant');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (12, 'Garden Req 3', 'Grow 5 plants');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (13, 'Money Req 1', 'Save $10');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (14, 'Money Req 2', 'Save $50');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (15, 'Money Req 3', 'Setup a bank account');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (16, 'Laundry Req 1', 'Accumulate some dirty clothing');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (17, 'Laundry Req 2', 'Complete a Single load of laundry or handwash ');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (18, 'Laundry Req 3', 'Complete 5 loads of laundry');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (19, 'Gift Req 1', 'Find someone deserving a present');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (20, 'Gift Req 2', 'Learn how to get gift ideas');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (21, 'Gift Req 3', 'Give 3 gifts');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (22, 'Map Req 1', 'Learn the information in a map');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (23, 'Map Req 2', 'Learn map orientation and how to follow a map');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (24, 'Map Req 3', 'Take map on a road trip or hiking trail');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (25, 'Bread Req 1', 'Make one loaf');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (26, 'Bread Req 2', 'Make 3 loaves');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (27, 'Bread Req 3', 'Make 5 loaves');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (28, 'Cleaning Req 1', 'Learn about different cleaning equipment and ');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (29, 'Cleaning Req 2', 'Clean your room');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (30, 'Cleaning Req 3', 'Keep room clean for 1 week');
 
 COMMIT;
 
@@ -311,7 +311,7 @@ INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) V
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (3, 'Tent Setup', 'http://bit.ly/2NfAGaw', 'http://bit.ly/2USYhyr', 'http://bit.ly/2Ne1kAe');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (4, 'Gardening', 'http://bit.ly/2NedpFF', 'http://bit.ly/2NjtPwJ', 'http://bit.ly/2NdHkxY');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (5, 'Saving Money', 'http://bit.ly/2Ndc0zi', 'http://bit.ly/2USsgqp', 'http://bit.ly/2NcGSQz');
-INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (6, 'Laundry', 'http://bit.ly/2LvQDXK & http://bit.ly/32MNiJV', 'http://bit.ly/2LvQDXK', 'http://bit.ly/32Nm2L1');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (6, 'Laundry', 'http://bit.ly/32G63yv', 'http://bit.ly/2LvQDXK', 'http://bit.ly/32Nm2L1');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (7, 'Gift wrapping', 'http://bit.ly/32G6HvV', 'http://bit.ly/32JC092', 'http://bit.ly/32HLrpv');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (8, 'Map Reading', 'http://bit.ly/32Pd54d', 'http://bit.ly/32JHUqU', 'http://bit.ly/2LA7VDr');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (9, 'Baking bread', 'http://bit.ly/2kKQcOR', 'http://bit.ly/32Ll3v3', 'https://foodlets.com/2018/10/22/the-easy-bread-recipe-your-kids-can-make-themselves/');

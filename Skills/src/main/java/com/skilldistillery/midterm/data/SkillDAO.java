@@ -3,6 +3,7 @@ package com.skilldistillery.midterm.data;
 import java.util.List;
 
 import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.SkillRequirement;
 
@@ -20,17 +21,19 @@ public interface SkillDAO {
 
 	Skill findSkillById(Integer id);
 
-
+	AchievementRequirement aReq(Integer id);
 
 	SkillRequirement findSkillRequirementBySkillId(Integer id);
 
-	Achievement findAchievementBySkillId(Integer id);
 
 
 	List<SkillRequirement> findListOfSkillReq(Skill skill);
 
 	public List<Skill> findSkillByUserId(Integer id);
 
+
 //	public Integer skillValue();
+	Achievement findAchievementBySkillIdandProfileId(Integer id, Integer profileId);
+
 
 }

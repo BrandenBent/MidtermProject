@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +9,15 @@
 <title>Test></title>
 </head>
 <body>
+	<%@ include file="navBar.jsp"%>
+	<br>
+
 	<div>${user }</div>
 	<form action="registerProfile.do" method="POST" modelAttribute ="profile">
 		<table>
 			<tr>
 				<td>Profile Name</td>
-				<td><input name="name"/></td>
+				<td><input name="name"required/></td>
 				<!-- <td>Birth Day</td> -->
 				<!-- <td><input required type="date" name="birthDate" /></td> -->
 				<td><input type="submit" value="Create Profile" /></td>
