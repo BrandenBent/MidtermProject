@@ -104,6 +104,22 @@ public class SkillController {
 		return "skill/skillSingle";
 	}
 
+//	@RequestMapping(path = "addSkillToProfile.do", method = RequestMethod.POST)
+//	public String addskilltoProfile(@RequestParam("id") Integer id, Model model, HttpSession session) {
+//		Skill addskill = dao.findSkillById(id);
+//		User user = (User) session.getAttribute("userlog");
+//		Achievement achieve = new Achievement();
+//		achieve.setSkillId(addskill.getId());
+//		achieve.setProfile(user.getProfile());
+//		
+//		udao.createAchievement(achieve);
+//		User refreshUser = autoDao.findUserById(user.getId());
+//
+//		session.setAttribute("userlog", refreshUser);
+//		session.setAttribute("userlog", user);
+//
+//		return "skill/userProfile";
+//	}
 	@RequestMapping(path = "addSkillToProfile.do", method = RequestMethod.POST)
 	public String addskilltoProfile(@RequestParam("id") Integer id, Model model, HttpSession session) {
 		Skill addskill = dao.findSkillById(id);
@@ -111,12 +127,14 @@ public class SkillController {
 		Achievement achieve = new Achievement();
 		achieve.setSkillId(addskill.getId());
 		achieve.setProfile(user.getProfile());
-
 		udao.createAchievement(achieve);
-		session.setAttribute("userlog", user);
+		User refreshUser = autoDao.findUserById(user.getId());
 
+		session.setAttribute("userlog", refreshUser);
 		return "skill/userProfile";
 	}
+
+
 
 	@RequestMapping(path = "startSkill.do", method = RequestMethod.POST)
 	public String addachievementReqtoPro(@RequestParam("fid") Integer selected, Model model, HttpSession session) {

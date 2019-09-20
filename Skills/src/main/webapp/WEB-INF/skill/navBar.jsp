@@ -21,7 +21,7 @@
         padding-left: 10px;
     }
 </style>
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 
 </head>
 

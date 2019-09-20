@@ -16,7 +16,7 @@
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
@@ -29,6 +29,7 @@
 		<input type="submit" class="btn btn-primary btn-lg" value="Log Out">
 	</form>
 
+	<%-- <c:forEach items="${userlog.profile.skills}" var="skill"> --%>
 	<c:forEach items="${userlog.profile.skills}" var="skill">
 		<h5>
 			<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>

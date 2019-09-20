@@ -1,12 +1,15 @@
 package com.skilldistillery.midterm.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Profile;
@@ -16,9 +19,9 @@ import com.skilldistillery.midterm.entities.User;
 @Service
 @Transactional
 public class AuthenticationDAOImpl implements AuthenticationDAO {
-
 	@PersistenceContext
 	private EntityManager em;
+
 
 
 
@@ -77,10 +80,12 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	@Override
 	public List<User> findAllUsers() {
 		List<User> allUsers = new ArrayList<User>();
-		String query = "Select u from User u ";
-
-		return allUsers = em.createQuery(query, User.class).getResultList();
+		String query = "Select u from User u";
+		allUsers = em.createQuery(query, User.class).getResultList();
+		return allUsers;
 	}
+//	Query query = em.createQuery(“SELECT e FROM Professor e”);
+//	   return (Collection<Professor>) query.getResultList();
 
 	@Override
 	public User findByUserName(String username) {
@@ -91,7 +96,15 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public boolean isValidUser(User u) {
-		// TODO Auto-generated method stub
+		
+		if (u == null) {
+			return false;
+		}
+		User checkUser = findByUserName(u.getUserName());
+		if (u.getPassword().equals(checkUser.getPassword()))
+		{
+			return true;
+		}
 		return false;
 	}
 

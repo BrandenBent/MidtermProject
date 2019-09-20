@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `enabled` TINYINT NOT NULL DEFAULT 1,
+  `enabled` TINYINT NULL DEFAULT 1,
   `role` VARCHAR(45) NULL DEFAULT 'user',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC))

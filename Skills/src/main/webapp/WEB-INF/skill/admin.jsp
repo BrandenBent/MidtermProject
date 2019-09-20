@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
