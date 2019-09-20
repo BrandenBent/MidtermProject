@@ -16,6 +16,10 @@
 
 	<h1>UserProfile Page</h1>
 	
+	<c:if test= "${userlog.role == 'admin'}">SHOW ADMIN STUFF HERE</c:if>
+	
+	<c:if test="${userlog.role == 'admin'}">Show Admin buttons</c:if>
+	
 
 	<h1>${userlog.userName}'sPage</h1>
 
@@ -41,9 +45,6 @@
 			</c:forEach>
 
 		</h5>
-	<c:forEach items="${skills}" var="skill">
-		<h1>${skill}</h1>
-	</c:forEach>
 	
 	</c:forEach>
 </body>
