@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.SkillRequirement;
 
@@ -116,5 +117,11 @@ public class SkillDAOImpl implements SkillDAO {
 			return null;
 		}
 
+
+		@Override
+		public AchievementRequirement aReq(Integer id) {
+			// TODO Auto-generated method stub
+			return em.find(AchievementRequirement.class, id);
+		}
 
 }
