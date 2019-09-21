@@ -24,8 +24,11 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public User createUser(User user) {
+		Profile prof = new Profile();
 		user.setEnabled(true);
 		user.setRole("user");
+		prof.setName(user.getUserName());
+		prof.setId(user.getId());
 		em.persist(user);
 		em.flush();
 		return user;
@@ -33,7 +36,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public Profile createProfile(Profile profile) {
-		
+		User user = new User();
+		profile.setId(user.getId());
 		em.persist(profile);
 		em.flush();
 		return profile;

@@ -32,21 +32,18 @@
 							</div>
 							<div class="card-body">
 								<form action="register.do" class="form" role="form"
-									autocomplete="off" id="formLogin" novalidate="" method="POST">
+									 method="POST">
 									<div class="form-group">
 										<input name="id" type="hidden" value="0" /><label
-											for="uname1">Username</label><input type="text"
-											class="form-control form-control-lg rounded-0" required
-											name="userName" id="uname1" required=>
-										<div class="invalid-feedback">Oops, you missed this one.</div>
+											for="userName">Username</label><input type="text"
+											class="form-control form-control-lg rounded-0" 
+											name="userName" required >
 									</div>
 									<div class="form-group">
-										<label>Password</label> <input name="password" type="password"
-											class="form-control form-control-lg rounded-0" id="pwd1"
-											required autocomplete="new-password">
-										<div class="invalid-feedback">Enter your password too!</div>
+										<label>Password</label> <input name="password" required type="password"
+											class="form-control form-control-lg rounded-0" 
+											required>
 									</div>
-
 									<button type="submit"
 										class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
 								</form>
@@ -67,19 +64,7 @@
 	</div>
 	<!--/row-->
 
-	<%-- <form action="register.do" method="POST" modelAttribute="user">
-			<table>
-				<tr>
-					<td><input name="id" type="hidden" value="0" /></td>
-					<td>UserName</td>
-					<td><input name="userName" required /></td>
-					<td>Password</td>
-					<td><input name="password" type="password" required /></td>
-					<td><input type="submit" value="Register" /></td>
-				</tr>
-			</table>
-		</form>
-	<div>${user }</div> --%>
+	
 	
 	<form action="registerProfile.do" method="POST" modelAttribute ="profile">
 		<table>
@@ -92,8 +77,6 @@
 			</tr>
 		</table>
 	</form>
-	<form action="home.do" method="GET">
-		<input type="submit" class="btn btn-primary btn-lg" value="Home">
-	</form>
+	
 </body>
 </html>

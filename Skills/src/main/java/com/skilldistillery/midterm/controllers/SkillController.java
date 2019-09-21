@@ -113,9 +113,6 @@ public class SkillController {
 		udao.createAchievement(achieve);
 		User refreshUser = autoDao.findUserById(user.getId());
 		achieve.setProfile(refreshUser.getProfile());
-
-
-
 		session.setAttribute("userlog", refreshUser);
 		return "skill/userProfile";
 	}
@@ -126,28 +123,33 @@ public class SkillController {
 		Integer userProfileId = user.getProfile().getId();
 		SkillRequirement skillReq = dao.findSkillRequirementBySkillId(selected);
 		Skill addskill = dao.findSkillById(skillReq.getSkill().getId());
-		System.err.println(addskill.getId());
 		Achievement achieve = dao.findAchievementBySkillIdandProfileId(addskill.getId(), userProfileId);
-		System.err.println("*******************************************************");
-		System.err.println(achieve.getId());
 		AchievementRequirement newAchievementReq = new AchievementRequirement();
+		achieve.setSkillId(addskill.getId());
+		achieve.setProfile(user.getProfile());
 		newAchievementReq.setAchievement(achieve);
 		newAchievementReq.setSkillRequirement(skillReq);
 		AchievementRequirement ar = udao.createAchievementReq(newAchievementReq);
-		System.out.println(ar.getId());
+		User refreshUser = autoDao.findUserById(user.getId());
+		achieve.setProfile(refreshUser.getProfile());
 
-		session.setAttribute("userlog", user);
+		session.setAttribute("userlog", refreshUser);
 		return "skill/userProfile";
 	}
 
 	@RequestMapping(path = "completeSkill.do", method = RequestMethod.POST)
 	public String skillCompleted(@RequestParam("id") Integer id, Model model, HttpSession session) {
+		AchievementRequirement newAchievementReq = dao.aReq(id);
+		Achievement achieve = new Achievement();
 		User user = (User) session.getAttribute("userlog");
+
 		LocalDate LD = LocalDate.now();
 		Date date = Date.from(LD.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-		AchievementRequirement newAchievementReq = dao.aReq(id);
+//		AchievementRequirement newAchievementReq = dao.aReq(id);
 		newAchievementReq.setDateCompleted(date);
-		session.setAttribute("userlog", user);
+		User refreshUser = autoDao.findUserById(user.getId());
+		 achieve.setProfile(refreshUser.getProfile());
+		session.setAttribute("userlog", refreshUser);
 
 		return "skill/userProfile";
 	}
