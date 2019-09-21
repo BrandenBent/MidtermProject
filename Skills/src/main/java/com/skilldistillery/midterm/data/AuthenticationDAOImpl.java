@@ -27,6 +27,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public User createUser(User user) {
+		user.setEnabled(true);
+		user.setRole("user");
 		em.persist(user);
 		em.flush();
 		return user;
