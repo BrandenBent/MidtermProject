@@ -12,7 +12,13 @@
 <body>
 	<%@ include file="navBar.jsp"%>
 		<br>
+	<c:forEach items="${users}" var="user">
+		<h5>
+			<a href="getUser.do?id=${user.id}">${user.userName} </a>
+			User Enabled: (${user.enabled}) ID: ${user.id}
 	
+		</h5>
+	</c:forEach>
 
 </body>
 </html>

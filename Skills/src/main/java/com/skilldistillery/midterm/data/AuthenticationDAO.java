@@ -24,6 +24,9 @@ public interface AuthenticationDAO {
 
 	public User findUserById(Integer id);
 
+	public Profile findProfByUID(Integer id); 
+	
+	
 	public void addUserToProfile(User user);
 //List<Skill> findAll();
 
@@ -31,4 +34,7 @@ public interface AuthenticationDAO {
 
 
 	public Skill findSkillById(Integer id);
+
+
+//	Profile createProfile(Profile profile);
 }

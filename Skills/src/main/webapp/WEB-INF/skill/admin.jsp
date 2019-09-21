@@ -13,20 +13,7 @@
 		<br>
 	
 	<h1>Admin</h1>
-	<h1>Create New User</h1>
-	<form action="register.do" method="POST" modelAttribute="user">
-		<table>
-			<tr>
-			<!-- required -->
-				<td><input name="id" type="hidden" value="0" /></td>
-				<td>UserName</td>
-				<td><input name="userName" required /></td>
-				<td>Password</td>
-				<td><input name="password" type="password" required /></td>
-				<td><input type="submit" value="Register" /></td>
-			</tr>
-		</table>
-	</form>
+	
 
 
 	<c:forEach items="${users}" var="user">
@@ -36,8 +23,21 @@
 	
 		</h5>
 	</c:forEach>
-		<form:form action="home.do" method="GET">
-		<input type="submit" class="btn btn-primary btn-lg" value="Home">
-	</form:form>
+	<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-secondary"  href="home.do" >Home <span class="sr-only">(current)</span></a>
+      <a  class="btn btn-secondary"  href="crud.do">Add Skill</a>
+      <a class="btn btn-secondary" href="navRegister.do">Add User</a>
+      <a class="btn btn-secondary" href="allUsers.do">View Users</a>
+      <a class="btn btn-secondary" href="logout.do">Logout</a>
+      <a class="btn btn-secondary" href="admin.do">Extra</a>
+      <a class="btn btn-secondary" href="admin.do">Extra</a>
+      <a class="btn btn-secondary" href="admin.do">Extra</a>
+   
+  </div>
+</div>
+
+
+	
 </body>
 </html>

@@ -35,10 +35,16 @@ public class LogRegisterTestController {
 
 	@RequestMapping(path = "admin.do")
 	public String index(Model model) {
+
+		return "skill/admin";
+	}
+
+	@RequestMapping(path = "allUsers.do")
+	public String allUsers(Model model) {
 		List<User> users = adao.findAllUsers();
 		model.addAttribute("users", users);
 
-		return "skill/admin";
+		return "skill/allUsers";
 	}
 
 	@RequestMapping(path = "getUser.do", method = RequestMethod.GET)
@@ -97,15 +103,15 @@ public class LogRegisterTestController {
 
 	@RequestMapping(path = "registerProfile.do", method = RequestMethod.POST)
 	public String registerProfile(@ModelAttribute("profile") Profile profile, Model model, HttpSession session) {
-		User user = new User();
 		profile.setUser((User) session.getAttribute("userlog"));
 		Profile newProfile = adao.createProfile(profile);
+		User user = ((User) session.getAttribute("userlog"));
+		user.setProfile(newProfile);
+		user = adao.editUser(user, user.getId());
+		session.removeAttribute("userlog");
+		session.setAttribute("userlog", user);
 		model.addAttribute("profile", newProfile);
-		user.setEnabled(true);
-		user.setRole("user");
-		User refreshUser = adao.findUserById(user.getId());
 
-		session.setAttribute("userlog", refreshUser);
 		return "skill/userProfile";
 	}
 
@@ -115,34 +121,48 @@ public class LogRegisterTestController {
 
 	}
 
-	@RequestMapping(path = "login.do", method = RequestMethod.GET)
-	public ModelAndView login(@Valid User user, Errors errors, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		System.out.println(user.getUserName());
-		System.out.println(user.getPassword());
-		System.out.println("**************************************************");
-		User loggeduser = adao.findByUserName(user.getUserName());
-		if (loggeduser == null) {
-			errors.rejectValue("username", "error.username", "Please Enter a Username");
-		} else {
-			// TODO: Else if the user is not valid (isValidUser), use the Errors object to
-			// reject
-			// the password with the message "Incorrect password"
-			boolean isValidUser = adao.isValidUser(user);
-			if (!isValidUser) {
-				errors.rejectValue("password", "error.password", "Incorrect password");
-			}
-		}
-		if (errors.getErrorCount() != 0) {
-			System.err.println("PLEASE ENTER A PASSWORD, WHY DOESNT THIS WORK");
-			mv.setViewName("skill/notFound");
-			return mv;
-		}
-		mv.addObject("user", loggeduser);
-		session.setAttribute("userlog", loggeduser);
-		mv.setViewName("skill/userProfile");
-		return mv;
+	@RequestMapping(path = "navRegister.do", method = RequestMethod.GET)
+	public String navReg(Model model) {
+		return "skill/register";
+
 	}
+
+//	@RequestMapping(path = "navLogin.do", method = RequestMethod.GET)
+//	public String navLog(Model model) {
+//		return "skill/login";
+//
+//	}
+
+	@RequestMapping(path = "login.do", method = RequestMethod.GET)
+    public ModelAndView login(@Valid User user, Errors errors, HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        System.out.println(user.getUserName());
+        System.out.println(user.getPassword());
+        System.out.println("**************************************************");
+        User loggeduser = adao.findByUserName(user.getUserName());
+        // TODO: If the email was not found, use the Errors object to reject the email,
+        // with the message "Email not found"
+        if (loggeduser == null) {
+            errors.rejectValue("username", "error.username", "Please Enter a Username");
+        } else {
+            // TODO: Else if the user is not valid (isValidUser), use the Errors object to
+            // reject
+            // the password with the message "Incorrect password"
+            boolean isValidUser = adao.isValidUser(user);
+            if (!isValidUser) {
+                errors.rejectValue("password", "error.password", "Incorrect password");
+            }
+        }
+        if (errors.getErrorCount() != 0) {
+            System.err.println("PLEASE ENTER A PASSWORD, WHY DOESNT THIS WORK");
+            mv.setViewName("skill/notFound");
+            return mv;
+        }
+        mv.addObject("user", loggeduser);
+        session.setAttribute("userlog", loggeduser);
+        mv.setViewName("skill/userProfile");
+        return mv;
+    }
 
 	@RequestMapping(path = "navLogin.do", method = RequestMethod.GET)
 	public String navLog(Model model) {
@@ -166,7 +186,9 @@ public class LogRegisterTestController {
 		model.addAttribute("skillset", f);
 		session.removeAttribute("userlog");
 
-		return "index";
+		return "skill/userProfile";
+
 	}
+
 
 }
