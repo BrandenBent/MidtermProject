@@ -24,6 +24,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public User createUser(User user) {
+		user.setEnabled(true);
+		user.setRole("user");
 		em.persist(user);
 		em.flush();
 		return user;
@@ -31,9 +33,10 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public Profile createProfile(Profile profile) {
+		
 		em.persist(profile);
 		em.flush();
-		return null;
+		return profile;
 	}
 
 	@Override
@@ -105,6 +108,14 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	public Skill findSkillById(Integer id) {
 		// TODO Auto-generated method stub
 		return em.find(Skill.class, id);
+	}
+
+	@Override
+	public Profile findProfByUID(Integer id) {
+		String qry = "Select p from Profile p join User u on u.id = p.user Where u.id = :uid";
+		
+		
+		return em.createQuery(qry, Profile.class).setParameter("uid", id).getSingleResult();
 	}
 
 	

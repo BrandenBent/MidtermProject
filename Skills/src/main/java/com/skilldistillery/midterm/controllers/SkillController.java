@@ -112,6 +112,9 @@ public class SkillController {
 		achieve.setProfile(user.getProfile());
 		udao.createAchievement(achieve);
 		User refreshUser = autoDao.findUserById(user.getId());
+		achieve.setProfile(refreshUser.getProfile());
+
+
 
 		session.setAttribute("userlog", refreshUser);
 		return "skill/userProfile";

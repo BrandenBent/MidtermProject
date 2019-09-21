@@ -11,61 +11,64 @@
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
-		<br>
-	
-	<h1>Skills Edit</h1>
-	
+	<br>
+
+	<h1>Create Your Own</h1>
 
 	<form:form action="createSkill.do" method="POST" modelAttribute="skill">
-				<table>
-		
-		<tr>
-			<td><input name="id" type="hidden" value="0" /></td>
-			</tr>
-		<tr><td>Title</td>	<td><input name="name" type="text" name="name" /></td></tr>
-		<tr><td>Description</td>	<td><input   type="text" name="description" /></td></tr>
-	<tr>	<td>Description</td>	<td><input type="text" name="supplies" /></td></tr>
-	<tr>	<td>Description</td>	<td><input type="text" name="summary" /></td></tr>
-			
-		
-
-		<form:button type="submit"> Add </form:button>
-		</table>
-	</form:form>
-
-
-	
-
-	<%-- <form action="updateSkill.do" method="POST">
 		<table>
 			<tr>
-
-				<td><input name="id" type="hidden" value="${skill.id}" /></td>
-
+				<td><input name="id" type="hidden" value="0" /></td>
 			</tr>
 			<tr>
 				<td>Title</td>
-				<td><input name="name" type="text" value="${skill.name}" /></td>
+				<td><input name="name" type="text" name="name" /></td>
 			</tr>
 			<tr>
 				<td>Description</td>
-				<td><input name="description" type="text"
-					value="${skill.description}" /></td>
+				<td><input type="text" name="description" /></td>
 			</tr>
 			<tr>
-				<td>Supply</td>
-				<td><input name="supplies" type="text"
-					value="${skill.supplies}" /></td>
+				<td>Description</td>
+				<td><input type="text" name="supplies" /></td>
 			</tr>
 			<tr>
-				<td>Summary</td>
-				<td><input name="summary" type="text" value="${skill.summary}" /></td>
+				<td>Description</td>
+				<td><input type="text" name="summary" /></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Update" /></td>
+				<td><input type="submit"
+					class="btn btn-float btn-secondary float-right" type="button"
+					class="material-icons" value="Go" /></td>
 			</tr>
 		</table>
-	</form> --%>
-	
+	</form:form>
+
+              
+             <!--  <div class="form-label-group">
+                <input type="text" id="imageLink" class="form-control" placeholder="Image Link" required>
+                <label for="imageLink"></label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="videoLink" class="form-control" placeholder="Video Link" required>
+                <label for="videoLink"></label>
+              </div><div class="form-label-group">
+                <input type="text" id="siteLink" class="form-control" placeholder="Site Link" required>
+                <label for="siteLink"></label>
+              </div> -->
+             
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Create</button>
+              <%-- <hr class="my-4">
+              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> --%>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
 </body>
 </html>

@@ -30,31 +30,41 @@ public class LogRegisterTestController {
 
 	@Autowired
 	private SkillDAO dao;
-	
+
 	@Autowired
 	private UserDAO udao;
-	
-	
-	@RequestMapping(path = "admin.do" )
+
+	@RequestMapping(path = "admin.do")
 	public String index(Model model) {
-		List<User> users = adao.findAllUsers();
-		model.addAttribute("users", users);
+//		List<User> users = adao.findAllUsers();
+//		model.addAttribute("users", users);
 
 		return "skill/admin";
 	}
+
+	@RequestMapping(path = "allUsers.do")
+	public String allUsers(Model model) {
+		List<User> users = adao.findAllUsers();
+		model.addAttribute("users", users);
+
+		return "skill/allUsers";
+	}
+	
 	@RequestMapping(path = "getUser.do", method = RequestMethod.GET)
-	public String findSingleUser(@RequestParam("id")Integer id, String userName, Model model) {
+	public String findSingleUser(@RequestParam("id") Integer id, String userName, Model model) {
 		User user = adao.findUserById(id);
 		model.addAttribute("user", user);
 		return "skill/editUser";
 	}
+
 	@RequestMapping(path = "showUser.do", method = RequestMethod.GET)
-	public String SingleUser(@RequestParam("id")Integer id, String userName, Model model) {
+	public String SingleUser(@RequestParam("id") Integer id, String userName, Model model) {
 		User user = adao.findUserById(id);
 		System.out.println(user);
 		model.addAttribute("user", user);
 		return "skill/userProfile";
 	}
+
 	@RequestMapping(path = "deleteUser.do", method = RequestMethod.POST)
 	public String deleted(@RequestParam("id") Integer id, Model model) {
 		boolean deleteUser = adao.deleteUser(id);
@@ -64,15 +74,14 @@ public class LogRegisterTestController {
 			return "skill/admin";
 		} else {
 			return "index";
-		} 
+		}
 	}
 
 	@RequestMapping(path = "editUserLink.do", method = RequestMethod.GET)
-	public String editLink(@RequestParam("id")Integer id, Model model) {
+	public String editLink(@RequestParam("id") Integer id, Model model) {
 		model.addAttribute("user", adao.findUserById(id));
 		return "skill/editUser";
 	}
-	
 
 	@RequestMapping(path = "editUser.do", method = RequestMethod.POST)
 	public String editUser(Integer id, User user, Model model) {
@@ -81,69 +90,66 @@ public class LogRegisterTestController {
 		model.addAttribute("users", users);
 		return "skill/admin";
 	}
-	 
+
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
-	public String register(Model model, @ModelAttribute("user")  User user , HttpSession session) {
+	public String register(Model model, @ModelAttribute("user") User user, HttpSession session) {
 		User newUser = new User();
 		newUser.setEnabled(true);
 		newUser.setRole("user");
-		 newUser =  adao.createUser(user);
+		newUser = adao.createUser(user);
 		session.setAttribute("userlog", newUser);
 		return "skill/register";
 	}
 
 	@RequestMapping(path = "registerProfile.do", method = RequestMethod.POST)
-	public String registerProfile(@ModelAttribute("profile") Profile profile , Model model, HttpSession session) {
+	public String registerProfile(@ModelAttribute("profile") Profile profile, Model model, HttpSession session) {
 		User user = new User();
 		profile.setUser((User) session.getAttribute("userlog"));
 		Profile newProfile = adao.createProfile(profile);
-		model.addAttribute("profile" , newProfile);
 		user.setEnabled(true);
 		user.setRole("user");
+		model.addAttribute("profile", newProfile);
+
 		return "skill/userProfile";
 	}
-	
-	
+
 	@RequestMapping(path = "profile.do", method = RequestMethod.POST)
 	public String userProfile(Model model) {
 		return "skill/userProfile";
 
 	}
-	
+
 	@RequestMapping(path = "navRegister.do", method = RequestMethod.GET)
 	public String navReg(Model model) {
 		return "skill/register";
-		
+
 	}
-	
+
 	@RequestMapping(path = "navLogin.do", method = RequestMethod.GET)
 	public String navLog(Model model) {
 		return "skill/login";
-		
+
 	}
-	
+
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
-	public String login(User user, Model model,HttpSession session) {
+	public String login(User user, Model model, HttpSession session) {
 		User loggeduser = adao.findByUserName(user.getUserName());
 		if (loggeduser.getEnabled().equals(false)) {
 			return "skill/notFound";
 		}
 		session.setAttribute("userlog", loggeduser);
 		return "skill/userProfile";
-	
+
 	}
-	
-		@RequestMapping(path = "logout.do", method = RequestMethod.GET)
-		public String logout(User user, Model model, HttpSession session) {
-			User refreshUser = adao.findUserById(user.getId());
-			session.setAttribute("userlog", refreshUser);
 
-			session.removeAttribute("userlog");
-			
-			return "index";
-		}
-	
-	
+	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
+	public String logout(User user, Model model, HttpSession session) {
+		User refreshUser = adao.findUserById(user.getId());
+		session.setAttribute("userlog", refreshUser);
 
+		session.removeAttribute("userlog");
+
+		return "index";
+	}
 
 }

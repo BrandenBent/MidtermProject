@@ -20,10 +20,13 @@ public interface AuthenticationDAO {
 
 	public List<User> findAllUsers();
 
-	public Profile createProfile(Profile profile);
+//	public Profile createProfile(Profile profile);
 
 	public User findUserById(Integer id);
 
+	public Profile findProfByUID(Integer id); 
+	
+	
 	public void addUserToProfile(User user);
 //List<Skill> findAll();
 
@@ -31,4 +34,7 @@ public interface AuthenticationDAO {
 
 
 	public Skill findSkillById(Integer id);
+
+
+	Profile createProfile(Profile profile);
 }

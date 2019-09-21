@@ -21,6 +21,13 @@
 <body>
 	<%@ include file="navBar.jsp"%>
 	<br>
+	
+	<c:if test="${userlog.role == 'admin' }">
+	
+	<h1>TEST ADMIN SHIT</h1>
+	
+	
+	</c:if>
 
 	<h1>${userlog.userName}'s
 		Page <i class="material-icons">face</i> <i class="material-icons">whatshot</i>
@@ -29,44 +36,26 @@
 		<input type="submit" class="btn btn-primary btn-lg" value="Log Out">
 	</form>
 
-	<c:forEach items="${userlog.profile.skills}" var="skill">
+	<c:forEach items="${userlog.profile.skills}" var="skill" >
 		<h5>
 			<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
 			${skill.description} <br> <strong>Requirements: </strong> <br>
-			<c:forEach items="${skill.skillRequirements}" var="skillReq">
+			<c:forEach items="${skill.skillRequirements}" var="skillReq"  begin="0" end="3">
 				${skillReq.requirement.description }
 				<br>
-
-				 <form action="startSkill.do" method="POST">
+			
+				  <form action="startSkill.do" method="POST">
+				    <div class="custom-control custom-radio custom-control-inline">
+				  
 					<input type="checkbox" name="selected" value="${skill.id}">Start
 					Learning Skill 
 					<input name="fid" type="hidden"
 						value="${skillReq.id}" /> <br> <input type="submit"
 						value="Submit">
-				</form>   
-				
-			<%-- 	<form class="was-validated" action="startSkill.do" method="POST">
-					<div class="custom-control custom-switch">
-						<input class="custom-control-input" id="customSwitchValidation"
-							value="${skill.id}" required type="checkbox"> <span
-							class="custom-control-track"></span> <input name="fid"
-							type="hidden"  type="submit" value="${skillReq.id}" /> <label
-							class="custom-control-label" for="customSwitchValidation">Start Learning</label>
-						<div class="invalid-feedback">Not yet started</div>
-						<div class="valid-feedback">In Progress</div>
-					</div>
-				</form> 
-				 --%>
-				
-				<%--  <form action="completeSkill.do" method="POST">
-					<input type="checkbox" name="selected" value="${skill.id}">Done
-					Learning Skill <input name="id" type="hidden"
-						value="${skillReq.id}" /> <br> <input type="submit"
-						value="Submit">
-				</form>  --%>
+						</div>
+				</form>    
 
 			</c:forEach>
-
 		</h5>
 	</c:forEach>
 
