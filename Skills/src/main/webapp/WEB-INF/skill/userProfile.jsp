@@ -22,52 +22,35 @@
 		<%@ include file="navBar.jsp"%>
 	<br>
 	<div class="content">
-
 		<c:if test="${userlog.role == 'admin' }">
-	<%@ include file="adminNav.jsp"%>
-<i class="material-icons">whatshot</i>
+			<%@ include file="adminNav.jsp"%>
+			<i class="material-icons">whatshot</i>
 		</c:if>
-<c:if test="${userlog.profile.name == null }" >
+		<c:if test="${userlog.profile.name == null }">
 			<%@ include file="guestNav.jsp"%>
 		</c:if>
 		<br>
-		<h1>${userlog.userName}'s 
-			Page <i class="material-icons">face</i> 
+		<h1>${userlog.userName}'s
+			Page <i class="material-icons">face</i>
 		</h1>
-		
-		<c:if test="${userlog.profile.name == null }" >
-		<form action="registerProfile.do" method="POST" modelAttribute="profile">
-			<table>
-				<tr>
-					<td>Profile Name</td>
-					<td><input name="name" required /></td>
-					<!-- <td>Birth Day</td> -->
-					<!-- <td><input required type="date" name="birthDate" /></td> -->
-					<td><input type="submit" value="Create Profile" /></td>
-				</tr>
-			</table>
-		</form>
-    <c:if test="${userlog.id != null }">
-        <h1>${userlog.profile.name}
-            <i class="material-icons">face</i> <i class="material-icons">whatshot</i>
-        </h1>
-        <form action="logout.do" method="GET">
-            <input type="submit" class="btn btn-primary btn-lg" value="Log Out">
-        </form>
-        <%-- <c:forEach items="${userlog.profile.skills}" var="skill"> --%>
-    </c:if>
-    
-    <form>
-		<table>
-			<tr>
-				<td>Please Confirm Your Password</td>
-				<td><input name="name" placeholder="Confirm Your Password" required type="password" /></td>
-				<td><button class="btn btn-float btn-sm btn-secondary my-1" type="submit"><i class="material-icons">add</i></button></td>
-			</tr>
-		</table>
-	</form>
-
-</c:if>
+​
+		<c:if test="${userlog.profile.name == null }">
+			<form action="registerProfile.do" method="POST"
+				modelAttribute="profile">
+				<table>
+					<tr>
+						<!-- <td>Please Confirm Your Password</td> -->
+						<td><input name="name" placeholder="Confirm Your Password"
+							required type="password" /></td>
+						<td><button class="btn btn-float btn-sm btn-secondary my-1"
+								type="submit">
+								<i class="material-icons">add</i>
+							</button></td>
+					</tr>
+				</table>
+			</form>
+​
+		</c:if>
 	<c:forEach items="${userlog.profile.skills}" var="skill" begin="0" end ="0">
             <h5>
                 <a href="getSkill.do?fid=${skill.id}">${skill.name} </a>

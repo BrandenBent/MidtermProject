@@ -91,14 +91,9 @@ public class LogRegisterTestController {
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public String register(Model model, @ModelAttribute("user") User user, HttpSession session) {
 		User newUser = new User();
-		newUser.setEnabled(true);
-		newUser.setRole("user");
 		newUser = adao.createUser(user);
 		session.setAttribute("userlog", newUser);
-		User refreshUser = adao.findUserById(newUser.getId());
-
-		session.setAttribute("userlog", refreshUser);
-		return "skill/register";
+		return "skill/userProfile";
 	}
 
 	@RequestMapping(path = "registerProfile.do", method = RequestMethod.POST)
@@ -129,11 +124,6 @@ public class LogRegisterTestController {
 
 	}
 
-//	@RequestMapping(path = "navLogin.do", method = RequestMethod.GET)
-//	public String navLog(Model model) {
-//		return "skill/login";
-//
-//	}
 
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
     public ModelAndView login(@Valid User user, Errors errors, HttpSession session) {
