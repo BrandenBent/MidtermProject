@@ -33,6 +33,9 @@ body {
 
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary-dark">
+	
+<a class="navbar-brand" href="home.do"><i
+		class="material-icons m3-3">home</i></a>
 	<button type="button" class="btn btn-success btn-lg dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
@@ -60,20 +63,12 @@ body {
 			</div>
 		</li>
 	</ul>
-	
-	
 
-		<div class="navbar-nav">
-			<div class="nav-item d-flex">
-			<form:form>
-			<input type="submit" class="btn btn-float  btn-success ml-3"
-						type="button" class="material-icons" value="Go" />
-				<form action="keywordSearch.do" method="GET">
-					<input name="keyword" placeholder="   Search by Keyword" required />
-					
-				</form:form>
-			</div>
-		</div>
+	<!-- <a class="navbar-brand" href="home.do"><i
+		class="material-icons ml-3">home</i></a>
+	 -->
+
+	
 	
 
 	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -93,8 +88,15 @@ body {
 	</div> -->
 	<div class="collapse navbar-collapse flex-row-reverse"
 		id="navbarNavAltMarkup">
-
-<a class="navbar-brand" href="home.do"><i
-		class="material-icons ml-3">home</i></a>
+<div class="navbar-nav">
+			<div class="nav-item d-flex">
+			
+				<form action="keywordSearch.do" method="GET">
+					<input name="keyword" placeholder="   Search by Keyword" required />
+					<input type="submit" class="btn btn-float  btn-success ml-3"
+						type="button" class="material-icons" value="Go" />
+				</form>
+			</div>
+		</div>
 	</div>
 </nav>
