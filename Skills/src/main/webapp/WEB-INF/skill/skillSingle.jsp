@@ -39,7 +39,6 @@
 
 				</c:if>
 	</c:forEach>
-
 		<br> ${skill.description }<br> ${skill.summary }<br>
 			<strong>Supplies Needed:</strong> ${skill.supplies }<br>
 	<c:if test="${userlog.profile.name != null }">
@@ -47,7 +46,6 @@
 			<input name="id" type="hidden" value="${skill.id}" /> <input
 				type="submit" class="btn btn-success" value="Add Skill">
 	</c:if>
-
 	<c:forEach var="image" items="${skill.resources }">
 		<c:if test="${skill.id == skill.id}">
 			<div>

@@ -81,8 +81,7 @@ margin-bottom: 10px;
 			<a class="btn btn-success" href="home.do">Home <span
 				class="sr-only">(current)</span></a> <a class="btn btn-success"
 				href="showAllSkills.do">View All Skills</a> <a class="btn btn-success"
-				href="logout.do">Logout</a> <a class="btn btn-success"
-				href="admin.do">Extra</a> <a class="btn btn-success" href="admin.do">Extra</a>
+				href="logout.do">Logout</a> <a class="btn btn-success"></a>
 
 		</div>
 	</div>
