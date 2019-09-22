@@ -75,16 +75,15 @@ margin-bottom: 10px;
 
 
 
-	<div class="btn-toolbar" role="toolbar"
-		aria-label="Toolbar with button groups">
-		<div class="btn-group" role="group" aria-label="Basic example">
-			<a class="btn btn-success" href="home.do">Home <span
-				class="sr-only">(current)</span></a> <a class="btn btn-success"
-				href="showAllSkills.do">View All Skills</a> <a class="btn btn-success"
-				href="logout.do">Logout</a> <a class="btn btn-success"></a>
-
-		</div>
-	</div>
+<div class="btn-toolbar" role="toolbar"
+        aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-success" href="home.do">Home <span
+                class="sr-only">(current)</span></a> <a class="btn btn-success"
+                href="showAllSkills.do">View All Skills</a> <a class="btn btn-success"
+                href="logout.do">Logout</a> 
+        </div>
+    </div>
 
 	<div class="collapse navbar-collapse flex-row-reverse"
 		id="navbarNavAltMarkup">

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Rotting Screw</title>
+
 </head>
 <body>
 	<%@ include file="guestNav.jsp"%>
@@ -14,7 +14,7 @@
 	
 	<div class="row">
 		<div class="col-md-12">
-			<h2 class="text-center text- mb-4">Stuff</h2>
+			<h2 class="text-center text- mb-4"></h2>
 			<div class="row">
 				<div class="col-md-6 mx-auto">
 

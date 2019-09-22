@@ -33,45 +33,65 @@ body {
 
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary-dark">
+
 	
-<a class="navbar-brand" href="home.do"><i
-		class="material-icons m3-3">home</i></a>
-	<button type="button" class="btn btn-success btn-lg dropdown-toggle"
+
+	<%--  <button type="button" class="btn btn-success btn-lg dropdown-toggle"
+		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Login/Register</button>
+	
+			<form action="login.do" method="GET">
+				<input name="userName" placeholder="User Name" required> <br>
+				<input name="password" placeholder="Password" type="password"
+					required> 
+			<button type="submit" class="btn btn-primary btn-block">Sign
+				in</button>
+		</form>
+		<div class="dropdown-divider">
+			 <a class="dropdown-item" href="navRegister.do">New
+				around here? Sign up</a>
+		</div> --%>
+
+
+		<button type="button" class="btn btn-success btn-lg dropdown-toggle mr-8"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 		Login/Register</button>
 	<ul id="login-dp" class="dropdown-menu">
 		<li>
-			<!-- <div class="row">
-				<div class="col-md-6"> -->
 
-					<form action="login.do" method="GET">
-						<input name="userName" placeholder="User Name" required> <br>
-						<input name="password" placeholder="Password" type="password" required>
-<br>
-<br>
-						<button type="submit" class="btn btn-primary btn-block ">Sign in to Account</button>
- 
-							
+
+			<form action="login.do" method="GET">
+				<input name="userName" placeholder="User Name" required> <br>
+				<input name="password" placeholder="Password" type="password"
+					required> <br> <br>
+				<button type="submit" class="btn btn-primary btn-block ">Sign
+					in to Account</button>
+
+
 			</form>
 			<div class="bottom text-center">
-			<a href="navRegister.do"> <b><button type="submit" class="btn btn-secondary
- btn-block pb-7">Register New User</button></b>
-							
+				<a href="navRegister.do"> <b><button type="submit"
+							class="btn btn-secondary
+ btn-block pb-3">Register New
+							User</button></b>
+
 				</a>
-			</div>
+			</div> 
+		
 			</div>
 		</li>
-	</ul>
-
-	<!-- <a class="navbar-brand" href="home.do"><i
+	</ul>  
+<a class="navbar-brand" href="home.do"><i
+		class="material-icons ml-3">home</i></a>
+		<!-- <a class="navbar-brand" href="home.do"><i
 		class="material-icons ml-3">home</i></a>
 	 -->
 
-	
-	
 
-	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
+
+
+		<!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 		aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -86,17 +106,17 @@ body {
 				Features</a>
 		</div>
 	</div> -->
-	<div class="collapse navbar-collapse flex-row-reverse"
-		id="navbarNavAltMarkup">
-<div class="navbar-nav">
-			<div class="nav-item d-flex">
-			
-				<form action="keywordSearch.do" method="GET">
-					<input name="keyword" placeholder="   Search by Keyword" required />
-					<input type="submit" class="btn btn-float  btn-success ml-3"
-						type="button" class="material-icons" value="Go" />
-				</form>
+		<div class="collapse navbar-collapse flex-row-reverse"
+			id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<div class="nav-item d-flex">
+
+					<form action="keywordSearch.do" method="GET">
+						<input name="keyword" placeholder="   Search by Keyword" required />
+						<input type="submit" class="btn btn-float  btn-success ml-3"
+							type="button" class="material-icons" value="Go" />
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
 </nav>

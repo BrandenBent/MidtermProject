@@ -7,6 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Profile</title>
+<style type="text/css">
+p {
+    font-family: charcoal;
+    font-size: 30px;
+    text-align: center;
+
+}
+</style>
+
 <meta content="initial-scale=1, shrink-to-fit=no, width=device-width"
     name="viewport">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -30,6 +39,41 @@
 
 <br>
 <br>
+<br>
+<br>
+
+
+<%-- <div class="card-deck  col-lg-6" >
+
+		<div class="card tm-4 ">
+
+			<c:forEach var="link" items="${user.resources }">
+				<c:if test="${skill.id == skill.id}">
+					<div>
+						<img class="img-thumbnail card-img-top img-responsive"
+							src="${link.imageLink }" />
+					</div>
+				</c:if>
+				<div class="card-body text-center">
+					<h5 class="card-title">
+						<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+					</h5>
+					<p class="card-text">${skill.summary }</p>
+					<strong>Supplies Needed:</strong> ${skill.supplies }<br>
+				</div>
+				<div class="card-footer">
+
+					<a class="btn btn-success" href="${link.siteLink }" target="_blank">Learn
+						More About This Skill</a> <a class="btn btn-success"
+						href="${link.videoLink }" target="_blank">Watch a Video</a>
+					<form action="addSkillToProfile.do" method="POST">
+						<input name="id" type="hidden" value="${skill.id}" /> <input
+							type="submit" class="btn btn-success" value="Add Skill">
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+ --%>
 		<h1>${userlog.userName}'s
 			Page <i class="material-icons">face</i>
 		</h1>
