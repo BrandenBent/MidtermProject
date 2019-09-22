@@ -28,7 +28,6 @@
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
 	
-	<a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i class="material-icons" class="btn btn-success my-1" >face</i></a>
     
 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" ></span>
@@ -41,6 +40,7 @@
       <a class="btn btn-success my-1"  href="navLogin.do">Login</a>
       <a class="btn btn-success my-1" href="logout.do">Logout</a>
     </div>
+	<a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i class="material-icons" class="btn btn-success my-1" >face</i></a>
    
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
     

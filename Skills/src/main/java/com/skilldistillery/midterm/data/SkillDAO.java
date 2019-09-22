@@ -35,5 +35,7 @@ public interface SkillDAO {
 //	public Integer skillValue();
 	Achievement findAchievementBySkillIdandProfileId(Integer id, Integer profileId);
 
+	AchievementRequirement AchievementRequirementById(Integer id);
+
 
 }

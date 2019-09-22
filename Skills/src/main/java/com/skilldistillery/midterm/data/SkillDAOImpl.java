@@ -106,6 +106,11 @@ public class SkillDAOImpl implements SkillDAO {
 			
 			return em.find(SkillRequirement.class, id);
 		}
+		@Override //added sep21
+		public AchievementRequirement AchievementRequirementById(Integer id) {
+			
+			return em.find(AchievementRequirement.class, id);
+		}
 
 		@Override
 		public List<Skill> findSkillByUserId(Integer Id) {
@@ -130,4 +135,6 @@ public class SkillDAOImpl implements SkillDAO {
 			return em.find(AchievementRequirement.class, id);
 		}
 
+		
+		
 }

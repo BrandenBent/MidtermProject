@@ -30,7 +30,7 @@
 			<table>
 				<tr>
 					<td><input name="id" type="hidden" value="0" /></td>
-					<td>UserName</td>
+					<td>Email</td>
 					<td><input name="userName" required /></td>
 					<td>Password</td>
 					<td><input name="password" type="password" required /></td>

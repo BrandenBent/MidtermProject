@@ -13,19 +13,21 @@
 	<%@ include file="navBar.jsp"%>
 		<br>
 	
-	<h1>Testing Search Page</h1>
-${userlog.userName}
-	<c:forEach items="${skills }" var="skill">
-
+	<h1> Skills Found</h1>
+${userlog.profile.name}
+	<c:forEach items="${skills}" var="skill">
 		<div>${skill.name }</div>
 		<div>${skill.description }</div>
 		<div>${skill.summary }</div>
-
+<c:forEach var="resource" items="${skill.resources}">
+<c:if test="${resource.id == resource.id}">
+<img src="${resource.imageLink}">
+</c:if>
 		<form action="addSkillToProfile.do" method="POST">
 			<input name="id" type="hidden" value="${skill.id}" /> 
 			<input type="submit" class="btn btn-primary btn-lg" value="Add Skill">
 		</form>
-
+</c:forEach>
 	</c:forEach>
 
 	<form action="home.do" method="GET">

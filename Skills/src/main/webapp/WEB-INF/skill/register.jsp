@@ -16,7 +16,7 @@
 	<form action="registerProfile.do" method="POST" modelAttribute ="profile">
 		<table>
 			<tr>
-				<td>Profile Name</td>
+				<td>Enter User Name to Create a Profile Page</td>
 				<td><input name="name"required/></td>
 				<!-- <td>Birth Day</td> -->
 				<!-- <td><input required type="date" name="birthDate" /></td> -->
