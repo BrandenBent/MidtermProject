@@ -11,9 +11,17 @@
 
 </head>
 <body>
-	<%@ include file="navBar.jsp"%>
-	<br>
+<%@ include file="navBar.jsp"%>
+	<c:if test="${userlog.role == 'admin' }">
+		<%@ include file="adminNav.jsp"%>
+	</c:if>
+	<c:if test="${userlog.profile.name == null }">
+		<%@ include file="guestNav.jsp"%>
+	</c:if>
 
+<br>
+<br>	
+<br>
 	<form action="editUser.do" method="POST">
 		<table>
 			<tr>

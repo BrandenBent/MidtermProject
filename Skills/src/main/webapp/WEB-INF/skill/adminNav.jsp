@@ -34,8 +34,8 @@ body {
 
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary-dark">
-    <a class="navbar-brand"  href="admin.do"><i
-		class="material-icons mr-3">settings_applications</i></a>
+  <a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i
+		class="material-icons mr-3">face</i></a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -51,9 +51,7 @@ body {
       <a class="btn btn-secondary" href="navRegister.do">Add User</a>
       <a class="btn btn-secondary" href="allUsers.do">View Users</a>
       <a class="btn btn-secondary" href="logout.do">Logout</a>
-      <a class="btn btn-secondary" href="admin.do">Extra</a>
-      <a class="btn btn-secondary" href="admin.do">Extra</a>
-   
+      
   </div>
 </div>
 	<div class="collapse navbar-collapse flex-row-reverse"
