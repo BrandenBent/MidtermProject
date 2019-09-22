@@ -11,30 +11,55 @@
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
-		<br>
-	
-	<h1> Skills Found</h1>
-${userlog.profile.name}
-	<c:forEach items="${skills}" var="skill">
-		<div>${skill.name }</div>
-		<div>${skill.description }</div>
-		<div>${skill.summary }</div>
-<c:forEach var="resource" items="${skill.resources}">
-<c:if test="${resource.id == resource.id}">
-<img src="${resource.imageLink}">
-</c:if>
-		<form action="addSkillToProfile.do" method="POST">
-			<input name="id" type="hidden" value="${skill.id}" /> 
-			<input type="submit" class="btn btn-primary btn-lg" value="Add Skill">
-		</form>
-</c:forEach>
+	<c:if test="${userlog.role == 'admin' }">
+		<%@ include file="adminNav.jsp"%>
+	</c:if>
+	<c:if test="${userlog.profile.name == null }">
+		<%@ include file="guestNav.jsp"%>
+	</c:if>
+
+	<br>
+	<br>
+
+	<c:forEach items="${skills }" var="skill">
+
+		<div class="card-deck col-lg-3">
+			<div class="card tm-4 ">
+
+				<c:forEach var="image" items="${skill.resources }">
+					<c:if test="${skill.id == skill.id}">
+						<div>
+							<img class="img-thumbnail card-img-top img-responsive"
+								src="${image.imageLink }" />
+						</div>
+					</c:if>
+					<div class="card-body text-center">
+						<h5 class="card-title">
+							<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+						</h5>
+						<p class="card-text">${skill.summary }</p>
+					</div>
+					<div class="card-footer">
+
+						<a href="getSkill.do?fid=${skill.id}"
+							class="btn btn-primary btn-lg btn-block">Learn More</a>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+		<c:if test="${userlog.profile.name != null }">
+			<form action="addSkillToProfile.do" method="POST">
+				<input name="id" type="hidden" value="${skill.id}" /> <input
+					type="submit" class="btn btn-primary btn-lg" value="Add Skill">
+				<input type="submit" class="btn btn-float  btn-success mt-3"
+					type="button"><i class="material-icons">add</i>
+
+
+			</form>
+		</c:if>
 	</c:forEach>
 
-	<form action="home.do" method="GET">
-		<input type="submit" class="btn btn-primary btn-lg" value="Home">
-	</form>
 
-	<h2>${userlog.userName }</h2>
 
 </body>
 </html>

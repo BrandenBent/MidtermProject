@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="daomite-material/css/material.min.css" rel="stylesheet">
+<title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="navBar.jsp"%>
+<%@ include file="navBar.jsp"%>
 	<c:if test="${userlog.role == 'admin' }">
 		<%@ include file="adminNav.jsp"%>
 	</c:if>
@@ -19,14 +19,20 @@
 
 <br>
 <br>
-	
-	<h1>Admin </h1>
 
-	<c:forEach items="${users}" var="user">
-		<h5>
-			<a href="getUser.do?id=${user.id}">${user.userName} </a>
-			User Enabled: (${user.enabled}) ID: ${user.id}
-		</h5>
+	<c:forEach items="${links}" var="link">
+
+		<a href="getLink.do?id=${link.id}" class="text-success" target="_blank">${link.name }</a>
+		<div>
+			<img class=".img-thumbnail" src="${link.imageLink }" width=395px
+				height=275px />
+		</div>
+				<a href="getLink.do?id=${link.id}" class="text-success" target="_blank">${link.siteLink }</a>
+				<a href="getLink.do?id=${link.id}" class="text-success" target="_blank">${link.videoLink }</a>
+		
+		
+	
+		
 	</c:forEach>
 	
 </body>

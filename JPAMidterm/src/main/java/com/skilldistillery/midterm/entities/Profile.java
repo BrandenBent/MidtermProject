@@ -26,6 +26,7 @@ public class Profile {
 	private int id;
 
 	private String name;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "birthday")
 	private Date birthDate;
@@ -168,8 +169,9 @@ public class Profile {
 
 	@Override
 	public String toString() {
-		return "Profile [id=" + id + ", name=" + name + ", birthDate=" + birthDate + ", loginTime=" + loginTime
-				+ ", skills=" + skills + "]";
+		return "Hello "+ name + user;
 	}
+
+	
 
 }

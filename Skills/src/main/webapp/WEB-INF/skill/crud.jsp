@@ -11,64 +11,67 @@
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
-		<br>
-	
-	<h1>CRUD TEST</h1>
-	
+	<c:if test="${userlog.role == 'admin' }">
+		<%@ include file="adminNav.jsp"%>
+	</c:if>
+	<c:if test="${userlog.profile.name == null }">
+		<%@ include file="guestNav.jsp"%>
+	</c:if>
 
-	<h1>ADD</h1>
+<br>
+<br>
+	<h1>Create Your Own</h1>
+
 	<form:form action="createSkill.do" method="POST" modelAttribute="skill">
-		<ul>
-			<li><label><input name="id" type="hidden" value="0" /></label></li>
-			<li><label>Name</label> <input type="text" name="name" /></li>
-			<li><label>Description</label> <input type="text"
-				name="description" /></li>
-			<li><label>Supplies</label> <input type="text" name="supplies" /></li>
-			<li><label>Summary</label> <input type="text" name="summary" />
-			</li>
-		</ul>
-
-		<form:button type="submit"> Add </form:button>
-	</form:form>
-
-
-	<form action="deleteSkill.do" method="POST">
-		<button class="btn btn-secondary" type="submit">Delete</button>
-		<input type="hidden" name="id" value="${skill.id }" />
-	</form>
-
-	<form action="updateSkill.do" method="POST">
 		<table>
 			<tr>
-
-				<td><input name="id" type="hidden" value="${skill.id}" /></td>
-
+				<td><input name="id" type="hidden" value="0" /></td>
 			</tr>
 			<tr>
 				<td>Title</td>
-				<td><input name="name" type="text" value="${skill.name}" /></td>
+				<td><input name="name" type="text" name="name" required /></td>
 			</tr>
 			<tr>
 				<td>Description</td>
-				<td><input name="description" type="text"
-					value="${skill.description}" /></td>
+				<td><input type="text" name="description" required /></td>
 			</tr>
 			<tr>
-				<td>Supply</td>
-				<td><input name="supplies" type="text"
-					value="${skill.supplies}" /></td>
+				<td>Supplies</td>
+				<td><input type="text" name="supplies" required/></td>
 			</tr>
 			<tr>
 				<td>Summary</td>
-				<td><input name="summary" type="text" value="${skill.summary}" /></td>
+				<td><input type="text" name="summary" required/></td>
 			</tr>
+			
 			<tr>
-				<td><input type="submit" value="Update" /></td>
+				<td><input type="submit"
+					class="btn btn-float btn-secondary float-right" type="button"
+					class="material-icons" value="Go" /></td>
 			</tr>
 		</table>
-	</form>
-	<form action="home.do" method="GET">
-		<input type="submit" class="btn btn-primary btn-lg" value="Home">
-	</form>
+	</form:form>
+
+              
+             <!--  <div class="form-label-group">
+                <input type="text" id="imageLink" class="form-control" placeholder="Image Link" required>
+                <label for="imageLink"></label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="videoLink" class="form-control" placeholder="Video Link" required>
+                <label for="videoLink"></label>
+              </div><div class="form-label-group">
+                <input type="text" id="siteLink" class="form-control" placeholder="Site Link" required>
+                <label for="siteLink"></label>
+              </div> -->
+             
+<!--               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Create</button>
+ -->              <%-- <hr class="my-4">
+              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> --%>
+           
+</body>
+
+
 </body>
 </html>
