@@ -21,7 +21,7 @@
 		<div class="container">
 
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md">
 					<h2 class="text-center text- mb-4">Stuff</h2>
 <!-- 					<div class="row">
 <!--  -->					<!-- 	<div class="col-md-6 mx-auto"> -->

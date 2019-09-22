@@ -19,67 +19,39 @@
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
-		<%@ include file="navBar.jsp"%>
-	
+	<%@ include file="navBar.jsp"%>
 	<br>
 	<div class="content">
-
 		<c:if test="${userlog.role == 'admin' }">
-	<%@ include file="adminNav.jsp"%>
-<i class="material-icons">whatshot</i>
+			<%@ include file="adminNav.jsp"%>
+			<i class="material-icons">whatshot</i>
 		</c:if>
-<c:if test="${userlog.profile.name == null }" >
+		<c:if test="${userlog.profile.name == null }">
 			<%@ include file="guestNav.jsp"%>
 		</c:if>
 		<br>
 		<h1>${userlog.userName}'s
-			Page <i class="material-icons">face</i> 
+			Page <i class="material-icons">face</i>
 		</h1>
-		
-		<c:if test="${userlog.profile.name == null }" >
-		<form action="registerProfile.do" method="POST"
-		modelAttribute="profile">
-		<table>
-			<tr>
-				<td>Please Confirm Your Password</td>
-				<td><input name="name" placeholder="Confirm Your Password" required type="password" /></td>
-				<td><button class="btn btn-float btn-sm btn-secondary my-1" type="submit"><i class="material-icons">add</i></button></td>
-			</tr>
-		</table>
-	</form>
 
-</c:if>
-		<c:forEach items="${userlog.profile.skills}" var="skill">
-			<h5>
-				<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-				${skill.description} <br> <strong>Requirements: </strong> <br>
-				<c:forEach items="${skill.skillRequirements}" var="skillReq"
-					begin="0" end="3">
-				${skillReq.requirement.description }
-				<br>
+		<c:if test="${userlog.profile.name == null }">
+			<form action="registerProfile.do" method="POST"
+				modelAttribute="profile">
+				<table>
+					<tr>
+						<!-- <td>Please Confirm Your Password</td> -->
+						<td><input name="name" placeholder="Confirm Your Password"
+							required type="password" /></td>
+						<td><button class="btn btn-float btn-sm btn-secondary my-1"
+								type="submit">
+								<i class="material-icons">add</i>
+							</button></td>
+					</tr>
+				</table>
+			</form>
 
-					<%-- <form action="startSkill.do" method="POST">
-						<div class="custom-control custom-radio custom-control-inline">
+		</c:if>
 
-							<input type="checkbox" name="selected" value="${skill.id}">Start
-							Learning Skill <input name="fid" type="hidden"
-								value="${skillReq.id}" /> <br> <input type="submit"
-								value="Submit">
-
-						</div> --%>
-						<form:form action="startSkill.do" method="POST">
-
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-secondary active"> 
-								<input type="checkbox" name="selected" value="${skill.id}" checked autocomplete="off"> Start
-								</label>
-								<input name="fid" type="hidden"
-								value="${skillReq.id}" /> 
-							</div>
-						</form:form>
-				</c:forEach>
-			</h5>
-		</c:forEach>
 		<br> <br>
 	</div>
 </body>
