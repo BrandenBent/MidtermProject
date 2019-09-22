@@ -17,14 +17,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
 <link href="daomite-material/css/material.min.css" rel="stylesheet">
-<style type="text/css">
-p {
-	font-family: charcoal;
-	font-size: 30px;
-	text-align: center;
-
-}
-</style>
 </head>
 <body>
 <%@ include file="navBar.jsp"%>
@@ -67,7 +59,7 @@ p {
                                 <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -75,7 +67,7 @@ p {
                                                               <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog2.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog2.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -83,7 +75,7 @@ p {
                                                                 <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog3.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog3.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 
             </h5>
@@ -98,7 +90,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog4.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog4.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -106,7 +98,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog5.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog5.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -114,7 +106,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog6.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog6.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 
             </h5>
@@ -129,7 +121,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog7.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog7.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -137,7 +129,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog8.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog8.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -145,7 +137,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog9.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog9.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 
             </h5>
@@ -161,7 +153,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog10.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog10.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -169,7 +161,7 @@ p {
                                 <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog11.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog11.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -177,7 +169,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlog12.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlog12.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 
             </h5>
@@ -192,7 +184,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idloga.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idloga.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -200,7 +192,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlogb.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlogb.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -208,7 +200,7 @@ p {
                                 <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlogc.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlogc.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 
             </h5>
@@ -223,7 +215,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlogd.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlogd.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -231,7 +223,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idloge.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idloge.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
                     <h3><u>${skillReq.requirement.description }</u></h3>
@@ -239,7 +231,7 @@ p {
                                  <input name="fid" type="hidden"
                                     value="${skillReq.id}" /> <br> <input class="btn btn-success" type="submit"
                                     value="Completed Requirement">
-                            </form> <c:if test="${idlogf.skillRequirement.id == skillReq.id}"><p>Congratulations! You've completed this requirement</p></c:if>
+                            </form> <c:if test="${idlogf.skillRequirement.id == skillReq.id}"><h2>Congratulations! You've completed this requirement</h2></c:if>
                 </c:forEach>
                 
             </h5>

@@ -19,7 +19,7 @@
 body {
 	padding-top: 40px;
 	padding-left: 40px;
- */	background: #e1bee7
+ 	background: #e1bee7
  !important;
 }
 
