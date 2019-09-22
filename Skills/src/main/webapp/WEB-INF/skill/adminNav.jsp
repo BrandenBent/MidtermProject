@@ -19,28 +19,23 @@
 body {
 	padding-top: 80px;
 	padding-left: 30px;
-	background: #d1c4e9 !important;
+	background: #d1c4e9
+ !important;
 }
 
 .card-img-top {
 	width: 100%;
 	height: auto;
 }
-.card-deck {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: .5rem;
-}
-
 </style>
-<link href="daomite-material/css/material.min.css" rel="stylesheet">
+<link href="/daomite-material/css/material.min.css" rel="stylesheet">
 
 </head>
 
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary-dark">
-	<a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i
-		class="material-icons mr-3">face</i></a>
+    <a class="navbar-brand"  href="admin.do"><i
+		class="material-icons mr-3">settings_applications</i></a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -48,14 +43,19 @@ body {
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		<div class="navbar-nav">
-			<a class="btn btn-success my-1" href="home.do">Home <span
-				class="sr-only">(current)</span></a> <a class="btn btn-success my-1"
-				href="showAllSkills.do">See All Skills</a> <a
-				class="btn btn-success my-1" href="logout.do">Logout</a>
-		</div>
-	</div>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-secondary"  href="home.do" >Home <span class="sr-only">(current)</span></a>
+      <a  class="btn btn-secondary"  href="crud.do">Add Skill</a>
+      <a class="btn btn-secondary" href="navRegister.do">Add User</a>
+      <a class="btn btn-secondary" href="allUsers.do">View Users</a>
+      <a class="btn btn-secondary" href="logout.do">Logout</a>
+      <a class="btn btn-secondary" href="admin.do">Extra</a>
+      <a class="btn btn-secondary" href="admin.do">Extra</a>
+      <a class="btn btn-secondary" href="admin.do">Extra</a>
+   
+  </div>
+</div>
 	<div class="collapse navbar-collapse flex-row-reverse"
 		id="navbarNavAltMarkup">
 
@@ -68,5 +68,7 @@ body {
 				</form>
 			</div>
 		</div>
-	</div><!--Here-->
+	</div>
+	
+	
 </nav>

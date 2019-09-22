@@ -111,9 +111,11 @@ public class LogRegisterTestController {
 		session.removeAttribute("userlog");
 		session.setAttribute("userlog", user);
 		model.addAttribute("profile", newProfile);
-
-		return "skill/userProfile";
+		List<Skill> f = dao.findAllSkills();
+		model.addAttribute("skillset", f);
+		return "index";
 	}
+
 
 	@RequestMapping(path = "profile.do", method = RequestMethod.POST)
 	public String userProfile(Model model) {
@@ -182,12 +184,13 @@ public class LogRegisterTestController {
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
 	public String logout(User user, Model model, HttpSession session) {
-		List<Skill> f = dao.findAllSkills();
-		model.addAttribute("skillset", f);
+		User olduser  = (User) session.getAttribute("userlog");
+		User refreshUser = adao.findUserById(olduser.getId());
+		session.setAttribute("userlog", refreshUser);
+
 		session.removeAttribute("userlog");
 
-		return "skill/userProfile";
-
+		return "skill/login";
 	}
 
 
