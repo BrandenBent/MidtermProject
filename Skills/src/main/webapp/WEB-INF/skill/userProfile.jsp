@@ -152,8 +152,110 @@
             </h5>
         </c:forEach>
         
+        <c:forEach items="${userlog.profile.skills}" var="skill" begin="3" end ="3">
+            <h5>
+                <a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+                ${skill.description} <br> <strong>Requirements: </strong> <br>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="0" end ="0">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill2.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog2.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill3.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog4.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                
+            </h5>
+        </c:forEach>
+        <c:forEach items="${userlog.profile.skills}" var="skill" begin="4" end ="4">
+            <h5>
+                <a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+                ${skill.description} <br> <strong>Requirements: </strong> <br>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="0" end ="0">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill2.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog2.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill3.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog5.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                
+            </h5>
+        </c:forEach>
+        <c:forEach items="${userlog.profile.skills}" var="skill" begin="5" end ="5">
+            <h5>
+                <a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+                ${skill.description} <br> <strong>Requirements: </strong> <br>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="0" end ="0">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="1" end ="1">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill2.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog2.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                <c:forEach items="${skill.skillRequirements}" var="skillReq" begin="2" end ="2">
+                    <h3>${skillReq.requirement.description }</h3>
+                            <form action="startSkill3.do" method="POST">
+                                <input type="checkbox" name="checked" value="${skill.id}">Start
+                                Learning Skill <input name="fid" type="hidden"
+                                    value="${skillReq.id}" /> <br> <input type="submit"
+                                    value="Submit">
+                            </form> <c:if test="${idlog6.skillRequirement.id == skillReq.id}">You learn this</c:if>
+                </c:forEach>
+                
+            </h5>
+        </c:forEach>
+        
        
 		<br> <br>
-	</div>
 </body>
 </html>
