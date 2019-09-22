@@ -12,19 +12,8 @@
 <body>
 	<%@ include file="navBar.jsp"%>
 	<br>
-	<h1>All Skills</h1>
-	${userlog.userName}
-	<c:forEach items="${allSkills}" var="skill">
-	<c:forEach var="resource" items="${skill.resources}">
-<c:if test="${resource.id == resource.id}">
-<img src="${resource.imageLink}" height="100" width="100">
-</c:if>
-		<h5>
-			<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-			(${skill.description})
-		</h5>
-		</c:forEach>
-	</c:forEach>
+	
+
 	<c:if test="${userlog.role == 'admin' }">
 		<%@ include file="adminNav.jsp"%>
 	</c:if>

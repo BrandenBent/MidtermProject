@@ -51,8 +51,8 @@
 			<form action="addSkillToProfile.do" method="POST">
 				<input name="id" type="hidden" value="${skill.id}" /> <input
 					type="submit" class="btn btn-primary btn-lg" value="Add Skill">
-				<input type="submit" class="btn btn-float  btn-success mt-3"
-					type="button"><i class="material-icons">add</i>
+				<!--  <input type="submit" class="btn btn-float  btn-success mt-3"
+					type="button"><i class="material-icons">add</i> -->
 
 
 			</form>
