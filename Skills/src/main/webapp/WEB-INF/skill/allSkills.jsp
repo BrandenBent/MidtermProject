@@ -7,22 +7,45 @@
 <head>
 <meta charset="UTF-8">
 <title>List All Skills</title>
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
-	<br>
-	<h1>All Skills</h1>
-	<c:forEach items="${allSkills}" var="skill">
-		<h5>
-			<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-			(${skill.description})
-		</h5>
-	</c:forEach>
+	<c:if test="${userlog.role == 'admin' }">
+		<%@ include file="adminNav.jsp"%>
+	</c:if>
+	<c:if test="${userlog.profile.name == null }">
+		<%@ include file="guestNav.jsp"%>
+	</c:if>
 
-	<form action="home.do" method="GET">
-		<input type="submit" class="btn btn-primary btn-lg" value="Home">
-	</form>
+<br>
+<br>
+	<div class="row">
+				<c:forEach items="${allSkills}" var="skill">
+		<div class="card-deck col-lg-3">
+			<div class="card">
+					<c:forEach var="image" items="${skill.resources }">
+						<c:if test="${skill.id == skill.id}">
+							<div>
+								<img class="img-thumbnail card-img-top img-responsive"
+									src="${image.imageLink }" />
+							</div>
+						</c:if>
+						<div class="card-body text-center">
+							<h5 class="card-title">
+								<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
+							</h5>
+							<p class="card-text">${skill.summary }</p>
+						</div>
+						<div class="card-footer">
 
+							<a href="getSkill.do?fid=${skill.id}"
+								class="btn btn-primary btn-lg btn-block">Learn More</a>
+						</div>
+					</c:forEach>
+			</div>
+		</div>
+		</c:forEach>
+	</div>
 </body>
 </html>

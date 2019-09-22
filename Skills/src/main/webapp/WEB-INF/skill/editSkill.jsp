@@ -7,11 +7,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
-	<br>
+	<c:if test="${userlog.role == 'admin' }">
+		<%@ include file="adminNav.jsp"%>
+	</c:if>
+	<c:if test="${userlog.profile.name == null }">
+		<%@ include file="guestNav.jsp"%>
+	</c:if>
+
+<br>
+<br>
 
 <form action="updateSkill.do" method="POST">
 		<table>
@@ -38,6 +46,7 @@
 				<td>Summary</td>
 				<td><input name="summary" type="text" required value="${skill.summary}" /></td>
 			</tr>
+			
 			<tr>
 				<td><input type="submit" value="Update" /></td>
 			</tr>

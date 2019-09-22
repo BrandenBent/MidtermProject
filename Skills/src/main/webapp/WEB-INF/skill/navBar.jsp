@@ -17,23 +17,48 @@
 	rel="stylesheet">
 <style type="text/css">
 body {
-	padding-top: 80px;
-	padding-left: 30px;
-	background: #d1c4e9 !important;
+	padding-top: 40px;
+	padding-left: 40px;
+ */	background: #e1bee7
+ !important;
 }
 
-.card-img-top {
-	width: 100%;
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+
+
+/* .card{
+margin: 0 auto; 
+float: none;
+margin-bottom: 10px;
+} */
+
+/* .card-img-top {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	min-width: 100%;
+	width: auto;
 	height: auto;
-}
-.card-deck {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: .5rem;
-}
+} */
+/* @media ( min-width :576px) {
+	.card-deck {
+		-ms-flex-flow: row wrap;
+		display: -ms-flexbox;
+		display: flex;
+		flex-flow: row wrap;
+		margin-left: -.25rem;
+		margin-right: -.25rem
+	}
+} */
+
+
+
 
 </style>
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 
 </head>
 
@@ -48,14 +73,20 @@ body {
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		<div class="navbar-nav">
-			<a class="btn btn-success my-1" href="home.do">Home <span
-				class="sr-only">(current)</span></a> <a class="btn btn-success my-1"
-				href="showAllSkills.do">See All Skills</a> <a
-				class="btn btn-success my-1" href="logout.do">Logout</a>
+
+
+	<div class="btn-toolbar" role="toolbar"
+		aria-label="Toolbar with button groups">
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<a class="btn btn-success" href="home.do">Home <span
+				class="sr-only">(current)</span></a> <a class="btn btn-success"
+				href="showAllSkills.do">View All Skills</a> <a class="btn btn-success"
+				href="logout.do">Logout</a> <a class="btn btn-success"
+				href="admin.do">Extra</a> <a class="btn btn-success" href="admin.do">Extra</a>
+
 		</div>
 	</div>
+
 	<div class="collapse navbar-collapse flex-row-reverse"
 		id="navbarNavAltMarkup">
 
@@ -68,5 +99,6 @@ body {
 				</form>
 			</div>
 		</div>
-	</div><!--Here-->
+	</div>
+	<!--Here-->
 </nav>

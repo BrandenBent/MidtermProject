@@ -11,9 +11,7 @@
 <body>
 	<%@ include file="guestNav.jsp"%>
 	<br>
-	<!-- <div class="container">
- -->
-
+	
 	<div class="row">
 		<div class="col-md-12">
 			<h2 class="text-center text- mb-4">Stuff</h2>
@@ -58,18 +56,6 @@
 
 
 
-	<form action="registerProfile.do" method="POST"
-		modelAttribute="profile">
-		<table>
-			<tr>
-				<td>Profile Name</td>
-				<td><input name="name" required /></td>
-				<!-- <td>Birth Day</td> -->
-				<!-- <td><input required type="date" name="birthDate" /></td> -->
-				<td><input type="submit" value="Create Profile" /></td>
-			</tr>
-		</table>
-	</form>
-
+	
 </body>
 </html>

@@ -46,11 +46,11 @@ body {
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 <div class="btn-group" role="group" aria-label="Basic example">
     <a class="btn btn-secondary"  href="home.do" >Home <span class="sr-only">(current)</span></a>
+      <a class="btn btn-secondary" href="showAllSkills.do">View All Skills</a>
       <a  class="btn btn-secondary"  href="crud.do">Add Skill</a>
       <a class="btn btn-secondary" href="navRegister.do">Add User</a>
       <a class="btn btn-secondary" href="allUsers.do">View Users</a>
       <a class="btn btn-secondary" href="logout.do">Logout</a>
-      <a class="btn btn-secondary" href="admin.do">Extra</a>
       <a class="btn btn-secondary" href="admin.do">Extra</a>
       <a class="btn btn-secondary" href="admin.do">Extra</a>
    

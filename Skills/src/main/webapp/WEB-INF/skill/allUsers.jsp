@@ -11,7 +11,15 @@
 </head>
 <body>
 	<%@ include file="navBar.jsp"%>
-		<br>
+	<c:if test="${userlog.role == 'admin' }">
+		<%@ include file="adminNav.jsp"%>
+	</c:if>
+	<c:if test="${userlog.profile.name == null }">
+		<%@ include file="guestNav.jsp"%>
+	</c:if>
+
+<br>
+<br>
 	<c:forEach items="${users}" var="user">
 		<h5>
 			<a href="getUser.do?id=${user.id}">${user.userName} </a>
@@ -22,3 +30,4 @@
 
 </body>
 </html>
+			
