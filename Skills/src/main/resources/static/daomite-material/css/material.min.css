@@ -70,6 +70,10 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav,
 	display: block
 }
 
+.col-lg-{
+	width: 135%;
+}
+
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -82,8 +86,10 @@ body {
 	font-weight: 400;
 	line-height: 1.428572;
 	margin: 0;
-	text-align: left;
-	text-align: start
+	text-align: center;
+	text-align: start;
+  /*   min-height: 100vh;
+    min-width: 100vh; */
 }
 
 [dir=rtl] body {
@@ -4640,7 +4646,7 @@ div.content { width: 75rem; }
 }
 
 .card-deck .card {
-	margin-bottom: .5rem
+	margin-bottom: .5rem;
 }
 
 @media ( min-width :576px) {

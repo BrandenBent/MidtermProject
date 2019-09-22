@@ -17,8 +17,8 @@
 
 	<%@ include file="skill/navBar.jsp"%>
 	<br>
-<!-- <div class="container-fluid">
- -->	<div class="content">
+<div class="container-responsive">
+	<div class="content">
 		<h1 class="lead">Test</h1>
 		<h1>
 			<a href="showUser.do?id=${userlog.id}" class="text-success">${userlog.userName}
@@ -26,17 +26,16 @@
 		</h1>
 
 		<!-- 	<div class="card-group"> -->
-		<div class="card-deck">
-			<c:forEach items="${skillset}" var="skill" begin="0" end="2">
-				<div class="card">
+		<div class="card-deck col-lg-">
+			<c:forEach items="${skillset}" var="skill" begin="0" end="3">
+				<div class="card ">
 				
 					<c:forEach var="image" items="${skill.resources }">
 						<c:if test="${skill.id == skill.id}">
 							<div>
 							<div class="text-center">
 							
-								<img class=".img-thumbnail" src="${image.imageLink }"
-									width=395px height=275px />
+								<img class="img-thumbnail card-img-top img-responsive" src="${image.imageLink }" />
 									</div>
 								<%-- <p>${skill. }</p> --%>
 							</div>
@@ -52,14 +51,13 @@
 			</c:forEach>
 		</div>
 
-		<div class="card-deck">
-			<c:forEach items="${skillset}" var="skill" begin="3" end="5">
+		<div class="card-deck col-lg-">
+			<c:forEach items="${skillset}" var="skill" begin="3" end="6">
 				<div class="card">
 					<c:forEach var="image" items="${skill.resources }">
 						<c:if test="${skill.id == skill.id}">
 							<div>
-								<img class=".img-thumbnail" src="${image.imageLink }"
-									width=395px height=275px />
+								<img class="img-thumbnail card-img-top img-responsive" src="${image.imageLink }"/>
 								<%-- <p>${skill. }</p> --%>
 							</div>
 						</c:if>
@@ -73,15 +71,13 @@
 				</div>
 			</c:forEach>
 		</div>
-		<div class="card-deck">
-			<c:forEach items="${skillset}" var="skill" begin="6" end="8">
+		<div class="card-deck col-lg-">
+			<c:forEach items="${skillset}" var="skill" begin="6" end="9">
 				<div class="card">
 					<c:forEach var="image" items="${skill.resources }">
 						<c:if test="${skill.id == skill.id}">
 							<div>
-								<img class=".img-thumbnail" src="${image.imageLink }"
-									width=395px height=275px />
-								<%-- <p>${skill. }</p> --%>
+								<img class="img-thumbnail card-img-top img-responsive" src="${image.imageLink }"/>
 							</div>
 						</c:if>
 						<div class="card-body text-center">
@@ -94,15 +90,13 @@
 				</div>
 			</c:forEach>
 		</div>
-		<div class="card-deck">
+		<%-- <div class="card-deck col-lg-">
 			<c:forEach items="${skillset}" var="skill" begin="9" end="11">
 				<div class="card">
 					<c:forEach var="image" items="${skill.resources }">
 						<c:if test="${skill.id == skill.id}">
 							<div>
-								<img class=".img-thumbnail" src="${image.imageLink }"
-									width=395px height=275px />
-								<%-- <p>${skill. }</p> --%>
+								<img class="img-thumbnail card-img-top img-responsive" src="${image.imageLink }"/>
 							</div>
 						</c:if>
 						<div class="card-body">
@@ -114,7 +108,7 @@
 					</c:forEach>
 				</div>
 			</c:forEach>
-		</div>
+		</div> --%>
 
 		
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -127,6 +121,7 @@
 	
 	<h2>${userlog.userName }</h2>
 
+</div>
 	</div>
 </body>
 </html>
