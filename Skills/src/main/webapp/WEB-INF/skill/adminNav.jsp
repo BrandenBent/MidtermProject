@@ -34,8 +34,8 @@ body {
 
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary-dark">
-    <a class="navbar-brand"  href="home.do"><i
-		class="material-icons mr-3">settings_applications</i></a>
+   <a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i
+        class="material-icons mr-3">face</i></a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"

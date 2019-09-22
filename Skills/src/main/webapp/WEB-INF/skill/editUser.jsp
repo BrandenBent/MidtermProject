@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Edit User Page</title>
 <link href="daomite-material/css/material.min.css" rel="stylesheet">
 
 </head>
