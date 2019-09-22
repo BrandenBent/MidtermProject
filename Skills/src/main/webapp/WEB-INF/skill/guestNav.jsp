@@ -19,19 +19,14 @@
 body {
 	padding-top: 80px;
 	padding-left: 30px;
-	background: #d1c4e9 !important;
+	background: #d1c4e9
+ !important;
 }
 
 .card-img-top {
 	width: 100%;
 	height: auto;
 }
-.card-deck {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: .5rem;
-}
-
 </style>
 <link href="/daomite-material/css/material.min.css" rel="stylesheet">
 
@@ -40,7 +35,7 @@ body {
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary-dark">
 	<a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i
-		class="material-icons mr-3">face</i></a>
+		class="material-icons mr-3">person_add_disabled</i></a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -50,10 +45,11 @@ body {
 
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
-			<a class="btn btn-success my-1" href="home.do">Home <span
-				class="sr-only">(current)</span></a> <a class="btn btn-success my-1"
-				href="showAllSkills.do">See All Skills</a> <a
-				class="btn btn-success my-1" href="logout.do">Logout</a>
+			<a class="btn btn-success my-1"
+				href="showAllSkills.do">See All Skills</a>  
+			<a	class="btn btn-success my-1" href="navLogin.do">Login</a> 
+				<!-- <a class="btn btn-success my-1 ml-10" href="navRegister.do">Please Register to Unlock All
+				of Our Features</a>  -->
 		</div>
 	</div>
 	<div class="collapse navbar-collapse flex-row-reverse"
@@ -68,5 +64,5 @@ body {
 				</form>
 			</div>
 		</div>
-	</div><!--Here-->
+	</div>
 </nav>

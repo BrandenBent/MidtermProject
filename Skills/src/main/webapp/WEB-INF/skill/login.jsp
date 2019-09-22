@@ -9,13 +9,14 @@
 <title>Login</title>
 </head>
 <body>
-	<%@ include file="navBar.jsp"%>
-	<br>
+<%@ include file="guestNav.jsp"%>
+	
+	
 	<br>
 	<div class="row">
 		<div class="col-md-12">
-			<h2 class="text-center text- mb-4">Please Enter Your User Name
-				and Password</h2>
+			<h2 class="text-center text- mb-4"><a class="btn btn-success my-1 ml-10" href="navRegister.do">Please Register to Unlock All
+				of Our Features</a></h2>
 			<div class="row">
 				<div class="col-md-6 mx-auto">
 
