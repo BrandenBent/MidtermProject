@@ -10,8 +10,12 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Achievement;
+import com.skilldistillery.midterm.entities.AchievementRequirement;
+import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.Resource;
 import com.skilldistillery.midterm.entities.Skill;
 import com.skilldistillery.midterm.entities.SkillRequirement;
+import com.skilldistillery.midterm.entities.User;
 
 @Transactional
 @Service
@@ -71,9 +75,9 @@ public class SkillDAOImpl implements SkillDAO {
 			return false;
 		}
 		return true;
-		
+
 	}
-	
+
 //	@Override
 //	public List<SkillRequirement> findListOfSkillReq(Skill skill){
 //		Integer id= skill.getId();
@@ -86,22 +90,60 @@ public class SkillDAOImpl implements SkillDAO {
 
 //		return null;
 //	}
-	
-		@Override
-		public Achievement findAchievementBySkillId(Integer id) {
-			
-			return em.find(Achievement.class, id);
-		}
-		@Override
-		public SkillRequirement findSkillRequirementBySkillId(Integer id) {
-			
-			return em.find(SkillRequirement.class, id);
-		}
 
-		@Override
-		public List<SkillRequirement> findListOfSkillReq(Skill skill) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	@Override
+	public Achievement findAchievementBySkillIdandProfileId(Integer id, Integer profileId) {
+
+		String qry = "SELECT a FROM Achievement a WHERE a.skillId = :id AND a.profile = :profileId ";
+		Profile profile = em.find(Profile.class, profileId);
+
+		return em.createQuery(qry, Achievement.class).setParameter("id", id).setParameter("profileId", profile)
+				.getSingleResult();
+	}
+
+	@Override
+	public SkillRequirement findSkillRequirementBySkillId(Integer id) {
+
+		return em.find(SkillRequirement.class, id);
+	}
+
+	@Override
+	public List<Skill> findSkillByUserId(Integer Id) {
+		List<Skill> skills = new ArrayList<>();
+		String Sid = "" + Id;
+//			String query = "SELECT skill FROM Skill skill JOIN Achievement achieve ON skill.skill.id = achieve.skill_id "
+//					+ "		JOIN Profile profile ON achieve.profile_id = profile.profile.id WHERE profile.user_id = :Sid ";
+		String query = "SELECT u.skill from Profile u WHERE u.user_id = ";
+
+//		String qry = "SELECT skill FROM Skill skill WHERE skill.name LIKE :keyword OR skill.summary LIKE :keyword OR skill.description LIKE :keyword";
+		return skills = em.createQuery(query, Skill.class).setParameter("Sid" + Sid, Sid).getResultList();
+//			em.createQuery("select u.balance from Users u where u.userName = '" + user_name.getText() +"'", Integer.class).getResultList();
+	}
+
+	@Override
+	public List<SkillRequirement> findListOfSkillReq(Skill skill) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AchievementRequirement aReq(Integer id) {
+		// TODO Auto-generated method stub
+		return em.find(AchievementRequirement.class, id);
+	}
+
+	@Override
+	public Resource findLinkById(Integer id) {
+		// TODO Auto-generated method stub
+		return em.find(Resource.class, id);
+	}
+
+	@Override
+	public List<Resource> allLinks() {
+		List<Resource> links = new ArrayList<Resource>();
+		String qry = "Select r from Resource r ";
+
+		return links = em.createQuery(qry, Resource.class).getResultList();
+	}
 
 }

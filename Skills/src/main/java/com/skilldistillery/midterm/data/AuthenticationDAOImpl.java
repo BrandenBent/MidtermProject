@@ -1,12 +1,15 @@
 package com.skilldistillery.midterm.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.midterm.entities.Profile;
@@ -16,18 +19,19 @@ import com.skilldistillery.midterm.entities.User;
 @Service
 @Transactional
 public class AuthenticationDAOImpl implements AuthenticationDAO {
-
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
-	public Skill findSkillById(int id) {
 
-		return em.find(Skill.class, id);
-	}
+
 
 	@Override
 	public User createUser(User user) {
+		Profile prof = new Profile();
+		user.setEnabled(true);
+		user.setRole("user");
+		prof.setName(user.getUserName());
+		prof.setId(user.getId());
 		em.persist(user);
 		em.flush();
 		return user;
@@ -35,9 +39,11 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public Profile createProfile(Profile profile) {
+		User user = new User();
+		profile.setId(user.getId());
 		em.persist(profile);
 		em.flush();
-		return null;
+		return profile;
 	}
 
 	@Override
@@ -45,17 +51,9 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		User userProfile = em.find(User.class, user.getId());
 		
 	}
-	/*
-	 * @Override public Actor update(int id, Actor actor) { EntityManager em =
-	 * emf.createEntityManager(); em.getTransaction().begin(); Actor managed =
-	 * em.find(Actor.class, id); managed.setFirstName(actor.getFirstName());
-	 * managed.setLastName(actor.getLastName()); em.close();
-	 * 
-	 * return managed; }
-	 */
-
+	
 	@Override
-	public User editUser( User user) {
+	public User editUser(User user, int id) {
 		
 			User updateUser = em.find(User.class, user.getId());
 			updateUser.setUserName(user.getUserName());
@@ -63,15 +61,16 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 			updateUser.setEnabled(user.getEnabled());
 			updateUser.setRole(user.getRole());
 			
-
 		return updateUser;
 	}
 
 	@Override
-	public Boolean deleteUser(int id) {
+	public Boolean deleteUser(Integer id) {
 		User removeUser = em.find(User.class, id);
 		try {
-			em.remove(removeUser);
+			removeUser.setEnabled(false);
+			em.persist(removeUser);
+			em.flush();
 		} catch (Exception e) {
 			return false;
 		}
@@ -88,10 +87,12 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	@Override
 	public List<User> findAllUsers() {
 		List<User> allUsers = new ArrayList<User>();
-		String query = "Select u from User u ";
-
-		return allUsers = em.createQuery(query, User.class).getResultList();
+		String query = "Select u from User u";
+		allUsers = em.createQuery(query, User.class).getResultList();
+		return allUsers;
 	}
+//	Query query = em.createQuery(“SELECT e FROM Professor e”);
+//	   return (Collection<Professor>) query.getResultList();
 
 	@Override
 	public User findByUserName(String username) {
@@ -102,16 +103,39 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public boolean isValidUser(User u) {
-		// TODO Auto-generated method stub
+		
+		if (u == null) {
+			return false;
+		}
+		User checkUser = findByUserName(u.getUserName());
+		if (u.getPassword().equals(checkUser.getPassword()))
+		{
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public User editUser(int id, User user) {
+	public User findUserById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return em.find(User.class, id);
 	}
 
+	@Override
+	public Skill findSkillById(Integer id) {
+		// TODO Auto-generated method stub
+		return em.find(Skill.class, id);
+	}
+
+	@Override
+	public Profile findProfByUID(Integer id) {
+		String qry = "Select p from Profile p join User u on u.id = p.user Where u.id = :uid";
+		
+		
+		return em.createQuery(qry, Profile.class).setParameter("uid", id).getSingleResult();
+	}
+
+	
 	
 
 }

@@ -5,14 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-<title>Error</title>
 <meta charset="UTF-8">
-</head>
-<title>Error</title>
+<title>Insert title here</title>
 </head>
 <body>
 <%@ include file="navBar.jsp"%>
@@ -24,13 +18,22 @@
 	</c:if>
 
 <br>
-<br>	<br>
+<br>
 
-	<h1 style="color: red;">User Not Found</h1>
-	<br>
-	<br>
-	<form action="home.do" method="GET">
-		<input type="submit" class="btn btn-primary btn-lg" value="Home">
-	</form>
+	<c:forEach items="${links}" var="link">
+
+		<a href="getLink.do?id=${link.id}" class="text-success" target="_blank">${link.name }</a>
+		<div>
+			<img class=".img-thumbnail" src="${link.imageLink }" width=395px
+				height=275px />
+		</div>
+				<a href="getLink.do?id=${link.id}" class="text-success" target="_blank">${link.siteLink }</a>
+				<a href="getLink.do?id=${link.id}" class="text-success" target="_blank">${link.videoLink }</a>
+		
+		
+	
+		
+	</c:forEach>
+	
 </body>
 </html>

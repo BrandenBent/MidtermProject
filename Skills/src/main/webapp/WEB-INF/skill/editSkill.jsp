@@ -1,14 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="navBar.jsp" %>
+	<%@ include file="navBar.jsp"%>
+	<c:if test="${userlog.role == 'admin' }">
+		<%@ include file="adminNav.jsp"%>
+	</c:if>
+	<c:if test="${userlog.profile.name == null }">
+		<%@ include file="guestNav.jsp"%>
+	</c:if>
+
+<br>
+<br>
 
 <form action="updateSkill.do" method="POST">
 		<table>
@@ -19,22 +30,23 @@
 			</tr>
 			<tr>
 				<td>Title</td>
-				<td><input name="name" type="text" value="${skill.name}" /></td>
+				<td><input name="name" type="text" required value="${skill.name}" /></td>
 			</tr>
 			<tr>
 				<td>Description</td>
 				<td><input name="description" type="text"
-					value="${skill.description}" /></td>
+				required	value="${skill.description}" /></td>
 			</tr>
 			<tr>
 				<td>Supply</td>
 				<td><input name="supplies" type="text"
-					value="${skill.supplies}" /></td>
+				required	value="${skill.supplies}" /></td>
 			</tr>
 			<tr>
 				<td>Summary</td>
-				<td><input name="summary" type="text" value="${skill.summary}" /></td>
+				<td><input name="summary" type="text" required value="${skill.summary}" /></td>
 			</tr>
+			
 			<tr>
 				<td><input type="submit" value="Update" /></td>
 			</tr>

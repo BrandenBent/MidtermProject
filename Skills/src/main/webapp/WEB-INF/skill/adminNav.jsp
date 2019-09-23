@@ -17,46 +17,16 @@
 	rel="stylesheet">
 <style type="text/css">
 body {
-	padding-top: 40px;
-	padding-left: 40px;
- 	background: #e1bee7
+	padding-top: 80px;
+	padding-left: 30px;
+	background: #d1c4e9
  !important;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-  opacity: 1; /* Firefox */
-}
-
-
-
-/* .card{
-margin: 0 auto; 
-float: none;
-margin-bottom: 10px;
-} */
-
-/* .card-img-top {
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	min-width: 100%;
-	width: auto;
+.card-img-top {
+	width: 100%;
 	height: auto;
-} */
-/* @media ( min-width :576px) {
-	.card-deck {
-		-ms-flex-flow: row wrap;
-		display: -ms-flexbox;
-		display: flex;
-		flex-flow: row wrap;
-		margin-left: -.25rem;
-		margin-right: -.25rem
-	}
-} */
-
-
-
-
+}
 </style>
 <link href="daomite-material/css/material.min.css" rel="stylesheet">
 
@@ -64,7 +34,7 @@ margin-bottom: 10px;
 
 <nav
 	class="mw-100 navbar fixed-top navbar-expand-lg navbar-dark bg-primary-dark">
-	<a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i
+  <a class="navbar-brand" href="showUser.do?id=${userlog.id}"><i
 		class="material-icons mr-3">face</i></a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -73,18 +43,17 @@ margin-bottom: 10px;
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
-
-
-	<div class="btn-toolbar" role="toolbar"
-		aria-label="Toolbar with button groups">
-		<div class="btn-group" role="group" aria-label="Basic example">
-			<a class="btn btn-success" href="home.do">Home <span
-				class="sr-only">(current)</span></a> <a class="btn btn-success"
-				href="showAllSkills.do">View All Skills</a> <a class="btn btn-success"
-				href="logout.do">Logout</a> 
-		</div>
-	</div>
-
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-secondary"  href="home.do" >Home <span class="sr-only">(current)</span></a>
+      <a class="btn btn-secondary" href="showAllSkills.do">View All Skills</a>
+      <a  class="btn btn-secondary"  href="crud.do">Add Skill</a>
+      <a class="btn btn-secondary" href="navRegister.do">Add User</a>
+      <a class="btn btn-secondary" href="allUsers.do">View Users</a>
+      <a class="btn btn-secondary" href="logout.do">Logout</a>
+      
+  </div>
+</div>
 	<div class="collapse navbar-collapse flex-row-reverse"
 		id="navbarNavAltMarkup">
 
@@ -98,5 +67,6 @@ margin-bottom: 10px;
 			</div>
 		</div>
 	</div>
-	<!--Here-->
+	
+	
 </nav>

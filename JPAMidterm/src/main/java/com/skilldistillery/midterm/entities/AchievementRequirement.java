@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name="achievement_requirement")
@@ -37,7 +39,8 @@ public class AchievementRequirement {
 	@CreationTimestamp
 	private Date dateStarted;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
+	@UpdateTimestamp
 	@Column(name="date_completed")
 	private Date dateCompleted;
 	
@@ -101,15 +104,14 @@ public class AchievementRequirement {
 	}
 
 
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((achievement == null) ? 0 : achievement.hashCode());
-		result = prime * result + ((dateCompleted == null) ? 0 : dateCompleted.hashCode());
-		result = prime * result + ((dateStarted == null) ? 0 : dateStarted.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((skillRequirement == null) ? 0 : skillRequirement.hashCode());
 		return result;
 	}
 
@@ -123,27 +125,7 @@ public class AchievementRequirement {
 		if (getClass() != obj.getClass())
 			return false;
 		AchievementRequirement other = (AchievementRequirement) obj;
-		if (achievement == null) {
-			if (other.achievement != null)
-				return false;
-		} else if (!achievement.equals(other.achievement))
-			return false;
-		if (dateCompleted == null) {
-			if (other.dateCompleted != null)
-				return false;
-		} else if (!dateCompleted.equals(other.dateCompleted))
-			return false;
-		if (dateStarted == null) {
-			if (other.dateStarted != null)
-				return false;
-		} else if (!dateStarted.equals(other.dateStarted))
-			return false;
 		if (id != other.id)
-			return false;
-		if (skillRequirement == null) {
-			if (other.skillRequirement != null)
-				return false;
-		} else if (!skillRequirement.equals(other.skillRequirement))
 			return false;
 		return true;
 	}
@@ -165,6 +147,12 @@ public class AchievementRequirement {
 		builder.append("]");
 		return builder.toString();
 	}
+
+
+//	public AchievementRequirement setDateCompleted(LocalDate now) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	
 	
