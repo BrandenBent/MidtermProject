@@ -177,7 +177,8 @@ public class LogRegisterTestController {
 		User olduser  = (User) session.getAttribute("userlog");
 		User refreshUser = adao.findUserById(olduser.getId());
 		session.setAttribute("userlog", refreshUser);
-
+		List<Skill> f = dao.findAllSkills();
+		model.addAttribute("skillset", f);
 		session.removeAttribute("userlog");
 
 		return "index";

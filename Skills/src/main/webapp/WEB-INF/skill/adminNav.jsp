@@ -28,7 +28,7 @@ body {
 	height: auto;
 }
 </style>
-<link href="/daomite-material/css/material.min.css" rel="stylesheet">
+<link href="daomite-material/css/material.min.css" rel="stylesheet">
 
 </head>
 

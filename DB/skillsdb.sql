@@ -252,6 +252,12 @@ INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prereq
 INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (16, 'Sewing', 'Put your needle and thread to work on handmade accessories, clothing, stuffed toys, blankets, and backpacks for the kids in your life.', 'Sewing kit', 'Kids are never too young when it comes to learning crafts, especially sewing.', NULL);
 INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (17, 'Selling', 'If your kid has the opportunity to sell things for profit at any kind of event, school function like Market Day, or even on the sidewalk in front of your house, it\'s a great skill.', 'Hustle', 'Kids can receive a hands-on business education when they open their own business.', NULL);
 INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (18, 'Tell a Joke', 'Children, as a rule, love to be silly and absolutely love to laugh. If you are looking for a way to tickle their funny bone, look no further than a great list of clean funny jokes and riddles.', 'A Smile', 'Nothing makes a parent happier than seeing his or her child laugh.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (19, 'Swim', ' Instruction for tots older than a year is not only safe but may help prevent drowning, new evidence suggests. But until then, consider a parent-child program that focuses on water games, swimming-readiness skills, and safety in and around the pool', 'Swimming Pool', 'We all want our children to not be afraid of water and to learn to swim early, not only for their safety but also for their enjoyment. ', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (20, 'Ride a Bike', 'Learning how to ride a bike is a rite of passage and a lifelong skill. Many of us still recall the feeling of freedom and accomplishment when we coasted on two wheels for the first time.', 'Bike', 'Learning to ride a bike, it\'s like riding a bike.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (21, 'Exercise', 'It\'s not a newsflash that kids need exercise in their lives. In fact, we\'re all probably pretty aware of the fact that increased physical activity helps children build healthy bodies and prevent chronic disease. And we also know that helping our kids to love movement sets them up to be stronger and healthier teens and adults.', 'Various', 'Exercise for kids should be fun.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (22, 'Eat Healthy', 'Eating healthy is a journey shaped by many factors, including our stage of life, situations, preferences, access to food, culture, traditions, and the personal decisions we make over time. All your food and beverage choices count. ', 'Hunger', 'Eating more whole and minimally processed foods.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (23, 'Caring for Pets', 'When kids get a little older, they\'ll love to dream about picking a pet to add to the family. Here\'s our advice for choosing a pet to complement your busy household, including dogs, cats, rabbits, turtles, rodents, reptiles, and more.', 'Pet', 'Thinking of getting a pet? How to be a good pet owner for kids.', NULL);
+INSERT INTO `skill` (`id`, `name`, `description`, `supplies`, `summary`, `prerequisite_skill_id`) VALUES (24, 'Play Guitar', 'This first lesson is designed to make a child familiar with two of the eight chords that a younger guitar student should learn first The reality is that mastery of the eight chords (C A G E D Em Am and Dm) is the tried and tested method of teaching beginner guitar students irrespective of age. ', 'Guitar', 'The guitar is an attractive looking and beautiful sounding instrument.', NULL);
 
 COMMIT;
 
@@ -288,7 +294,7 @@ INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (24, 'Map Req 3',
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (25, 'Bread Req 1', 'Make one loaf');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (26, 'Bread Req 2', 'Make 3 loaves');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (27, 'Bread Req 3', 'Make 5 loaves');
-INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (28, 'Cleaning Req 1', 'Learn about different cleaning equipment and ');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (28, 'Cleaning Req 1', 'Learn about different cleaning equipment and safety');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (29, 'Cleaning Req 2', 'Clean your room');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (30, 'Cleaning Req 3', 'Keep room clean for 1 week');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (31, 'Fishing Req 1', 'Gather supplies and find a fishing spot.');
@@ -315,6 +321,24 @@ INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (51, 'Selling Req
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (52, 'Joke Req 1', 'Make 1 person laugh');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (53, 'Joke Req 2', 'Make 5 people laugh');
 INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (54, 'Joke Req 3', 'Make 20 people laugh');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (55, 'Swim Req 1', 'Swim with floaters');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (56, 'Swim Req 2', 'Swim without floaters for 1 min');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (57, 'Swim Req 3', 'Swim all day without floaters');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (58, 'Bike Req 1', 'Ride with training wheels');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (59, 'Bike Req 2', 'Ride once without training wheels');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (60, 'Bike Req 3', 'Ride all day without training wheels');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (61, 'Exercise Req 1', 'Do 5 pushups and 5 situps');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (62, 'Exercise Req 2', 'Do 20 pushups and 20 situps');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (63, 'Exercise Req 3', 'Do 100 pushups and 100 situps');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (64, 'Eat Req 1', 'Eat healthy for one day');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (65, 'Eat Req 2', 'Eat healthy for one week');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (66, 'Eat Req 3', 'Eat healthy forever');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (67, 'Pet Req 1', 'Choose a pet and research your chosen pet');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (68, 'Pet Req 2', 'Get your pet ');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (69, 'Pet Req 3', 'Love your pet');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (70, 'Guitar Req 1', 'Learn Strings');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (71, 'Guitar Req 2', 'Learn 5 chords');
+INSERT INTO `requirement` (`id`, `name`, `description`) VALUES (72, 'Guitar Req 3', 'Play a basic song');
 
 COMMIT;
 
@@ -350,12 +374,18 @@ INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) V
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (10, 'Clean your room', 'http://bit.ly/2kO2hmr', 'http://bit.ly/2LvxDsA', 'https://www.mollymaid.com/cleaning-tips/kids-rooms/');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (11, 'Fishing', 'http://www.mykidsadventures.com/wp-content/uploads/2014/02/ap-grandpa-fishing-with-young-girl-istock-photo-7226010.jpg', 'https://www.youtube.com/watch?v=XoLv-YgL2rA', 'http://www.mykidsadventures.com/how-to-fish/');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (12, 'Singing', 'https://www.vocalcoach.com/wp-content/uploads/youth-choir-1.jpg', 'https://www.youtube.com/watch?v=2lOPGj5jCLw', 'https://www.wikihow.com/Teach-Children-to-Sing');
-INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (13, 'Dancing', 'https://www.stagecoach.co.uk/Stagecoach/media/images/Blog/Blog%20Images/Blog-March-14.png?width=480&height=268&ext=.png', 'https://www.youtube.com/watch?v=XqZsoesa55w', 'https://www.wikihow.com/Teach-Children-to-Sing');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (13, 'Dancing', 'https://www.stagecoach.co.uk/Stagecoach/media/images/Blog/Blog%20Images/Blog-March-14.png?width=480&height=268&ext=.png', 'https://www.youtube.com/watch?v=XqZsoesa55w', 'https://www.activekids.com/dance/articles/dance-class-guide-which-dance-class-is-right-for-your-child');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (14, 'Hiking', 'https://americanhiking.org/wp-content/uploads/2013/04/IMG_8879.jpg', 'https://www.youtube.com/watch?v=HZwEEPN0WSQ', 'https://americanhiking.org/resources/hiking-with-kids/');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (15, 'Setting Goals', 'http://texomawithkids.com/wp-content/uploads/2017/02/Goals2.png', 'https://www.youtube.com/watch?v=5eI5JvTGzAI', 'https://biglifejournal.com/blogs/blog/5-fun-goal-setting-activities-children');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (16, 'Sewing', 'https://childhood101.com/wp-content/uploads/2014/01/Hand-sewing-projects-for-kids-via-Childhood-101.jpg', 'https://www.youtube.com/watch?v=a8nDdgt5lq0', 'https://www.theidearoom.net/simple-sewing-projects-kids/');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (17, 'Selling', 'http://www.greenlivingbees.com/wp-content/uploads/2015/10/Sell-Glasses-of-Lemonade.jpg', 'https://www.youtube.com/watch?v=oizuAKqTxF0', 'https://www.thebalancecareers.com/online-businesses-for-kids-2085442');
 INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (18, 'Tell a Joke', 'https://www.everythingmom.com/wp-content/uploads/2017/05/funny-jokes-for-kids.jpg', 'https://www.youtube.com/watch?v=Ir7qm9c1Rpk', 'https://www.rd.com/jokes/kids/');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (19, 'Swimming', 'https://i1.wp.com/www.swimmingworldmagazine.com/news/wp-content/uploads/2015/01/Swimming-baby1.jpg?w=2000&ssl=1', 'https://www.youtube.com/watch?v=N464yaKx_I4', 'https://www.parents.com/fun/activities/outdoor/teach-your-child-to-swim/');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (20, 'Ride a Bike', 'https://www.rei.com/dam/130817_4264_teach_kid_ride_bike_hero_lg.jpg', 'https://www.youtube.com/watch?v=imPQ3lysWnU', 'https://www.rei.com/learn/expert-advice/teach-child-to-ride-a-bike.html');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (21, 'Exercise', 'https://cdn2.omidoo.com/sites/default/files/imagecache/full_width/images/bydate/20140605/bradana.jpg', 'https://www.youtube.com/watch?v=M-d11QiWdm8', 'https://www.parents.com/fun/sports/exercise/strength-training-exercises-for-kids/');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (22, 'Eating Healthy', 'https://cdn2.stylecraze.com/wp-content/uploads/2014/02/2400_Top-18-Super-Healthy-Foods-For-Your-Kids_is-.jpg', 'https://www.youtube.com/watch?v=OMRX_G-rNaY', 'https://kidshealth.org/en/kids/recipes/?WT.ac=k-nav-recipes');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (23, 'Caring for Pets', 'http://horsesit.com/wp-content/uploads/2015/05/childanddogjpg.jpeg.size_.xxlarge.letterbox.jpeg', 'https://www.youtube.com/watch?v=Yzv0gXqoCkc', 'https://spca.bc.ca/programs-services/for-kids-teens/for-kids/pet-care-for-kids/?utm_referrer=https%3A%2F%2Fwww.google.com%2F');
+INSERT INTO `resource` (`id`, `name`, `image_link`, `video_link`, `site_link`) VALUES (24, 'Play Guitar', 'https://www.dhresource.com/0x0s/f2-albu-g6-M01-8A-80-rBVaR1rMgaWAFf2ZAAgiWMptSVo627.jpg/a-beginner-play-guitar-four-string-child.jpg', 'https://www.youtube.com/watch?v=j_O-eHL6X6s', 'https://www.liveabout.com/guitar-for-kids-1712046');
 
 COMMIT;
 
@@ -435,6 +465,24 @@ INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_numbe
 INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (52, 52, 18, 1);
 INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (53, 53, 18, 2);
 INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (54, 54, 18, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (55, 55, 19, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (56, 56, 19, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (57, 57, 19, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (58, 58, 20, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (59, 59, 20, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (60, 60, 20, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (61, 61, 21, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (62, 62, 21, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (63, 63, 21, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (64, 64, 22, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (65, 65, 22, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (66, 66, 22, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (67, 67, 23, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (68, 68, 23, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (69, 69, 23, 3);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (70, 70, 24, 1);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (71, 71, 24, 2);
+INSERT INTO `skill_requirement` (`id`, `requirement_id`, `skill_id`, `step_number`) VALUES (72, 72, 24, 3);
 
 COMMIT;
 
@@ -462,6 +510,12 @@ INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (15, 15);
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (16, 16);
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (17, 17);
 INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (18, 18);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (19, 19);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (20, 20);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (21, 21);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (22, 22);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (23, 23);
+INSERT INTO `skill_resource` (`skill_id`, `resources_id`) VALUES (24, 24);
 
 COMMIT;
 

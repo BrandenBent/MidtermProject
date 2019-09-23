@@ -20,7 +20,7 @@
 <br>
 <br>
 	
-	<h1>Admin </h1>
+	<h1>User Disabled </h1>
 
 	<c:forEach items="${users}" var="user">
 		<h5>
