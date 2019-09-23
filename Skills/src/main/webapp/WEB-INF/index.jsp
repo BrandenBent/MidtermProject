@@ -24,7 +24,7 @@
 	
 	<div class="row">
 
-		<c:forEach items="${skillset}" var="skill" begin="0" end="3">
+		<c:forEach items="${skillset}" var="skill">
 
 			<div class="card-deck col-lg-3">
 				<div class="card tm-4 ">
@@ -52,143 +52,7 @@
 				</div>
 		</c:forEach>
 	</div>
-	<div class="row">
-
-		<c:forEach items="${skillset}" var="skill" begin="4" end="7">
-
-			<div class="card-deck col-lg-3">
-				<div class="card">
-					<c:forEach var="image" items="${skill.resources }">
-						<c:if test="${skill.id == skill.id}">
-							<div>
-								<img class="img-thumbnail card-img-top img-responsive"
-									src="${image.imageLink }" />
-							</div>
-						</c:if>
-						<div class="card-body text-center">
-							<h5 class="card-title">
-								<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-							</h5>
-							<p class="card-text">${skill.summary }</p>
-						</div>
-						<div class="card-footer">
-
-							<a href="getSkill.do?fid=${skill.id}"
-								class="btn btn-primary btn-lg btn-block">Learn More</a>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-	<div class="row">
-
-		<c:forEach items="${skillset}" var="skill" begin="8" end="11">
-
-			<div class="card-deck col-lg-3">
-				<div class="card">
-					<c:forEach var="image" items="${skill.resources }">
-						<c:if test="${skill.id == skill.id}">
-							<div>
-								<img class="img-thumbnail card-img-top img-responsive"
-									src="${image.imageLink }" />
-							</div>
-						</c:if>
-						<div class="card-body text-center">
-							<h5 class="card-title">
-								<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-							</h5>
-							<p class="card-text">${skill.summary }</p>
-						</div>
-						<div class="card-footer">
-
-							<a href="getSkill.do?fid=${skill.id}"
-								class="btn btn-primary btn-lg btn-block">Learn More</a>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-	<div class="row">
-
-		<c:forEach items="${skillset}" var="skill" begin="12" end="15">
-			<div class="card-deck col-lg-3">
-				<div class="card">
-					<c:forEach var="image" items="${skill.resources }">
-						<c:if test="${skill.id == skill.id}">
-							<div>
-								<img class="img-thumbnail card-img-top img-responsive"
-									src="${image.imageLink }" />
-							</div>
-						</c:if>
-						<div class="card-body text-center">
-							<h5 class="card-title">
-								<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-							</h5>
-							<p class="card-text">${skill.summary }</p>
-						</div>
-						<div class="card-footer">
-
-							<a href="getSkill.do?fid=${skill.id}"
-								class="btn btn-primary btn-lg btn-block">Learn More</a>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</c:forEach>
-		<c:forEach items="${skillset}" var="skill" begin="16" end="19">
-			<div class="card-deck col-lg-3">
-				<div class="card">
-					<c:forEach var="image" items="${skill.resources }">
-						<c:if test="${skill.id == skill.id}">
-							<div>
-								<img class="img-thumbnail card-img-top img-responsive"
-									src="${image.imageLink }" />
-							</div>
-						</c:if>
-						<div class="card-body text-center">
-							<h5 class="card-title">
-								<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-							</h5>
-							<p class="card-text">${skill.summary }</p>
-						</div>
-						<div class="card-footer">
-
-							<a href="getSkill.do?fid=${skill.id}"
-								class="btn btn-primary btn-lg btn-block">Learn More</a>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</c:forEach>
-		<c:forEach items="${skillset}" var="skill" begin="20" end="23">
-			<div class="card-deck col-lg-3">
-				<div class="card">
-					<c:forEach var="image" items="${skill.resources }">
-						<c:if test="${skill.id == skill.id}">
-							<div>
-								<img class="img-thumbnail card-img-top img-responsive"
-									src="${image.imageLink }" />
-							</div>
-						</c:if>
-						<div class="card-body text-center">
-							<h5 class="card-title">
-								<a href="getSkill.do?fid=${skill.id}">${skill.name} </a>
-							</h5>
-							<p class="card-text">${skill.summary }</p>
-						</div>
-						<div class="card-footer">
-
-							<a href="getSkill.do?fid=${skill.id}"
-								class="btn btn-primary btn-lg btn-block">Learn More</a>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-
+	
 
 
 

@@ -15,7 +15,7 @@
 <title>Error</title>
 </head>
 <body>
-%@ include file="navBar.jsp"%>
+<%@ include file="navBar.jsp"%>
 	<c:if test="${userlog.role == 'admin' }">
 		<%@ include file="adminNav.jsp"%>
 	</c:if>

@@ -25,7 +25,7 @@
 		<div class="row">
 			<c:forEach items="${skills }" var="skill">
 
-<div class="card-group  col-lg-6">
+				<div class="card-group  col-lg-6">
 					<div class="card tm-4 ">
 
 						<c:forEach var="image" items="${skill.resources }">
@@ -47,22 +47,16 @@
 									class="btn btn-primary btn-lg btn-block">Learn More</a>
 							</div>
 						</c:forEach>
+						<c:if test="${userlog.profile.name != null }">
+							<form action="addSkillToProfile.do" method="POST">
+								<input name="id" type="hidden" value="${skill.id}" /> <input
+									type="submit" class="btn btn-primary btn-lg" value="Add Skill">
+							</form>
+						</c:if>
 					</div>
 				</div>
-				<c:if test="${userlog.profile.name != null }">
-					<form action="addSkillToProfile.do" method="POST">
-						<input name="id" type="hidden" value="${skill.id}" /> <input
-							type="submit" class="btn btn-primary btn-lg" value="Add Skill">
-						<input type="submit" class="btn btn-float  btn-success mt-3"
-							type="button"><i class="material-icons">add</i>
-
-
-					</form>
-				</c:if>
 			</c:forEach>
-		</div>
-	</div>
-
-
+			</div>
+				</div>
 </body>
 </html>
